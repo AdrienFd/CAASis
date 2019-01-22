@@ -26,24 +26,13 @@ switch($PAGE) {
 
     <title>CAASis's Project</title>
 
-    <!-- Styles -->
+    <!-- Links -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet" />
+
 
 </head>
 
 <body>
-    <header>
-        <div class=before_navbar>
-            <h1>BDE's Website</h1>
-        </div>
-
-        <nav class="topnav">
-            <a class=<?php echo $TYPE[0]?> href="home">Home</a>
-            <a class=<?php echo $TYPE[1]?> href="workshop.php">Events</a>
-
-        </nav>
-
-    </header>
 
     <div class="flex-center position-ref full-height">
         @if (Route::has('login'))
@@ -60,17 +49,42 @@ switch($PAGE) {
         </div>
         @endif
 
-        <div class="content">
+        <!-- Nav -->
+        <button href="#navPanel" class="menu_button">&#x2630</button>
 
-            @yield('content')
+        <div id="navPanel" class="navPanel">
+            <nav>
+                <ul class="authentification">
+                    <a href="">Connect</a>
+                    <a> | </a>
+                    <a href="">Register</a>
 
-
-            <div class="links">
-
-            </div>
+                </ul>
+                <ul class="links">
+                    <a href="">Events</a>
+                    <a href="">Idea Box</a>
+                    <a href="">Shop</a>
+                    <a href="">Home</a>
+                    <a href="">Legal Mentions</a>
+                </ul>
+                <a href="#navPanel" class="close">&#x2716</a>
+            </nav>
         </div>
+
+        <!-- Content of each page ------------------------------------------>
+        <main class="content">
+            @yield('content')
+            <div class="links">
+            </div>
+        </main>
     </div>
-    <script type="text/javascript" src="{{asset('js/articles.js')}}"></script>
+
+    <script type="text/javascript" src="{{asset('js/animes.js')}}"></script>
+
+    <footer>
+
+</footer>
+
 </body>
 
 </html>
