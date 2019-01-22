@@ -12,7 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/index', function () {
+    return view('index');
+});
+
+Route::get('/event', function () {
+    return view('event');
 });
 
 Route::get('/home', function () {

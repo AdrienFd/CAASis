@@ -32,18 +32,6 @@ switch($PAGE) {
 </head>
 
 <body>
-    <header>
-        <div class=before_navbar>
-            <h1>BDE's Website</h1>
-        </div>
-
-        <nav class="topnav">
-            <a class=<?php echo $TYPE[0]?> href="home">Home</a>
-            <a class=<?php echo $TYPE[1]?> href="workshop.php">Events</a>
-
-        </nav>
-
-    </header>
 
     <div class="flex-center position-ref full-height">
         @if (Route::has('login'))
@@ -59,6 +47,9 @@ switch($PAGE) {
             @endauth
         </div>
         @endif
+
+        		<!-- BG -->
+                <div id="bg"></div>
 
         <div class="content">
 
