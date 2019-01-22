@@ -49,8 +49,18 @@ switch($PAGE) {
         </div>
         @endif
 
-        <!-- Nav -->
-        <button href="#navPanel" class="menu_button">&#x2630</button>
+        <!-- Header -->
+        <header>
+            <div class="header">
+                <a>{{$PAGE}}</a>
+                <img src="/img/logo.png" />
+            </div>
+
+            <!-- Nav -->
+            <button href="#navPanel" class="menu_button">&#x2630</button>
+        </header>
+
+
 
         <div id="navPanel" class="navPanel">
             <nav>
@@ -71,7 +81,7 @@ switch($PAGE) {
             </nav>
         </div>
 
-        <!-- Content of each page ------------------------------------------>
+        <!-- Content of each page -->
         <main class="content">
             @yield('content')
             <div class="links">
@@ -81,9 +91,14 @@ switch($PAGE) {
 
     <script type="text/javascript" src="{{asset('js/animes.js')}}"></script>
 
+    <!-- footer -->
     <footer>
-
-</footer>
+        <div class="footer">
+            <a>@CAASis Team</a>
+            <a> | </a>
+            <a> 2019</a>
+        </div>
+    </footer>
 
 </body>
 
