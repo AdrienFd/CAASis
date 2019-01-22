@@ -6,7 +6,6 @@
 
 <section>
 
-
     <div id="background_img">
         <img id="background_image" src="/img/background_img1.jpg">
     </div>
@@ -19,7 +18,4 @@
 
 
 </section>
-
-
-
 @endsection

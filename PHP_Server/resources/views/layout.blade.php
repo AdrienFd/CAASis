@@ -26,8 +26,9 @@ switch($PAGE) {
 
     <title>CAASis's Project</title>
 
-    <!-- Styles -->
+    <!-- Links -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet" />
+
 
 </head>
 
@@ -48,20 +49,42 @@ switch($PAGE) {
         </div>
         @endif
 
-        		<!-- BG -->
-                <div id="bg"></div>
+        <!-- Nav -->
+        <button href="#navPanel" class="menu_button">&#x2630</button>
 
-        <div class="content">
+        <div id="navPanel" class="navPanel">
+            <nav>
+                <ul class="authentification">
+                    <a href="">Connect</a>
+                    <a> | </a>
+                    <a href="">Register</a>
 
-            @yield('content')
-
-
-            <div class="links">
-
-            </div>
+                </ul>
+                <ul class="links">
+                    <a href="">Events</a>
+                    <a href="">Idea Box</a>
+                    <a href="">Shop</a>
+                    <a href="">Home</a>
+                    <a href="">Legal Mentions</a>
+                </ul>
+                <a href="#navPanel" class="close">&#x2716</a>
+            </nav>
         </div>
+
+        <!-- Content of each page ------------------------------------------>
+        <main class="content">
+            @yield('content')
+            <div class="links">
+            </div>
+        </main>
     </div>
-    <script type="text/javascript" src="{{asset('js/articles.js')}}"></script>
+
+    <script type="text/javascript" src="{{asset('js/animes.js')}}"></script>
+
+    <footer>
+
+</footer>
+
 </body>
 
 </html>
