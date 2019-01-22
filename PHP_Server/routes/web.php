@@ -23,6 +23,10 @@ Route::get('/event', function () {
     return view('event');
 });
 
+Route::get('/event_description', function () {
+    return view('event_description');
+});
+
 Route::get('/home', function () {
     return view('home');
 });

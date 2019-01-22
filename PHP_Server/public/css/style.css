@@ -11,11 +11,16 @@ body {
 
 .event {
     height: 300px;
-    overflow: hidden;
+    hyphens: auto;
 }
 
 .event p{
-    display: none;
+    height: 190px;
+    overflow: hidden;
+}
+
+h2{
+    font-size: 16px;
 }
 
 .img_right {
@@ -86,6 +91,14 @@ div.bloc_right {
     /* on rétablit le line-height */
     text-align: right;
     /* ... et l'alignement du texte */
+    text-overflow: ellipsis;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+    border: black solid 1px;
+    padding: 2px;
 }
 
 
