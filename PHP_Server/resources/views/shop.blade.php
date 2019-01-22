@@ -20,4 +20,4 @@
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus magni quis maiores distinctio eligendi quos pariatur
     laborum necessitatibus quas sapiente ea, sed in vitae. Numquam aperiam provident laudantium molestiae mollitia!
 </div>
-
+@endsection

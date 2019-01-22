@@ -71,10 +71,10 @@ switch($PAGE) {
 
                 </ul>
                 <ul class="links">
-                    <a href="">Events</a>
+                    <a href="event">Events</a>
+                    <a href="shop">Shop</a>
                     <a href="">Idea Box</a>
-                    <a href="">Shop</a>
-                    <a href="">Home</a>
+                    <a href="index">Home</a>
                     <a href="">Legal Mentions</a>
                 </ul>
                 <a href="#navPanel" class="close">&#x2716</a>
