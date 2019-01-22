@@ -5,7 +5,7 @@
 <div>
     <div class="event">
         <div class="event_img">
-            <img src="/img/img_event1.jpg" alt="Photo de l'exia party">
+            <img src="/img/events_img/img_event1.jpg" alt="Photo de l'exia party">
         </div>
         <div class="event_description">
             <div class="bloc">
@@ -21,7 +21,7 @@
 
     <div class="event">
         <div class="event_img">
-            <img src="/img/img_event2.jpg" alt="Photo de foot">
+            <img src="/img/events_img/img_event2.jpg" alt="Photo de foot">
         </div>
         <div class="event_description">
             <div class="bloc">

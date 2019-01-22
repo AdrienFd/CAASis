@@ -26,8 +26,9 @@ switch($PAGE) {
 
     <title>CAASis's Project</title>
 
-    <!-- Styles -->
+    <!-- Links -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet" />
+
 
 </head>
 
@@ -48,20 +49,57 @@ switch($PAGE) {
         </div>
         @endif
 
-        		<!-- BG -->
-                <div id="bg"></div>
-
-        <div class="content">
-
-            @yield('content')
-
-
-            <div class="links">
-
+        <!-- Header -->
+        <header>
+            <div class="header">
+                <a>{{$PAGE}}</a>
+                <img src="/img/logo.png" />
             </div>
+
+            <!-- Nav -->
+            <button href="#navPanel" class="menu_button">&#x2630</button>
+        </header>
+
+
+
+        <div id="navPanel" class="navPanel">
+            <nav>
+                <ul class="authentification">
+                    <a href="">Connect</a>
+                    <a> | </a>
+                    <a href="">Register</a>
+
+                </ul>
+                <ul class="links">
+                    <a href="event">Events</a>
+                    <a href="shop">Shop</a>
+                    <a href="">Idea Box</a>
+                    <a href="index">Home</a>
+                    <a href="">Legal Mentions</a>
+                </ul>
+                <a href="#navPanel" class="close">&#x2716</a>
+            </nav>
         </div>
+
+        <!-- Content of each page -->
+        <main class="content">
+            @yield('content')
+            <div class="links">
+            </div>
+        </main>
     </div>
-    <script type="text/javascript" src="{{asset('js/articles.js')}}"></script>
+
+    <script type="text/javascript" src="{{asset('js/animes.js')}}"></script>
+
+    <!-- footer -->
+    <footer>
+        <div class="footer">
+            <a>@CAASis Team</a>
+            <a> | </a>
+            <a> 2019</a>
+        </div>
+    </footer>
+
 </body>
 
 </html>
