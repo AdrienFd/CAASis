@@ -4,12 +4,11 @@
 @section('content')
 <div>
     <div class="event">
-
-        <div class="img_right">
+        <div class="event_img">
             <img src="/img/img_event1.jpg" alt="Photo de l'exia party">
         </div>
-        <div class="description_left">
-            <div class="bloc_left">
+        <div class="event_description">
+            <div class="bloc">
                 <h2>TITRE DE L'EVENEMENT</h2>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Accusantium autem, qui, aperiam porro cum omnis possimus cumque unde adipisci nemo provident
@@ -21,11 +20,11 @@
     </div>
 
     <div class="event">
-        <div class="img_left">
+        <div class="event_img">
             <img src="/img/img_event2.jpg" alt="Photo de foot">
         </div>
-        <div class="description_right">
-            <div class="bloc_right">
+        <div class="event_description">
+            <div class="bloc">
                 <h2>TITRE DE L'EVENEMENT 2</h2>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Accusantium autem, qui, aperiam porro cum omnis possimus cumque unde adipisci nemo provident
