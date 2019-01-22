@@ -27,21 +27,37 @@ h2{
   font-size: 16px;
 }
 
-.event_img{
+.img_right{
   height: 150px;
   overflow: hidden;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
 }
 
-.event_img img {
+.img_left{
+  height: 150px;
+  overflow: hidden;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
+}
+
+.event img {
   width: 100%;
   height: 100% auto;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
 }
 
-div.event_description {
+div.description_left {
+  width: 100%;
+  height: 100%;
+  line-height: 200px;
+  text-align: center;
+  /* centrage horizontal */
+  margin-bottom: 20px;
+}
+
+div.description_right {
   width: 100%;
   height: 100%;
   line-height: 200px;
@@ -230,7 +246,90 @@ header{
   .header img{
     max-width:10%;
   }
+
+/*------------------Affichage des événements----------------*/
+
+
+.event {
+  height: 200px;
 }
+
+.event p{
+  height: 78px ;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.event h2{
+  font-size: 16px;
+}
+
+.img_right{
+  width: 60%;
+  height: 200px;
+  overflow: hidden;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+  float: right;
+}
+
+.img_left{
+  width: 60%;
+  height: 200px;
+  overflow: hidden;
+  -webkit-clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+  float: left;
+}
+
+.event img {
+  width: 100%;
+  height: 100% auto;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+div.description_left {
+  width: 40%;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+  /* centrage horizontal */
+  margin-bottom: 0;
+}
+
+div.description_right {
+  width: 40%;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+  /* centrage horizontal */
+  float: right;
+  margin: 0;
+}
+
+div.bloc {
+  width: 80%;
+  height: 82%;
+  /* largeur du bloc */
+  padding: 0px;
+  /* aération interne du bloc */
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1.2;
+  /* on rétablit le line-height */
+  text-align: left;
+  /* ... et l'alignement du texte */
+  overflow: hidden;
+}
+
+.event a{
+  margin: 0;
+}
+ 
+}
+
+
 @media (min-width:1200px){
   .header a{
     font-size:50px;
@@ -238,6 +337,85 @@ header{
   }
   .header img{
     max-width:6%;
-
   }
+
+  /*------------------Affichage des événements----------------*/
+
+
+.event {
+  height: 300px;
+}
+
+.event p{
+  height: 150px ;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.event h2{
+  font-size: 20px;
+}
+
+.img_right{
+  width: 60%;
+  height: 300px;
+  overflow: hidden;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+  float: right;
+}
+
+.img_left{
+  width: 60%;
+  height: 300px;
+  overflow: hidden;
+  -webkit-clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+float: left;
+}
+
+.event img {
+  width: 100%;
+  height: 100% auto;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+div.description_left {
+  width: 40%;
+  height: 300px;
+  line-height: 300px;
+  text-align: center;
+  /* centrage horizontal */
+  margin-bottom: 0;
+}
+
+div.description_right {
+  width: 40%;
+  height: 300px;
+  line-height: 300px;
+  text-align: center;
+  /* centrage horizontal */
+  float: right;
+  margin: 0;
+}
+
+div.bloc {
+  width: 80%;
+  height: 82%;
+  /* largeur du bloc */
+  padding: 0px;
+  /* aération interne du bloc */
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1.2;
+  /* on rétablit le line-height */
+  text-align: left;
+  /* ... et l'alignement du texte */
+  overflow: hidden;
+}
+
+.event a{
+  margin: 0;
+}
 }
