@@ -1,5 +1,5 @@
 html, body {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 200;
     height: 100vh;
     margin: 0;
@@ -12,6 +12,65 @@ html, body {
 
 }
 
+/*------------------------------Affichage des événements--------------------------*/
+
+.event {
+  height: auto;
+}
+
+.event p{
+  height: 190px auto;
+  overflow: hidden;
+}
+
+h2{
+  font-size: 16px;
+}
+
+.event_img{
+  height: 150px;
+  overflow: hidden;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
+}
+
+.event_img img {
+  width: 100%;
+  height: 100% auto;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
+}
+
+div.event_description {
+  width: 100%;
+  height: 100%;
+  line-height: 200px;
+  text-align: center;
+  /* centrage horizontal */
+  margin-bottom: 20px;
+}
+
+div.bloc {
+  width: 80%;
+  /* largeur du bloc */
+  padding: 0px;
+  /* aération interne du bloc */
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1.2;
+  /* on rétablit le line-height */
+  text-align: left;
+  /* ... et l'alignement du texte */
+}
+
+.event a{
+  color: black;
+  text-decoration: none;
+  border: black solid 1px;
+  padding: 2px;
+  float: right;
+}
+
   /* Sections */
 .section{
   margin:5px;
@@ -20,7 +79,7 @@ html, body {
   border-style: ridge;
 }
 
-  /* BG Index */
+  /* BG image of the index, in the whole screen and responsive */
 	#bg {
 		position: relative;
 		top: 0;
@@ -35,26 +94,25 @@ html, body {
 	}
 
 
-/* Nav Panel button */
+/* Nav Panel button, position fixed on the top-right of the page */
 .menu_button {
   background-color: rgba(255, 255, 255, 0);
   border: none;
-  color: #111;
+  color: #222d5a;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 30px;
   cursor: pointer;
 
-
-  /*Position*/
+  /*Position of the button*/
   position:fixed;
   top:5px;
   right:10px;
   z-index:2;
 }
 
-/* Nav Panel */
+/* Nav Panel, which appear on the right of the page */
 .navPanel{
 
   position:fixed;
@@ -81,21 +139,21 @@ html, body {
 }
 
 
-/*Connect and register*/
-#navPanel .authentification a{
+/*Small text in the footer and in the nav menu*/
+#navPanel .authentification a, .footer a{
   text-decoration:none;
-  font-family: "Century Gothic", Helvetica, sans-serif;
+  font-family: "Montserrat", Helvetica, sans-serif;
   font-size:13px;
   font-style:italic;
-  color:grey;
+  color:#5A5A5A;
 }
 
-/*Links*/
+/*Links of the nav menu*/
 #navPanel .links a {
   width:90%;
   border-bottom: 2px solid rgb(94, 94, 94);
   display: block;
-  font-family: "Century Gothic", Helvetica, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 0.9rem;
   font-size: 0.9rem;
   font-weight: 900;
@@ -106,7 +164,7 @@ html, body {
   color:black;
 }
 
-/*Close button*/
+/*Button to close the nav menu*/
 .close{
   position:fixed;
   top:10px;
@@ -117,11 +175,69 @@ html, body {
   font-size:25px;
 }
 
-
-
-@media (min-width:600px){
+/*Grey footer with copyright in the bottom of the page*/
+.footer{
+  background-color: #D7D7D7;
+  text-align:center;
+  padding: 20px 0px 20px 0px;
+  border-top: 15px solid #EEEEEE;
+  border-bottom: 15px solid #EEEEEE;
+  margin-top:15px;
 
 }
+
+header{
+  border-radius: 500px/10px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+  margin-bottom:20px;
+}
+/*Blue header in the top of thee page*/
+.header{
+  background-color: #FFF;
+  text-align:center;
+  padding: 10px 0px 10px 0px;
+  overflow:hidden;
+
+  /*Ombre*/
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+
+}
+
+.header a{
+  position:absolute;
+  color:#394c99;
+  font-size: 30px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-transform:uppercase;
+  /*Center*/
+  left:50%;
+  transform:translate(-50%);
+}
+
+.header img{
+  float:left;
+  width:auto;
+  max-width:15%;
+  padding-left:10px;
+}
+
+@media (min-width:600px){
+.header a{
+  font-size:40px;
+  margin-top:10px;
+
+}
+  .header img{
+    max-width:10%;
+  }
+}
 @media (min-width:1200px){
-  
+  .header a{
+    font-size:50px;
+    margin-top:10px;
+  }
+  .header img{
+    max-width:6%;
+
+  }
 }
