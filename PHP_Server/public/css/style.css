@@ -71,13 +71,6 @@ div.bloc {
   float: right;
 }
 
-  /* Sections */
-.section{
-  margin:5px;
-  padding:5px;
-  border-radius: 10px;
-  border-style: ridge;
-}
 
   /* BG image of the index, in the whole screen and responsive */
 	#bg {
@@ -87,10 +80,11 @@ div.bloc {
 		width: 100%;
 		height: 100vh;
     z-index: 1;
-    background-image: url("/img/background.jpg");
+    background-image: url("/img/background3.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    border-bottom:1px solid black;
 	}
 
 
@@ -126,11 +120,6 @@ div.bloc {
   color:black;
   background:rgba(236, 236, 236, 0.993);
   display:none;
-}
-
-/*Make pop the menu*/
-.visible{
-  display: block;
 }
 
 /*Links in the menu*/
@@ -175,16 +164,7 @@ div.bloc {
   font-size:25px;
 }
 
-/*Grey footer with copyright in the bottom of the page*/
-.footer{
-  background-color: #D7D7D7;
-  text-align:center;
-  padding: 20px 0px 20px 0px;
-  border-top: 15px solid #EEEEEE;
-  border-bottom: 15px solid #EEEEEE;
-  margin-top:15px;
 
-}
 
 header{
   border-radius: 500px/10px;
@@ -214,12 +194,90 @@ header{
   transform:translate(-50%);
 }
 
+/*Logo cesi*/
 .header img{
   float:left;
   width:auto;
   max-width:15%;
   padding-left:10px;
 }
+
+/*Grey footer with copyright in the bottom of the page*/
+.footer{
+  background-color: #D7D7D7;
+  text-align:center;
+  padding: 20px 0px 20px 0px;
+  border-top: 15px solid #EEEEEE;
+  border-bottom: 15px solid #EEEEEE;
+  margin-top:15px;
+}
+
+.container{
+  height:500px;
+}
+  /* Both sections in the content of the index */
+  .section{
+    margin:10px;
+    padding:10px;
+    text-align:justify;
+    overflow:hidden;
+    display: inline-block;
+    height:auto;
+  }
+  
+  .section img{
+    max-width: 100%;
+  }
+  
+  .section h2{
+  margin-left:5%;
+  color: #222d5a;
+  }
+  
+
+/*Boutique---------------------------------------------------*/
+
+.shop_content{
+  width:70%;
+  text-align:center;
+  margin:0 auto;
+}
+.displayprod {
+	display : inline-block;
+	height : 250px;
+	background-color : white;
+	border:5px solid white;
+  margin: 5px;
+  border:1px solid;
+}
+
+.prodpic {
+	height: 150px;
+}
+
+.price {
+	height : 30px;
+	width : 60px;
+	background-color : #333;
+	color : white;
+	float: top;
+	position : relative;
+	top : -21px;
+	left : 5px;
+	margin : 0px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 30px;
+}
+
+
+.description {
+	width : 200px;
+	margin-left : 10px;
+}
+
+
+
 
 @media (min-width:600px){
 .header a{
@@ -238,6 +296,18 @@ header{
   }
   .header img{
     max-width:6%;
-
   }
+  /*------------------Mettre 2 sections sur 1 ligne----------------------*/
+  .section{
+    max-width:45%;
+    max-height:100%;
+  }
+  .section.right{
+    float:right;
+  }
+  .section.left{
+    margin-right:10px;
+  }
+
+
 }

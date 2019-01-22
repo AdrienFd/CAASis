@@ -50,8 +50,8 @@ switch($PAGE) {
         @endif
 
 
-            <!-- Nav -->
-            <button href="#navPanel" class="menu_button">&#x2630</button>
+        <!-- Nav -->
+        <button href="#navPanel" class="menu_button">&#x2630</button>
         </header>
 
 
@@ -80,61 +80,36 @@ switch($PAGE) {
             <!-- BG -->
             <div id="bg"></div>
 
+            <div class="container">
+                <div class="section left">
+                    <h2>Description</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga eum nihil suscipit dolorum!
+                        Blanditiis
+                        nisi qui
+                        delectus veniam expedita, possimus ad eius exercitationem voluptates numquam molestiae, quae, a
+                        sit
+                        cupiditate.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et accusamus hic, nobis nihil dicta
+                        error?</p>
 
-            <div class="section">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga eum nihil suscipit dolorum! Blanditiis
-                nisi qui
-                delectus veniam expedita, possimus ad eius exercitationem voluptates numquam molestiae, quae, a sit
-                cupiditate.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et accusamus hic, nobis nihil dicta error?
-                Similique porro
-                recusandae officia velit aliquid blanditiis dignissimos non facilis minima. Rerum assumenda distinctio
-                eius?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus magni quis maiores distinctio eligendi
-                quos pariatur
-                laborum necessitatibus quas sapiente ea, sed in vitae. Numquam aperiam provident laudantium molestiae
-                mollitia!
+                        <p>Similique porro
+                        recusandae officia velit aliquid blanditiis dignissimos non facilis minima. Rerum assumenda
+                        distinctio
+                        eius?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus magni quis maiores distinctio
+                        eligendi
+                        quos pariatur
+                        laborum necessitatibus quas sapiente ea, sed in vitae. Numquam aperiam provident laudantium
+                        molestiae
+                        mollitia!</p>
+                </div>
+
+                <div class="section right">
+                    <h2>Locations</h2>
+                    <img src="/img/location.png">
+                </div>
             </div>
 
-            <div class="section">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga eum nihil suscipit dolorum! Blanditiis
-                nisi qui
-                delectus veniam expedita, possimus ad eius exercitationem voluptates numquam molestiae, quae, a sit
-                cupiditate.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et accusamus hic, nobis nihil dicta error?
-                Similique porro
-                recusandae officia velit aliquid blanditiis dignissimos non facilis minima. Rerum assumenda distinctio
-                eius?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus magni quis maiores distinctio eligendi
-                quos pariatur
-                laborum necessitatibus quas sapiente ea, sed in vitae. Numquam aperiam provident laudantium molestiae
-                mollitia!
-            </div>
-
-            <div class="section">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga eum nihil suscipit dolorum! Blanditiis
-                nisi qui
-                delectus veniam expedita, possimus ad eius exercitationem voluptates numquam molestiae, quae, a sit
-                cupiditate.
-            </div>
-
-            <div class="section">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga eum nihil suscipit dolorum! Blanditiis
-                nisi qui
-                delectus veniam expedita, possimus ad eius exercitationem voluptates numquam molestiae, quae, a sit
-                cupiditate.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et accusamus hic, nobis nihil dicta error?
-                Similique porro
-                recusandae officia velit aliquid blanditiis dignissimos non facilis minima. Rerum assumenda distinctio
-                eius?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus magni quis maiores distinctio eligendi
-                quos pariatur
-                laborum necessitatibus quas sapiente ea, sed in vitae. Numquam aperiam provident laudantium molestiae
-                mollitia!
-            </div>
-
-            <div class="links">
-            </div>
         </main>
     </div>
 

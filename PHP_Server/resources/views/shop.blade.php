@@ -3,21 +3,85 @@
 
 @section('content')
 
-<div class="section">
-    Article 1
-    delectus veniam expedita, possimus ad eius exercitationem voluptates numquam molestiae, quae, a sit cupiditate.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et accusamus hic, nobis nihil dicta error? Similique porro
-    recusandae officia velit aliquid blanditiis dignissimos non facilis minima. Rerum assumenda distinctio eius?
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus magni quis maiores distinctio eligendi quos pariatur
-    laborum necessitatibus quas sapiente ea, sed in vitae. Numquam aperiam provident laudantium molestiae mollitia!
+<fieldset>
+  <legend>Categories</legend>
+  
+    <input type="checkbox" id="pull" name="interest" value="coding" />
+    <label for="coding">Pull</label>
+    <input type="checkbox" id="t-shirt" name="interest" value="music" />
+    <label for="music">T-shirt</label>
+
+    <input type="checkbox" id="coat" name="interest" value="music" />
+    <label for="music">coat</label>
+
+    <input type="checkbox" id="goodies" name="interest" value="music">
+    <label for="music">Goodies</label>
+</fieldset>
+
+<div class="shop_content">
+    <div class='displayprod'>
+        <img src="/img/articles/pull.jpg" , class='prodpic' />
+        <div class='price'>
+            150€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+        <div class='description'>
+            Un très beau pull pas cher
+        </div>
+    </div>
+
+    <div class='displayprod'>
+        <img src="/img/articles/pull.jpg" , class='prodpic' />
+        <div class='price'>
+            150€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+        <div class='description'>
+            Un très beau pull pas cher
+        </div>
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull.jpg" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+        <div class='description'>
+            Un très beau pull pas cher
+        </div>
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull.jpg" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+        <div class='description'>
+            Un très beau pull pas cher
+        </div>
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull.jpg" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+        <div class='description'>
+            Un très beau pull pas cher
+        </div>
+    </div>
 </div>
 
-<div class="section">
-    Article 2
-    delectus veniam expedita, possimus ad eius exercitationem voluptates numquam molestiae, quae, a sit cupiditate.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et accusamus hic, nobis nihil dicta error? Similique porro
-    recusandae officia velit aliquid blanditiis dignissimos non facilis minima. Rerum assumenda distinctio eius?
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus magni quis maiores distinctio eligendi quos pariatur
-    laborum necessitatibus quas sapiente ea, sed in vitae. Numquam aperiam provident laudantium molestiae mollitia!
-</div>
+
+
 @endsection
