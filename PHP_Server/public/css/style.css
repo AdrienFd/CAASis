@@ -42,7 +42,7 @@ div.event_description {
     line-height: 200px;
     text-align: center;
     /* centrage horizontal */
-    margin: 20px;
+    margin-bottom: 20px;
 }
 
 div.bloc {
@@ -333,44 +333,16 @@ a{
     color: #212931;
 }
 
-@media screen and (max-width: 736px) {
+@media (min-width: 600px) {
 
-    #navPanel .close {
-        height: 4rem;
-        line-height: 4rem;
-    }
+    body{
+    background-color: green;
+}
 
 }
 
-@media screen and (max-width: 980px) {
-
-    #navPanel {
-        display: block;
+@media (min-width: 1200px) {
+  body{
+        background-color: red;
     }
-
-}
-
-@media screen and (max-width: 736px) {
-
-    #navPanel {
-        padding: 2.5rem 1.75rem;
-    }
-
-}
-
-@media screen and (max-width: 980px) {
-
-    body.is-navPanel-visible #wrapper {
-        opacity: 0.5;
-    }
-
-    body.is-navPanel-visible #navPanel {
-        -moz-transform: translateX(0);
-        -webkit-transform: translateX(0);
-        -ms-transform: translateX(0);
-        transform: translateX(0);
-        box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.2);
-        visibility: visible;
-    }
-
 }
