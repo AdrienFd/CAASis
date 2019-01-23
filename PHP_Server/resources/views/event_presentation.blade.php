@@ -32,10 +32,8 @@
         </div>
     </div>
 
-
     <div class="last_comment">
         <h2>LAST COMMENT</h2>
-
         <div class="comment_img1">
             <h3>Auteur: BDE_MEMBER</h3>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.

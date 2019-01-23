@@ -12,6 +12,51 @@ html, body {
 
 }
 
+  /*----------------------------ARTICLE PRESENTATION-----------------------------*/
+
+
+  .buy_button{
+    background-color: white;
+    padding: 2px;
+    float: right;
+    border: solid black 2px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .article_description{
+    border: solid black 1px;
+    padding: 10px;
+  }
+
+  .article_img{
+    height: auto;
+    width: 100%;
+    display: inline-block;
+  }
+
+  .article_img img{
+    width: 100%;
+    height: auto;
+  }
+
+  .article{
+    width: 100%;
+    margin: auto;
+  }
+
+  .article h2{
+    margin-top: 0px;
+  }
+
+  .article_price{
+    font-weight: bold;
+    font-size: 18px;
+    display: inline-block;
+  }
+  
+  /*----------------------------//-----------------------------*/
+
 /*------------------------------Affichage des événements--------------------------*/
 
 .event {
@@ -147,7 +192,7 @@ div.bloc {
 .participate_button{
   background-color: white;
   padding: 2px;
-  border: solid black 1px;
+  border: solid black 2px;
   float: right;
   font-weight: bold;
 }
@@ -321,7 +366,37 @@ header{
     max-width:10%;
   }
 
+  /*----------------------------ARTICLE PRESENTATION-----------------------------*/
+
+
+  .article_description{
+    width: 45%;
+    float: right;
+    height: 300px;
+  }
+
+  .article_description p{
+    height: 200px;
+  }
+
+  .article_img{
+    width: 45%;
+    height: 300px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .article_img img{
+    width: auto;
+    height: 100%;
+  }
+
+  .article{
+    width: 100%;
+    height: auto;
+  }
   
+  /*----------------------------//-----------------------------*/
 
   /*----------------------------EVENT PRESENTATION-----------------------------*/
 
@@ -360,6 +435,7 @@ header{
 
 
 /*----------------------------//-----------------------------*/
+
 
 /*------------------Affichage des événements----------------*/
 
@@ -427,6 +503,38 @@ div.bloc {
   .header img{
     max-width:6%;
   }
+
+  /*----------------------------ARTICLE PRESENTATION-----------------------------*/
+
+  .article_description{
+    width: 35%;
+    float: right;
+    height: 300px;
+    margin-right: 20px;
+  }
+
+  .article_description p{
+    height: 200px;
+  }
+
+  .article_img{
+    width: 60%;
+    height: 500px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .article_img img{
+    width: auto;
+    height: 100%;
+  }
+
+  .article{
+    width: 100%;
+    height: auto;
+  }
+  
+  /*----------------------------//-----------------------------*/
 
   /*------------------Affichage des événements----------------*/
 

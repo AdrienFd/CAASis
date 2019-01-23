@@ -28,7 +28,7 @@
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Accusantium autem, qui, aperiam porro cum omnis possimus cumque unde adipisci nemo provident
                     asperiores sit animi consequuntur iste suscipit ad fuga maxime.</p>
-                <button class="read_more" href="event_presentation">LIRE LA SUITE</button>
+                <button class="read_more" href="/event_presentation">LIRE LA SUITE</button>
             </div>
         </div>
     </div>
