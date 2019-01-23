@@ -1,313 +1,479 @@
-html, body {
+/*------------------------------Global parameters--------------------------*/
+
+html,
+body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
     height: 100vh;
     margin: 0;
-    padding:0;
+    padding: 0;
+    text-align: justify;
+
 
 }
 
-.bodyGrey{
-  background-color:grey;
-
+h2 {
+    margin-left: 5%;
+    color: #222d5a;
+    font-size: 16px;
 }
 
 /*------------------------------Affichage des événements--------------------------*/
-
 .event {
-  height: auto;
+    height: auto;
 }
 
-.event p{
-  height: 190px auto;
-  overflow: hidden;
+.event p {
+    height: 190px auto;
+    overflow: hidden;
 }
 
-h2{
-  font-size: 16px;
-}
 
-.event_img{
-  height: 150px;
-  overflow: hidden;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
+.event_img {
+    height: 150px;
+    overflow: hidden;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
 }
 
 .event_img img {
-  width: 100%;
-  height: 100% auto;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
+    width: 100%;
+    height: 100% auto;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
 }
 
 div.event_description {
-  width: 100%;
-  height: 100%;
-  line-height: 200px;
-  text-align: center;
-  /* centrage horizontal */
-  margin-bottom: 20px;
+    width: 100%;
+    height: 100%;
+    line-height: 200px;
+    text-align: center;
+    /* centrage horizontal */
+    margin-bottom: 20px;
 }
 
 div.bloc {
-  width: 80%;
-  /* largeur du bloc */
-  padding: 0px;
-  /* aération interne du bloc */
-  vertical-align: middle;
-  display: inline-block;
-  line-height: 1.2;
-  /* on rétablit le line-height */
-  text-align: left;
-  /* ... et l'alignement du texte */
+    width: 80%;
+    /* largeur du bloc */
+    padding: 0px;
+    /* aération interne du bloc */
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 1.2;
+    /* on rétablit le line-height */
+    text-align: left;
+    /* ... et l'alignement du texte */
 }
 
-.event a{
-  color: black;
-  text-decoration: none;
-  border: black solid 1px;
-  padding: 2px;
-  float: right;
+.event a {
+    color: black;
+    text-decoration: none;
+    border: black solid 1px;
+    padding: 2px;
+    float: right;
 }
 
 
-  /* BG image of the index, in the whole screen and responsive */
-	#bg {
-		position: relative;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100vh;
+/* BG image of the index, in the whole screen and responsive*/
+#bg {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
     z-index: 1;
     background-image: url("/img/background3.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    border-bottom:1px solid black;
-	}
+    border-bottom: 1px solid black;
+}
 
 
 /* Nav Panel button, position fixed on the top-right of the page */
 .menu_button {
-  background-color: rgba(255, 255, 255, 0);
-  border: none;
-  color: #222d5a;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 30px;
-  cursor: pointer;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    color: #222d5a;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    cursor: pointer;
 
-  /*Position of the button*/
-  position:fixed;
-  top:5px;
-  right:10px;
-  z-index:2;
+    /*Position of the button*/
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    z-index: 2;
 }
 
 /* Nav Panel, which appear on the right of the page */
-.navPanel{
+.navPanel {
 
-  position:fixed;
-  top:0;
-  right:0;
-  height:100%;
-  max-width:80%;
-  width:20rem;
-  overflow-y:auto;
-  z-index:3;
-  color:black;
-  background:rgba(236, 236, 236, 0.993);
-  display:none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    max-width: 80%;
+    width: 20rem;
+    overflow-y: auto;
+    z-index: 3;
+    color: black;
+    background: rgba(236, 236, 236, 0.993);
+    display: none;
 }
 
-/*Links in the menu*/
-#navPanel .links{
-  padding-top:30px;
+/*Links in the nav menu*/
+#navPanel .links {
+    padding-top: 30px;
 }
 
 
-/*Small text in the footer and in the nav menu*/
-#navPanel .authentification a, .footer a{
-  text-decoration:none;
-  font-family: "Montserrat", Helvetica, sans-serif;
-  font-size:13px;
-  font-style:italic;
-  color:#5A5A5A;
+/*Small grey text, used in different contexts*/
+#navPanel .authentification a,
+.footer a,
+.idea_author {
+    text-decoration: none;
+    font-family: "Montserrat", Helvetica, sans-serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #5A5A5A;
 }
 
 /*Links of the nav menu*/
 #navPanel .links a {
-  width:90%;
-  border-bottom: 2px solid rgb(94, 94, 94);
-  display: block;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 0.9rem;
-  font-size: 0.9rem;
-  font-weight: 900;
-  letter-spacing: 0.075em;
-  padding: 0.5rem 0;
-  text-transform: uppercase;
-  text-decoration: none;
-  color:black;
+    width: 90%;
+    border-bottom: 2px solid rgb(94, 94, 94);
+    display: block;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.075em;
+    padding: 0.5rem 0;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
 }
 
 /*Button to close the nav menu*/
-.close{
-  position:fixed;
-  top:10px;
-  right:20px;
-
-  color:#111;
-  text-decoration:none;
-  font-size:25px;
+.close {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    color: #111;
+    text-decoration: none;
+    font-size: 25px;
 }
 
 
-
-header{
-  border-radius: 500px/10px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
-  margin-bottom:20px;
-}
-/*Blue header in the top of thee page*/
-.header{
-  background-color: #FFF;
-  text-align:center;
-  padding: 10px 0px 10px 0px;
-  overflow:hidden;
-
-  /*Ombre*/
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-
+/*Shadow under the header*/
+header {
+    border-radius: 500px/10px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
 }
 
-.header a{
-  position:absolute;
-  color:#394c99;
-  font-size: 30px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  text-transform:uppercase;
-  /*Center*/
-  left:50%;
-  transform:translate(-50%);
+/*White header in the top of the page*/
+.header {
+    background-color: #FFF;
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+    overflow: hidden;
+
+    /*Shadow inside the header*/
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+
 }
 
-/*Logo cesi*/
-.header img{
-  float:left;
-  width:auto;
-  max-width:15%;
-  padding-left:10px;
+/*Title of the page*/
+.header a {
+    position: absolute;
+    color: #394c99;
+    font-size: 30px;
+    font-family: 'Century', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-transform: uppercase;
+    /*Center*/
+    left: 50%;
+    transform: translate(-50%);
+}
+
+/*Logo cesi inside the header*/
+.header img {
+    float: left;
+    width: auto;
+    max-width: 15%;
+    padding-left: 10px;
 }
 
 /*Grey footer with copyright in the bottom of the page*/
-.footer{
-  background-color: #D7D7D7;
-  text-align:center;
-  padding: 20px 0px 20px 0px;
-  border-top: 15px solid #EEEEEE;
-  border-bottom: 15px solid #EEEEEE;
-  margin-top:15px;
+.footer {
+    background-color: #D7D7D7;
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+    border-top: 15px solid #EEEEEE;
+    border-bottom: 15px solid #EEEEEE;
+    margin-top: 15px;
+
 }
 
-.container{
-  height:500px;
+/*Utility ???????*/
+.container {
+    height: auto;
 }
-  /* Both sections in the content of the index */
-  .section{
-    margin:10px;
-    padding:10px;
-    text-align:justify;
-    overflow:hidden;
+
+/* Both sections in the content of the index */
+.section {
+    margin: 10px;
+    padding: 10px;
+    text-align: justify;
+    overflow: hidden;
     display: inline-block;
-    height:auto;
-  }
-  
-  .section img{
+    height: auto;
+}
+
+
+/*Image of the location, index page*/
+.section img {
     max-width: 100%;
-  }
-  
-  .section h2{
-  margin-left:5%;
-  color: #222d5a;
-  }
-  
-
-/*Boutique---------------------------------------------------*/
-
-.shop_content{
-  width:70%;
-  text-align:center;
-  margin:0 auto;
 }
+
+/*ead more button*/
+
+/*Read more button*/
+.read_more {
+    color: #111;
+    text-decoration: none;
+    border: #111 solid 1px;
+    float: right;
+    background-color: #FFF;
+}
+
+/*Shop*/
+
+/*filter section*/
+.filter {
+    width: 85%;
+    margin: 0 auto;
+}
+
+/*Categories*/
+.filter .categories {
+    float: left;
+    margin-right: 50px;
+}
+
+/*Price in the filter section*/
+#slider_price {
+    margin-right: 0px;
+}
+
+/* Container of the articles*/
+.shop_content {
+    width: 70%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/*Display the articles*/
 .displayprod {
-	display : inline-block;
-	height : 250px;
-	background-color : white;
-	border:5px solid white;
-  margin: 5px;
-  border:1px solid;
+    display: inline-block;
+    height: 275px;
+    overflow: hidden;
+    background-color: white;
+    margin: 5px;
+    margin-left: 0px;
+    cursor: pointer;
+
+    border-bottom: 3px dotted #e5e5e5;
+    margin-bottom: 1px;
 }
 
+/*Grey effect hover the articles*/
+.displayprod:hover {
+    background-color: rgb(219, 219, 219);
+}
+
+/*Picture of the article*/
 .prodpic {
-	height: 150px;
+    height: 200px;
 }
 
+/*Price of the article*/
 .price {
-	height : 30px;
-	width : 60px;
-	background-color : #333;
-	color : white;
-	float: top;
-	position : relative;
-	top : -21px;
-	left : 5px;
-	margin : 0px;
-	text-align: center;
-	vertical-align: middle;
-	line-height: 30px;
+    height: 30px;
+    width: 60px;
+    background-color: #333;
+    color: white;
+    float: top;
+    position: relative;
+    top: -21px;
+    left: 5px;
+    margin: 0px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
 }
 
-
+/*Title of the article*/
 .description {
-	width : 200px;
-	margin-left : 10px;
+    width: 200px;
+    margin-left: 5px;
+    font-size: 20px;
 }
 
-
-
-
-@media (min-width:600px){
-.header a{
-  font-size:40px;
-  margin-top:10px;
+/*----------------------------Ideas------------------------*/
+/*Div where are the ideas*/
+.ideaBox_content {
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
 
 }
-  .header img{
-    max-width:10%;
-  }
+
+/*Ideas*/
+.idea {
+    position: relative;
+    margin: 0px 20px 50px 20px;
+    text-align: justify;
+    display: inline-block;
 }
-@media (min-width:1200px){
-  .header a{
-    font-size:50px;
-    margin-top:10px;
-  }
-  .header img{
-    max-width:6%;
-  }
-  /*------------------Mettre 2 sections sur 1 ligne----------------------*/
-  .section{
-    max-width:45%;
-    max-height:100%;
-  }
-  .section.right{
-    float:right;
-  }
-  .section.left{
-    margin-right:10px;
-  }
 
+/*Idea's description*/
+.idea_description {
+    height: 200px;
+    display: block;
+}
 
+/*Idea's name*/
+.idea_name h2 {
+    font-size: 30px;
+
+}
+
+/*Idea's description*/
+.idea_description p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*Idea's buttons*/
+.button {
+    border-radius: 15px;
+    border: none;
+    font-size: 20px;
+    padding: 15px 12%;
+}
+
+/*Button to add a vote*/
+.button.votes {
+    background-color: #222d5a;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    width: 40%;
+    text-align: center;
+    float: left;
+}
+
+/*Idea's count of votes*/
+.button.count {
+    background-color: #c2c2c2;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    width: 75%;
+    text-align: right;
+}
+
+/*----------------------------slider (max price)------------------------*/
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #222d5a;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+/*----------------------------------------------------------------*/
+/*Tablet mode*/
+@media (min-width:600px) {
+    .header a {
+        font-size: 40px;
+        margin-top: 10px;
+
+    }
+
+    .header img {
+        max-width: 10%;
+    }
+
+    .filter {
+        width: 70%;
+    }
+
+    .idea {
+        width: 40%;
+    }
+
+}
+
+/*Fullscreen mode*/
+@media (min-width:1200px) {
+    .header a {
+        font-size: 50px;
+        margin-top: 10px;
+    }
+
+    .header img {
+        max-width: 6%;
+    }
+
+    .filter {
+        width: 40%;
+    }
+
+    .idea {
+        width: 25%;
+    }
+
+    /*--- Put the 2 sections of the index on the same line ---*/
+
+    .section {
+        max-width: 45%;
+        max-height: 100%;
+    }
+
+    .section.left {
+        margin-right: 10px;
+        float: left;
+    }
 }

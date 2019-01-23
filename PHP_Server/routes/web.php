@@ -15,9 +15,13 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/idea', function () {
+    return view('idea');
+});
+
 Route::get('/index', function () {
     return view('index');
-});
+})->name('index');
 
 Route::get('/event', function () {
     return view('event');

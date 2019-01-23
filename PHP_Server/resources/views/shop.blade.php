@@ -3,81 +3,156 @@
 
 @section('content')
 
-<fieldset>
-  <legend>Categories</legend>
-  
-    <input type="checkbox" id="pull" name="interest" value="coding" />
-    <label for="coding">Pull</label>
-    <input type="checkbox" id="t-shirt" name="interest" value="music" />
-    <label for="music">T-shirt</label>
+<fieldset class="filter">
+    <legend>Filter</legend>
+    <!-- Selection of a category -->
+    <div class="categories">
+        <h2>Categories</h2>
+        <select name="my_html_select_box">
 
-    <input type="checkbox" id="coat" name="interest" value="music" />
-    <label for="music">coat</label>
+            <option value="All" selected="yes">All</option>
+            <option value="T-Shirt">T-Shirt</option>
+            <option value="Pull">Pull</option>
+            <option value="Pantalon">Pantalon</option>
+            <option value="Sac">Sac</option>
+            <option Value="Goodies">Goodies</option>
+        </select>
+    </div>
+    <!-- Selection of the price order -->
+    <div class="param">
+        <h2>Display</h2>
 
-    <input type="checkbox" id="goodies" name="interest" value="music">
-    <label for="music">Goodies</label>
+        <input type="checkbox" id="scales" name="increassing">
+        <label for="scales">Increasing</label>
+        <input type="checkbox" id="horns" name="descending">
+        <label for="horns">Descending</label>
+    </div>
+
+    <!-- Selection of the price -->
+    <div class="param" id="slider_price">
+        <h2>Price</h2>
+        <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="100" class="slider" id="myRange">
+            <h2>Less than: <span id="max_price"></span> €</h2>
+        </div>
+    </div>
+
 </fieldset>
 
 <div class="shop_content">
     <div class='displayprod'>
-        <img src="/img/articles/pull.jpg" , class='prodpic' />
+        <img src="/img/articles/pull1.png" , class='prodpic' />
         <div class='price'>
             150€
         </div>
-        <div class='description' style='font-size:20px'>
-            Pull Exia
-        </div>
+
         <div class='description'>
-            Un très beau pull pas cher
+            Pull Exia
         </div>
     </div>
 
+
     <div class='displayprod'>
-        <img src="/img/articles/pull.jpg" , class='prodpic' />
+        <img src="/img/articles/pull1.png" , class='prodpic' />
         <div class='price'>
             150€
         </div>
         <div class='description' style='font-size:20px'>
             Pull Exia
         </div>
-        <div class='description'>
-            Un très beau pull pas cher
-        </div>
+
     </div>
     <div class='displayprod'>
-        <img src="/img/articles/pull.jpg" , class='prodpic' />
+        <img src="/img/articles/pull1.png" , class='prodpic' />
         <div class='price'>
             15€
         </div>
         <div class='description' style='font-size:20px'>
             Pull Exia
         </div>
-        <div class='description'>
-            Un très beau pull pas cher
-        </div>
+
     </div>
     <div class='displayprod'>
-        <img src="/img/articles/pull.jpg" , class='prodpic' />
+        <img src="/img/articles/pull1.png" , class='prodpic' />
         <div class='price'>
             15€
         </div>
         <div class='description' style='font-size:20px'>
             Pull Exia
         </div>
-        <div class='description'>
-            Un très beau pull pas cher
-        </div>
+
     </div>
+
     <div class='displayprod'>
-        <img src="/img/articles/pull.jpg" , class='prodpic' />
+        <img src="/img/articles/pull1.png" , class='prodpic' />
         <div class='price'>
             15€
         </div>
         <div class='description' style='font-size:20px'>
             Pull Exia
         </div>
-        <div class='description'>
-            Un très beau pull pas cher
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
         </div>
     </div>
 </div>

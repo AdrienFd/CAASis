@@ -61,7 +61,6 @@ switch($PAGE) {
         </header>
 
 
-
         <div id="navPanel" class="navPanel">
             <nav>
                 <ul class="authentification">
