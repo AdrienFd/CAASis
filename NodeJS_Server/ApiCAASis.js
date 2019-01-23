@@ -1,12 +1,25 @@
-
- 
 var express = require('express'); 
- 
+var app = express(); 
 // Here we define server parameters.
 var hostname = 'localhost'; 
 var port = 8000; 
+
+var mysql = require('mysql');
  
-var app = express(); 
+console.log('Get connection ...');
+ 
+//Database connection
+var conn = mysql.createConnection({
+    database: 'ws_service_web',
+    host: "localhost",
+    user: "root",
+    password: ""
+  });
+   
+  conn.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+  });
  
 var bodyParser = require("body-parser"); 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -20,14 +33,11 @@ var myRouter = express.Router();
 myRouter.route('/user')
 // J'implémente les méthodes GET, PUT, UPDATE et DELETE
 // GET
-.get(function(req,res){ 
-	  res.json({
-          message : "Liste tous les utilisateurs", 
-          user_name :req.query.user_name,
-          user_firstname:req.query.user_firstname,
-          user_email:req.query.user_email,
-          methode : req.method,
-        });
+.get(function(req,res,next){ 
+    conn.query("SELECT * from users where id = 1", function (error, results, fields) {
+		if (error) throw error;
+		res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+	});
 })
 //POST
 .post(function(req,res){
@@ -49,9 +59,17 @@ myRouter.route('/user')
 res.json({message : "Suppression d'un utilisateur", methode : req.method});  
 }); 
 
-myRouter.route('/user/:user_id')
-.get(function(req,res){ 
-	  res.json({message : "Vous souhaitez accéder aux informations de l'utilisateur n°" + req.params.user_id});
+myRouter.route('/user/:id')
+
+.get(function(req,res,next){ 
+    
+    var user_id=['id',req.params.id];
+    request=conn.format("Select * from users where ?? = ?",user_id);
+    console.log(request);
+    conn.query(request, function (error, results, fields) {
+		if (error) throw error;
+		res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+	});
 })
 .put(function(req,res){ 
 	  res.json({message : "Vous souhaitez modifier les informations de l'utilisateur n°" + req.params.user_id});
