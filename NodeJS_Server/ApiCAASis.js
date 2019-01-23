@@ -8,7 +8,9 @@ var port = 8000;
  
 var app = express(); 
  
- 
+var bodyParser = require("body-parser"); 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
  
 //Afin de faciliter le routage (les URL que nous souhaitons prendre en charge dans notre API), nous créons un objet Router.
 //C'est à partir de cet objet myRouter, que nous allons implémenter les méthodes. 
@@ -19,11 +21,24 @@ myRouter.route('/user')
 // J'implémente les méthodes GET, PUT, UPDATE et DELETE
 // GET
 .get(function(req,res){ 
-	  res.json({message : "Liste tous les utilisateurs", methode : req.method});
+	  res.json({
+          message : "Liste tous les utilisateurs", 
+          user_name :req.query.user_name,
+          user_firstname:req.query.user_firstname,
+          user_email:req.query.user_email,
+          methode : req.method,
+        });
 })
 //POST
 .post(function(req,res){
-      res.json({message : "Ajoute un nouvel utilisateur", methode : req.method});
+      res.json({message : "Ajoute un nouvel utilisateur",
+        methode : req.method,
+        user_name :req.body.user_name,
+        user_firstname:req.body.user_firstname,
+        user_email:req.body.user_email,
+        user_password:req.body.user_password,
+        methode : req.method,
+    });
 })
 //PUT
 .put(function(req,res){ 
