@@ -28,91 +28,75 @@ switch($PAGE) {
 
     <!-- Links -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet" />
-
-
 </head>
 
 <body>
 
-    <div class="flex-center position-ref full-height">
-        @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-            <a href="{{ url('/home') }}">Home</a>
-            @else
-            <a href="{{ route('login') }}">Login</a>
+    <!-- Nav button -->
+    <button href="#navPanel" class="menu_button">&#x2630</button>
+    </header>
 
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}">Register</a>
-            @endif
-            @endauth
-        </div>
-        @endif
+    <!-- Nav panel -->
+    <div id="navPanel" class="navPanel">
+        <nav>
+            <!-- Connect and register links -->
+            <ul class="authentification">
+                <a href="">Connect</a>
+                <a> | </a>
+                <a href="">Register</a>
 
-
-        <!-- Nav -->
-        <button href="#navPanel" class="menu_button">&#x2630</button>
-        </header>
-
-
-
-        <div id="navPanel" class="navPanel">
-            <nav>
-                <ul class="authentification">
-                    <a href="">Connect</a>
-                    <a> | </a>
-                    <a href="">Register</a>
-
-                </ul>
-                <ul class="links">
-                    <a href="event">Events</a>
-                    <a href="shop">Shop</a>
-                    <a href="">Idea Box</a>
-                    <a href="index">Home</a>
-                    <a href="">Legal Mentions</a>
-                </ul>
-                <a href="#navPanel" class="close">&#x2716</a>
-            </nav>
-        </div>
-
-        <!-- Content of each page -->
-        <main class="content">
-            <!-- BG -->
-            <div id="bg"></div>
-
-            <div class="container">
-                <div class="section left">
-                    <h2>Description</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga eum nihil suscipit dolorum!
-                        Blanditiis
-                        nisi qui
-                        delectus veniam expedita, possimus ad eius exercitationem voluptates numquam molestiae, quae, a
-                        sit
-                        cupiditate.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et accusamus hic, nobis nihil dicta
-                        error?</p>
-
-                        <p>Similique porro
-                        recusandae officia velit aliquid blanditiis dignissimos non facilis minima. Rerum assumenda
-                        distinctio
-                        eius?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus magni quis maiores distinctio
-                        eligendi
-                        quos pariatur
-                        laborum necessitatibus quas sapiente ea, sed in vitae. Numquam aperiam provident laudantium
-                        molestiae
-                        mollitia!</p>
-                </div>
-
-                <div class="section right">
-                    <h2>Locations</h2>
-                    <img src="/img/location.png">
-                </div>
-            </div>
-
-        </main>
+            </ul>
+            <!-- Links to others pages -->
+            <ul class="links">
+                <a href="event">Events</a>
+                <a href="shop">Shop</a>
+                <a href="">Idea Box</a>
+                <a href="index">Home</a>
+                <a href="">Legal Mentions</a>
+            </ul>
+            <!-- Button to close the nav panel -->
+            <a href="#navPanel" class="close">&#x2716</a>
+        </nav>
     </div>
 
+    <!-- Content of each page -->
+    <main class="content">
+        <!-- Background image -->
+        <div id="bg"></div>
+        <!-- Container of the 2 sections -->
+        <div class="container">
+
+            <!-- WebSite's description -->
+            <div class="section left">
+                <h2>Description</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga eum nihil suscipit dolorum!
+                    Blanditiis
+                    nisi qui
+                    delectus veniam expedita, possimus ad eius exercitationem voluptates numquam molestiae, quae, a
+                    sit
+                    cupiditate.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et accusamus hic, nobis nihil dicta
+                    error?</p>
+
+                <p>Similique porro
+                    recusandae officia velit aliquid blanditiis dignissimos non facilis minima. Rerum assumenda
+                    distinctio
+                    eius?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus magni quis maiores distinctio
+                    eligendi
+                    quos pariatur
+                    laborum necessitatibus quas sapiente ea, sed in vitae. Numquam aperiam provident laudantium
+                    molestiae
+                    mollitia!</p>
+            </div>
+            <!-- Location image, to replace with the google map's api -->
+            <div class="section right">
+                <h2>Locations</h2>
+                <img src="/img/location.png">
+            </div>
+        </div>
+    </main>
+    
     <script type="text/javascript" src="{{asset('js/animes.js')}}"></script>
 
     <!-- footer -->

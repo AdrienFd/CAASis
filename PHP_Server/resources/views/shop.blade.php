@@ -3,8 +3,10 @@
 
 @section('content')
 
+<!-- Filter section -->
 <fieldset class="filter">
     <legend>Filter</legend>
+
     <!-- Selection of a category -->
     <div class="categories">
         <h2>Categories</h2>
@@ -38,7 +40,7 @@
     </div>
 
 </fieldset>
-
+    <!-- Items on the shop -->
 <div class="shop_content">
     <div class='displayprod'>
         <img src="/img/articles/pull1.png" , class='prodpic' />

@@ -1,5 +1,4 @@
 /*------------------------------Global parameters--------------------------*/
-
 html,
 body {
     font-family: 'Montserrat', sans-serif;
@@ -8,8 +7,6 @@ body {
     margin: 0;
     padding: 0;
     text-align: justify;
-
-
 }
 
 h2 {
@@ -17,62 +14,6 @@ h2 {
     color: #222d5a;
     font-size: 16px;
 }
-
-/*------------------------------Affichage des événements--------------------------*/
-.event {
-    height: auto;
-}
-
-.event p {
-    height: 190px auto;
-    overflow: hidden;
-}
-
-
-.event_img {
-    height: 150px;
-    overflow: hidden;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
-}
-
-.event_img img {
-    width: 100%;
-    height: 100% auto;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
-}
-
-div.event_description {
-    width: 100%;
-    height: 100%;
-    line-height: 200px;
-    text-align: center;
-    /* centrage horizontal */
-    margin-bottom: 20px;
-}
-
-div.bloc {
-    width: 80%;
-    /* largeur du bloc */
-    padding: 0px;
-    /* aération interne du bloc */
-    vertical-align: middle;
-    display: inline-block;
-    line-height: 1.2;
-    /* on rétablit le line-height */
-    text-align: left;
-    /* ... et l'alignement du texte */
-}
-
-.event a {
-    color: black;
-    text-decoration: none;
-    border: black solid 1px;
-    padding: 2px;
-    float: right;
-}
-
 
 /* BG image of the index, in the whole screen and responsive*/
 #bg {
@@ -167,7 +108,6 @@ div.bloc {
     font-size: 25px;
 }
 
-
 /*Shadow under the header*/
 header {
     border-radius: 500px/10px;
@@ -217,6 +157,199 @@ header {
     margin-top: 15px;
 
 }
+
+/*----------------------------ARTICLE PRESENTATION-----------------------------*/
+
+
+.buy_button {
+    background-color: white;
+    padding: 2px;
+    float: right;
+    border: solid black 2px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.article_description {
+    border: solid black 1px;
+    padding: 10px;
+}
+
+.article_img {
+    height: auto;
+    width: 100%;
+    display: inline-block;
+}
+
+.article_img img {
+    width: 100%;
+    height: auto;
+}
+
+.article {
+    width: 100%;
+    margin: auto;
+}
+
+.article h2 {
+    margin-top: 0px;
+}
+
+.article_price {
+    font-weight: bold;
+    font-size: 18px;
+    display: inline-block;
+}
+
+/*----------------------------//-----------------------------*/
+
+/*------------------------------Affichage des événements--------------------------*/
+
+.event {
+    height: auto;
+}
+
+.event p {
+    height: 190px auto;
+    overflow: hidden;
+}
+
+.event h2 {
+    font-size: 16px;
+}
+
+.img_right {
+    height: 150px;
+    overflow: hidden;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
+}
+
+.img_left {
+    height: 150px;
+    overflow: hidden;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
+}
+
+.event img {
+    width: 100%;
+    height: 100% auto;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
+}
+
+div.description_left {
+    width: 100%;
+    height: 100%;
+    line-height: 200px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+div.description_right {
+    width: 100%;
+    height: 100%;
+    line-height: 200px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+div.bloc {
+    width: 80%;
+    padding: 0px;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.read_more {
+    color: black;
+    text-decoration: none;
+    border: black solid 1px;
+    padding: 2px;
+    float: right;
+    background-color: white;
+}
+
+/*----------------------------EVENT PRESENTATION-----------------------------*/
+
+.presentation {
+    height: auto;
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.presentation h2 {
+    text-align: center;
+    border-bottom: solid black 2px;
+    padding-bottom: 4px;
+}
+
+.images {
+    height: auto;
+    width: 100%;
+    display: inline-block;
+}
+
+.image_list {
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.image_list img {
+    height: 100%;
+}
+
+.images img {
+    width: 100%;
+    height: 100% auto;
+    vertical-align: middle;
+}
+
+.event_description {
+    height: auto;
+    width: 100%;
+    float: right;
+    margin-bottom: 20px;
+}
+
+.last_comment {
+    height: auto;
+    width: 100%;
+}
+
+.last_comment h3 {
+    font-size: 14px;
+}
+
+.comment_button {
+    margin-top: 10px;
+    background-color: white;
+    border: solid black 1px;
+    padding: 2px;
+}
+
+.participate_button {
+    background-color: white;
+    padding: 2px;
+    border: solid black 2px;
+    float: right;
+    font-weight: bold;
+}
+
+.event_price {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+/*----------------------------//-----------------------------*/
 
 /*Utility ???????*/
 .container {
@@ -444,6 +577,130 @@ header {
         width: 40%;
     }
 
+    /*----------------------------ARTICLE PRESENTATION-----------------------------*/
+    .article_description {
+        width: 45%;
+        float: right;
+        height: 300px;
+    }
+
+    .article_description p {
+        height: 200px;
+    }
+
+    .article_img {
+        width: 45%;
+        height: 300px;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .article_img img {
+        width: auto;
+        height: 100%;
+    }
+
+    .article {
+        width: 100%;
+        height: auto;
+    }
+
+    /*----------------------------//-----------------------------*/
+
+    /*----------------------------EVENT PRESENTATION-----------------------------*/
+
+    .presentation h2 {
+        margin-top: 0;
+    }
+
+    .images {
+        width: 44%;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .image_list {
+        height: auto;
+        width: 10%;
+    }
+
+    .image_list img {
+        width: 100%;
+    }
+
+    .event_description {
+        width: 44%;
+        height: auto;
+    }
+
+    .first_bloc {
+        height: auto;
+        width: 100%;
+    }
+
+    .participate_button {
+        font-size: 16px;
+    }
+
+
+    /*----------------------------//-----------------------------*/
+
+
+    /*------------------Affichage des événements----------------*/
+
+
+    .event {
+        height: 200px;
+    }
+
+    .event p {
+        height: 78px;
+        margin-bottom: 10px;
+    }
+
+    .img_right {
+        width: 60%;
+        height: 200px;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+        float: right;
+    }
+
+    .img_left {
+        width: 60%;
+        height: 200px;
+        -webkit-clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+        float: left;
+    }
+
+    .event img {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    div.description_left {
+        width: 40%;
+        height: 200px;
+        margin-bottom: 0;
+    }
+
+    div.description_right {
+        width: 40%;
+        height: 200px;
+        float: right;
+        margin: 0;
+    }
+
+    div.bloc {
+        height: 82%;
+        overflow: hidden;
+    }
+
+    .read_more {
+        margin: 0;
+    }
+
 }
 
 /*Fullscreen mode*/
@@ -475,5 +732,75 @@ header {
     .section.left {
         margin-right: 10px;
         float: left;
+    }
+
+    /*----------------------------ARTICLE PRESENTATION-----------------------------*/
+
+    .article_description {
+        width: 35%;
+        float: right;
+        height: 300px;
+        margin-right: 20px;
+    }
+
+    .article_description p {
+        height: 200px;
+    }
+
+    .article_img {
+        width: 60%;
+        height: 500px;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .article_img img {
+        width: auto;
+        height: 100%;
+    }
+
+    .article {
+        width: 100%;
+        height: auto;
+    }
+    /*------------------Affichage des événements----------------*/
+    .event {
+        height: 300px;
+    }
+
+    .event p {
+        height: 150px;
+    }
+
+    .event h2 {
+        font-size: 20px;
+    }
+
+    .img_right {
+        height: 300px;
+    }
+
+    .img_left {
+        height: 300px;
+    }
+
+    div.description_left {
+        height: 300px;
+        line-height: 300px;
+    }
+
+    div.description_right {
+        width: 40%;
+        height: 300px;
+        line-height: 300px;
+        float: right;
+    }
+
+    div.bloc {
+        height: 82%;
+    }
+
+    .read_more {
+        margin: 0;
     }
 }

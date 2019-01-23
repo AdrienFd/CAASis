@@ -27,17 +27,15 @@ Route::get('/event', function () {
     return view('event');
 });
 
+Route::get('/event_presentation', function () {
+    return view('event_presentation');
+});
+
 Route::get('/shop', function () {
     return view('shop');
 });
 
-Route::get('/home', function () {
-    return view('home');
+Route::get('/article_description', function () {
+    return view('article_description');
 });
 
-Route::get('/bonjour/{prenom}', function () {
-    $prenom = request('prenom');
-    return view('bonjour', [
-        'prenom' => $prenom,
-    ]);
-});

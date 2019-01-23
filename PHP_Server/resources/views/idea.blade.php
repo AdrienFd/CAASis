@@ -1,10 +1,11 @@
 @extends('layout')
 
+
 @section('content')
 
-
+<!-- Idea's container -->
 <div class="ideaBox_content">
-
+    <!-- An idea -->
     <div class="idea">
         <div class="idea_name">
             <h2>Idea's name</h2>

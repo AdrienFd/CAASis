@@ -5,7 +5,7 @@
 <h1>BDE's Website</h1>
 
 <section>
-
+    <!-- Background image -->
     <div id="background_img">
         <img id="background_image" src="/img/background_img1.jpg">
     </div>
