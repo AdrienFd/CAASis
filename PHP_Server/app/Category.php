@@ -4,10 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
-class User extends Model
+class Category extends Model
 {
     protected $connection = 'CAASis_National_DB';
-    protected $table = 'User';
-    protected $primaryKey ='id_user';
+    protected $table = 'Category';
+    protected $primaryKey ='id_category';
 }
