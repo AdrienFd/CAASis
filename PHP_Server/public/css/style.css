@@ -87,6 +87,9 @@ div.bloc {
   float: right;
 }
 
+
+/*---------------------------------------------------------*/
+
   /* Sections */
 .section{
   margin:5px;
@@ -199,7 +202,6 @@ div.bloc {
   border-top: 15px solid #EEEEEE;
   border-bottom: 15px solid #EEEEEE;
   margin-top:15px;
-
 }
 
 header{
@@ -326,6 +328,9 @@ div.bloc {
 .event a{
   margin: 0;
 }
+
+/*--------------------------Event Presentation-------------------------*/
+
  
 }
 
