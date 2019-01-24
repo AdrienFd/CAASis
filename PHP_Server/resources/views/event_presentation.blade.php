@@ -12,7 +12,7 @@
     <h2>TITRE DE L'EVENEMENT</h2>
 
     <div class="first_bloc">
-        <div class="images">
+        <div class="current_image">
             <img src="/img/events_img/img1_event1.jpg" alt="Première photo de l'exia Party">
             <button href="comment" class="comment_button">Click to comment</button>
         </div>
