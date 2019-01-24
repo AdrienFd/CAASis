@@ -2,11 +2,15 @@
 <div id="navPanel" class="navPanel">
     <nav>
         <!-- Connect and register links -->
-        <ul class="authentification">
-        <a href="">Connect</a>
-        <a> | </a>
-        <a href="">Register</a>
 
+        <ul class="authentification">
+            @if(Auth::check())
+            <a >Disconnect</a>
+            @else
+            <button class="connect"><a href="">Connect</a></button>
+            <a> | </a>
+            <button class="register" ><a href="register">Register</a></button>
+            @endif
         </ul>
         <!-- Links to others pages -->
         <ul class="links">

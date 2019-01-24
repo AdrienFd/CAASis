@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Hash;
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('index');
 });
@@ -23,6 +25,8 @@ Route::get('/idea', function () {
 Route::get('/index', function () {
     return view('index');
 })->name('index');
+
+
 
 Route::get('/event', function () {
     return view('event');
@@ -39,9 +43,6 @@ Route::get('/shop', function () {
 Route::get('/article_description', function () {
     return view('article_description');
 });
-
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 

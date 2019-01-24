@@ -19,53 +19,29 @@
     </header>
 
     <!-- Content of each page -->
-    <main class="content">
+    <div id="mainOverlay" class="content">
 
-        <!-- Formulaire de connexion -->
+        <!-- Connexion form -->
         <div class="form">
-            <form id="form" method="POST" action="{{ route('login') }}">
-            @csrf
+            <form id="form_connexion" action="{{ route('login') }}" method="post">
+                @csrf
                 <h3>Se connecter</h3>
                 <div class="fieldset">
-                    <input id="email" placeholder="Adresse e-mail" type="email" name="email" value="{{ old('email') }}"
+                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                         required autofocus />
                 </div>
 
                 <div class="fieldset">
-                    <input id="password" placeholder="Mot de passe" type="password" name="password" required autofocus />
-                </div>
+                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                        name="password" required> </div>
 
-                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Connexion</button>
-
+                <button name="submit" type="submit" id="contact-submit">Connexion</button>
                 <a class="form_link">S'inscrire</a>
             </form>
         </div>
 
-        <!-- Formulaire d'inscription -->
-        <div class="form">
-            <form id="form" method="POST" action="{{ route('register') }}">
-            @csrf
-                <h3>S'inscrire</h3>
-                <div class="fieldset">
-                <input id="email" type="email" placeholder="Adresse e-mail" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-                </div>
-
-                <div class="fieldset">
-                <input id="password" type="password" placeholder="Mot de passe" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-                </div>
-
-                <div class="fieldset">
-                <input id="password-confirm" type="password" placeholder="Confirmation du mot de passe" class="form-control" name="password_confirmation" required>
-                </div>
-
-                    <button name="submit" type="submit" id="form-submit" data-submit="...Sending">Inscription</button>
-
-                <a class="form_link">Se connecter</a>
-            </form>
-        </div>
-
         @yield('main')
-    </main>
+    </div>
 
     <!-- Footer -->
     <footer>

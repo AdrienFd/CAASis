@@ -1,4 +1,4 @@
-<div class="header">
+<div id="headerOverlay" class="header">
     <img src="/img/logo.png" />
 </div>
 
