@@ -1,38 +1,30 @@
-@extends('layout')
-@section('content')
-        		<!-- BG -->
-                <div id="bg"></div>
+@extends('includes.layout')
 
+@section('header')
+    <button href="#navPanel" class="menu_button">&#x2630</button>
+    
+    @include('includes.navbar')
 
-<div class="section">
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga eum nihil suscipit dolorum! Blanditiis nisi qui
-    delectus veniam expedita, possimus ad eius exercitationem voluptates numquam molestiae, quae, a sit cupiditate.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et accusamus hic, nobis nihil dicta error? Similique porro
-    recusandae officia velit aliquid blanditiis dignissimos non facilis minima. Rerum assumenda distinctio eius?
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus magni quis maiores distinctio eligendi quos pariatur
-    laborum necessitatibus quas sapiente ea, sed in vitae. Numquam aperiam provident laudantium molestiae mollitia!
-</div>
+    <!-- Background image -->
+    <div id="bg"></div>
+@endsection
 
-<div class="section">
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga eum nihil suscipit dolorum! Blanditiis nisi qui
-    delectus veniam expedita, possimus ad eius exercitationem voluptates numquam molestiae, quae, a sit cupiditate.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et accusamus hic, nobis nihil dicta error? Similique porro
-    recusandae officia velit aliquid blanditiis dignissimos non facilis minima. Rerum assumenda distinctio eius?
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus magni quis maiores distinctio eligendi quos pariatur
-    laborum necessitatibus quas sapiente ea, sed in vitae. Numquam aperiam provident laudantium molestiae mollitia!
-</div>
+@section('main')
+<!-- Container of the 2 sections -->
+<div class="container">
 
-<div class="section">
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga eum nihil suscipit dolorum! Blanditiis nisi qui
-    delectus veniam expedita, possimus ad eius exercitationem voluptates numquam molestiae, quae, a sit cupiditate.
-</div>
+<!-- WebSite's description -->
+<div class="section left">
+    <h2>Description</h2>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga eum nihil suscipit dolorum!Blanditiisnisi quidelectus veniam expedita, possimus ad eius exercitationem voluptates numquam molestiae, quae, asitcupiditate.Lorem ipsum dolor sit amet consectetur adipisicing elit. Et accusamus hic, nobis nihil dictaerror?</p>
 
-<div class="section">
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga eum nihil suscipit dolorum! Blanditiis nisi qui
-    delectus veniam expedita, possimus ad eius exercitationem voluptates numquam molestiae, quae, a sit cupiditate.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et accusamus hic, nobis nihil dicta error? Similique porro
-    recusandae officia velit aliquid blanditiis dignissimos non facilis minima. Rerum assumenda distinctio eius?
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus magni quis maiores distinctio eligendi quos pariatur
-    laborum necessitatibus quas sapiente ea, sed in vitae. Numquam aperiam provident laudantium molestiae mollitia!
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam autem eius ullam. Pariatur voluptate culpa illum. Soluta, natus, aut nemo dolor dolorum, quos quasi facere repellat modi fugiat ut quod.</p>
+    
+    </div>
+    <!-- Location image, to replace with the google map's api -->
+    <div class="section right">
+        <h2>Locations</h2>
+        <img src="/img/location.png">
+    </div>
 </div>
 @endsection
