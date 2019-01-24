@@ -10,10 +10,10 @@ console.log('Get connection ...');
  
 //Database connection
 var conn = mysql.createConnection({
-    database: 'ws_service_web',
-    host: "localhost",
-    user: "root",
-    password: ""
+    database: 'caasis_national_db',
+    host: "10.162.129.12",
+    user: "admin",
+    password: "admin"
   });
    
   conn.connect(function(err) {
@@ -30,11 +30,11 @@ app.use(bodyParser.json());
 var myRouter = express.Router(); 
  
 // Je vous rappelle notre route (/piscines).  
-myRouter.route('/user')
+myRouter.route('/member')
 // J'implémente les méthodes GET, PUT, UPDATE et DELETE
 // GET
 .get(function(req,res,next){ 
-    conn.query("SELECT * from users where id = 1", function (error, results, fields) {
+    conn.query("SELECT * from member", function (error, results, fields) {
 		if (error) throw error;
 		res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
 	});
@@ -59,12 +59,12 @@ myRouter.route('/user')
 res.json({message : "Suppression d'un utilisateur", methode : req.method});  
 }); 
 
-myRouter.route('/user/:id')
+myRouter.route('/:table/:condition/:id')
 
 .get(function(req,res,next){ 
     
-    var user_id=['id',req.params.id];
-    request=conn.format("Select * from users where ?? = ?",user_id);
+    var parameters=[req.params.table,req.params.condition,req.params.id];
+    request=conn.format("Select * from ?? where ?? = ?",parameters);
     console.log(request);
     conn.query(request, function (error, results, fields) {
 		if (error) throw error;
