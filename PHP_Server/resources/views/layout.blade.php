@@ -34,7 +34,7 @@ switch($PAGE) {
     <!-- Header -->
     <header>
         <div class="header">
-            <a>{{$PAGE}}</a>
+            <p>{{$PAGE}}</p>
             <img src="/img/logo.png" />
         </div>
         <!-- Nav button -->
