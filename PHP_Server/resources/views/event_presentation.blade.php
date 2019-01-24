@@ -21,13 +21,13 @@
             <img href="event_presentation" src="/img/events_img/img3_event1.jpg" alt="Third Picture">
             <img href="event_presentation" src="/img/events_img/img2_event1.jpg" alt="Fourth Picture">
         </div>
-        <div class="description">
+        <div class="event_description">
             <h2>PRESENTATION</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Molestias necessitatibus perspiciatis expedita beatae deserunt, sed ipsa quasi, inventore eos velit
                 pariatur et.
                 Minima in exercitationem est possimus mollitia quisquam nihil!</p>
-                <div class="event_price">10 Euros</div>
+            <div class="event_price">10 Euros</div>
             <button class="participate_button">I participate</button>
         </div>
     </div>

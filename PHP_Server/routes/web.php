@@ -15,9 +15,13 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/idea', function () {
+    return view('idea');
+});
+
 Route::get('/index', function () {
     return view('index');
-});
+})->name('index');
 
 Route::get('/event', function () {
     return view('event');
@@ -35,13 +39,3 @@ Route::get('/article_description', function () {
     return view('article_description');
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
-
-Route::get('/bonjour/{prenom}', function () {
-    $prenom = request('prenom');
-    return view('bonjour', [
-        'prenom' => $prenom,
-    ]);
-});
