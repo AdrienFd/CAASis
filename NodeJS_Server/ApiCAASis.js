@@ -9,14 +9,14 @@ var mysql = require('mysql');
 console.log('Get connection ...');
  
 //Database connection
-var conn = mysql.createConnection({
+var connNational = mysql.createConnection({
     database: 'caasis_national_db',
     host: "10.162.129.12",
     user: "admin",
     password: "admin"
   });
    
-  conn.connect(function(err) {
+  connNational.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
   });
@@ -40,16 +40,26 @@ app.use(bodyParser.json());
 //Afin de faciliter le routage (les URL que nous souhaitons prendre en charge dans notre API), nous créons un objet Router.
 //C'est à partir de cet objet myRouter, que nous allons implémenter les méthodes. 
 var myRouter = express.Router(); 
- 
-// Je vous rappelle notre route (/piscines).  
-myRouter.route('/:db/:alltable')
+
+var tables = {"National":["member","location","statut"],"Local":["article","category","command","comment","illustrate_manifestation","image","like_img","manifestation","participate","purchase","shopping_cart","vote"]};
+
+
+
+myRouter.route('/:alltable')
 // J'implémente les méthodes GET, PUT, UPDATE et DELETE
 // GET
 .get(function(req,res,next){ 
     var table = req.params.alltable;
-    var db = req.params.db;
-    if (db=="conn"){
-      conn.query("SELECT * from ??",table, function (error, results, fields) {
+    for (i=0;i<(tables.Local.length+tables.National.length);i++){
+      if (req.params.alltable==tables.Local[i]){
+        db="connLocal";
+      }
+      else if (req.params.alltable == tables.National[i]){
+        db="connNational";
+      }
+    }
+    if (db=="connNational"){
+      connNational.query("SELECT * from ??",table, function (error, results, fields) {
 		  if (error) throw error;
 		  res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
     });
@@ -85,11 +95,30 @@ myRouter.route('/:table/:condition/:id')
 .get(function(req,res,next){ 
     var request = "Select * from ?? where ?? = ?";
     var parameters=[req.params.table,req.params.condition,req.params.id];
-    request=conn.format(request,parameters);
-    conn.query(request, function (error, results, fields) {
-		if (error) throw error;
-		res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
-	});
+    requestSql=connNational.format(request,parameters);
+    requestLocal=connLocal.format(request,parameters);
+    
+    for (i=0;i<(tables.Local.length+tables.National.length);i++){
+      if (req.params.table==tables.Local[i]){
+        db="connLocal";
+      }
+      else if (req.params.table == tables.National[i]){
+        db="connNational";
+      }
+    }
+
+    if (db=="connNational"){
+      connNational.query(requestSql, function (error, results, fields) {
+		  if (error) throw error;
+      res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+   });
+  }
+  else if (db=="connLocal"){
+    connLocal.query(requestLocal, function (error, results, fields) {
+		  if (error) throw error;
+      res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+    });
+  }
 })
 .put(function(req,res){ 
 	  res.json({message : "Vous souhaitez modifier les informations de l'utilisateur n°" + req.params.user_id});
