@@ -20,6 +20,18 @@ var conn = mysql.createConnection({
     if (err) throw err;
     console.log("Connected!");
   });
+
+  var connLocal = mysql.createConnection({
+    database: 'caasis_local_Arras_db',
+    host: "10.162.129.12",
+    user: "admin",
+    password: "admin"
+  });
+   
+  connLocal.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+  });
  
 var bodyParser = require("body-parser"); 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -30,14 +42,24 @@ app.use(bodyParser.json());
 var myRouter = express.Router(); 
  
 // Je vous rappelle notre route (/piscines).  
-myRouter.route('/member')
+myRouter.route('/:db/:alltable')
 // J'implémente les méthodes GET, PUT, UPDATE et DELETE
 // GET
 .get(function(req,res,next){ 
-    conn.query("SELECT * from member", function (error, results, fields) {
-		if (error) throw error;
-		res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
-	});
+    var table = req.params.alltable;
+    var db = req.params.db;
+    if (db=="conn"){
+      conn.query("SELECT * from ??",table, function (error, results, fields) {
+		  if (error) throw error;
+		  res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+    });
+  }
+  else if (db=="connLocal"){
+    connLocal.query("SELECT * from ??",table, function (error, results, fields) {
+		  if (error) throw error;
+      res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+    });
+  }
 })
 //POST
 .post(function(req,res){
@@ -60,12 +82,10 @@ res.json({message : "Suppression d'un utilisateur", methode : req.method});
 }); 
 
 myRouter.route('/:table/:condition/:id')
-
 .get(function(req,res,next){ 
-    
+    var request = "Select * from ?? where ?? = ?";
     var parameters=[req.params.table,req.params.condition,req.params.id];
-    request=conn.format("Select * from ?? where ?? = ?",parameters);
-    console.log(request);
+    request=conn.format(request,parameters);
     conn.query(request, function (error, results, fields) {
 		if (error) throw error;
 		res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
