@@ -1,8 +1,10 @@
-@extends('layout')
+@extends('includes.layout')
 
+@section('header')
+    @include('includes.header')
+@endsection
 
-@section('content')
-
+@section('main')
 <div id="goBack">
 
 </div>
@@ -57,5 +59,4 @@
         </div>
     </div>
 </div>
-
 @endsection

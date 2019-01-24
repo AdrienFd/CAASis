@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Hash;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,3 +40,15 @@ Route::get('/article_description', function () {
     return view('article_description');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/a', function() {
+    return view('test');
+});
+
+Route::get('/logout', function() {
+    return view('logout');
+});

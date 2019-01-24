@@ -1,7 +1,10 @@
-@extends('layout')
+@extends('includes.layout')
 
+@section('header')
+    @include('includes.header')
+@endsection
 
-@section('content')
+@section('main')
 
 <!-- Filter section -->
 <fieldset class="filter">

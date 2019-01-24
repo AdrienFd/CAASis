@@ -1,7 +1,10 @@
-@extends('layout')
+@extends('includes.layout')
 
+@section('header')
+    @include('includes.header')
+@endsection
 
-@section('content')
+@section('main')
 
 <!-- Idea's container -->
 <div class="ideaBox_content">

@@ -1,21 +1,23 @@
-@extends('layout')
-
+@extends('layouts.app')
 
 @section('content')
-<h1>BDE's Website</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
 
-<section>
-    <!-- Background image -->
-    <div id="background_img">
-        <img id="background_image" src="/img/background_img1.jpg">
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    You are logged in!
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div id="article_left">
-        <p>Lorem ipsum efp;ef,ezkf,zkfl,fkkfkrkgkkf,ekfker,frogkt
-            Lorem ipsum efp;ef,ezkf,zkfl,fkkfkrkgkkf,ekfker,frogkteo
-        </p>
-    </div>
-
-
-</section>
+</div>
 @endsection

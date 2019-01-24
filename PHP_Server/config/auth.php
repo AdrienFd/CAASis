@@ -68,6 +68,12 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+            'table' => 'member',
+            'password' => [
+                'email' => 'emails.password',
+                'table' => 'password_resets',
+                'expire' => 60,
+            ],
         ],
 
         // 'users' => [
