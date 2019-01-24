@@ -55,7 +55,7 @@ switch($PAGE) {
             <ul class="links">
                 <a href="event">Events</a>
                 <a href="shop">Shop</a>
-                <a href="">Idea Box</a>
+                <a href="idea">Idea Box</a>
                 <a href="index">Home</a>
                 <a href="">Legal Mentions</a>
             </ul>
