@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var Member = require('../models/Modelmember');
+var Image_comment = require('../models/ModelComment');
 
 
 router.get('/:id?', function(req, res) {  
     if (req.params.id) {  
-        Member.getMemberById(req.params.id, function(err, rows) {  
+        Image_comment.getCommentById(req.params.id, function(err, rows) {  
             if (err) {  
                 res.json(err);  
             } else {  
@@ -13,7 +13,7 @@ router.get('/:id?', function(req, res) {
             }  
         });  
     } else {  
-        Member.getAllMembers(function(err, rows) {  
+        Image_comment.getAllComments(function(err, rows) {  
             if (err) {  
                 res.json(err);   
             } else {  
@@ -24,7 +24,7 @@ router.get('/:id?', function(req, res) {
 });  
 
 router.post('/',function(req,res,){
-    Member.addMember(req.body,function(err,count){
+    Image_comment.addComment(req.body,function(err,count){
         if(err){
             res.json(err);
         }
@@ -35,7 +35,7 @@ router.post('/',function(req,res,){
 });
 
 router.delete('/:id', function(req, res, next) {  
-  Member.deleteMember(req.params.id, function(err, count) {  
+  Image_comment.deleteComment(req.params.id, function(err, count) {  
       if (err) {  
           res.json(err);  
       } else {  
@@ -45,7 +45,7 @@ router.delete('/:id', function(req, res, next) {
 });  
 
 router.put('/:id', function(req, res, next) {  
-  Member.updateMember(req.params.id, req.body, function(err, rows) {  
+  Image_comment.updateComment(req.params.id, req.body, function(err, rows) {  
       if (err) {  
           res.json(err);  
       } else {  
