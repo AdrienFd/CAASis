@@ -8,6 +8,9 @@ var bodyParser = require ('body-parser');
 var cors = require('cors');
 var indexRouter = require('./routes/index');
 var memberRouter = require('./routes/member');
+var articleRouter = require('./routes/article');
+var commentRouter = require('./routes/comment');
+var imageRouter = require('./routes/image');
 
 var app = express();
 
@@ -26,6 +29,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/member', memberRouter);
+app.use('/article', articleRouter);
+app.use('/comment', commentRouter);
+app.use('/image', imageRouter);
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

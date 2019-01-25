@@ -3,21 +3,162 @@
 
 @section('content')
 
-<div class="section">
-    Article 1
-    delectus veniam expedita, possimus ad eius exercitationem voluptates numquam molestiae, quae, a sit cupiditate.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et accusamus hic, nobis nihil dicta error? Similique porro
-    recusandae officia velit aliquid blanditiis dignissimos non facilis minima. Rerum assumenda distinctio eius?
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus magni quis maiores distinctio eligendi quos pariatur
-    laborum necessitatibus quas sapiente ea, sed in vitae. Numquam aperiam provident laudantium molestiae mollitia!
+<!-- Filter section -->
+<fieldset class="filter">
+    <legend>Filter</legend>
+
+    <!-- Selection of a category -->
+    <div class="categories">
+        <h2>Categories</h2>
+        <select name="my_html_select_box">
+
+            <option value="All" selected="yes">All</option>
+            <option value="T-Shirt">T-Shirt</option>
+            <option value="Pull">Pull</option>
+            <option value="Pantalon">Pantalon</option>
+            <option value="Sac">Sac</option>
+            <option Value="Goodies">Goodies</option>
+        </select>
+    </div>
+    <!-- Selection of the price order -->
+    <div class="param">
+        <h2>Display</h2>
+
+        <input type="checkbox" id="scales" name="increassing">
+        <label for="scales">Increasing</label>
+        <input type="checkbox" id="horns" name="descending">
+        <label for="horns">Descending</label>
+    </div>
+
+    <!-- Selection of the price -->
+    <div class="param" id="slider_price">
+        <h2>Price</h2>
+        <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="100" class="slider" id="myRange">
+            <h2>Less than: <span id="max_price"></span> €</h2>
+        </div>
+    </div>
+
+</fieldset>
+    <!-- Items on the shop -->
+<div class="shop_content">
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            150€
+        </div>
+
+        <div class='description'>
+            Pull Exia
+        </div>
+    </div>
+
+
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            150€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+
+    </div>
+
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+    </div>
+    <div class='displayprod'>
+        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <div class='price'>
+            15€
+        </div>
+        <div class='description' style='font-size:20px'>
+            Pull Exia
+        </div>
+    </div>
 </div>
 
-<div class="section">
-    Article 2
-    delectus veniam expedita, possimus ad eius exercitationem voluptates numquam molestiae, quae, a sit cupiditate.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et accusamus hic, nobis nihil dicta error? Similique porro
-    recusandae officia velit aliquid blanditiis dignissimos non facilis minima. Rerum assumenda distinctio eius?
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus magni quis maiores distinctio eligendi quos pariatur
-    laborum necessitatibus quas sapiente ea, sed in vitae. Numquam aperiam provident laudantium molestiae mollitia!
-</div>
+
+
 @endsection
