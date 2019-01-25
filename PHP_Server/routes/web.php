@@ -22,6 +22,7 @@ Route::get('/idea', function () {
     return view('idea');
 });
 
+
 Route::get('/index', function () {
     return view('index');
 })->name('index');
@@ -53,3 +54,9 @@ Route::get('/a', function() {
 Route::get('/logout', function() {
     return view('logout');
 });
+
+//Print the ideas
+Route::get('/idea', 'Controller@getIdeas')->name('print_idea');
+
+//Vote for an idea
+Route::post('/vote', "Controller@Vote");
