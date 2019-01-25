@@ -11,8 +11,6 @@ var connectForm = document.querySelector('.connect');
 var registerForm = document.querySelector('.register');
 
 
-
-
 //Open the form on click
 connectForm.addEventListener('click', function (e) {
     e.preventDefault();
