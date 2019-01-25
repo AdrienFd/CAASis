@@ -33,7 +33,7 @@ class User extends Model implements Authenticatable
     /**
      * Attribute that can be assigned
      */
-    protected $fillable = ['id_location', 'id_statut', 'member_name', 'member_firstname', 'email', 'password','username'];
+    protected $fillable = ['id_location', 'id_statut', 'member_name', 'member_firstname', 'email', 'password'];
     protected $hidden = ['password', 'remember_token'];
     /**
      * The connection name for the model.

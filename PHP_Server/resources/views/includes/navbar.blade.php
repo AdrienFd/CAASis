@@ -13,16 +13,16 @@
             </li>
             @else
             <li class="connect">
-                <a href="#" onclick="open_connection()">Se connecter</a>
+                <a href="#connect" onclick="open_connection()">Connexion</a>
             </li>
             <li class="register">
-                <a href="register">S'inscrire</a>
+                <a href="register" onclick="open_register()">Inscription</a>
             </li>
             @endif
         </ul>
         <!-- Links to others pages -->
         <ul class="links">
-            <li><a href="index">Acceuil</a><li>
+            <li><a href="home">Acceuil</a><li>
             <li><a href="idea">Boîte à idées</a><li>
             <li><a href="event">Évenements</a><li>
             <li><a href="shop">Boutique</a><li>

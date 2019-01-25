@@ -14,8 +14,7 @@
     <div class="categories">
         <h2>Categories</h2>
         <select name="my_html_select_box">
-
-            <option value="All" selected="yes">All</option>
+            <option value="All" selected>All</option>
             <option value="T-Shirt">T-Shirt</option>
             <option value="Pull">Pull</option>
             <option value="Pantalon">Pantalon</option>
@@ -45,8 +44,9 @@
 </fieldset>
     <!-- Items on the shop -->
 <div class="shop_content">
+    <a href="article_description">
     <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <img src="/img/articles/pull1.png" alt="pull1.png" class='prodpic' />
         <div class='price'>
             150€
         </div>
@@ -55,10 +55,11 @@
             Pull Exia
         </div>
     </div>
+    </a>
 
-
+<a href="article_description">
     <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <img src="/img/articles/pull1.png" class='prodpic' alt="pull1.png"/>
         <div class='price'>
             150€
         </div>
@@ -67,8 +68,11 @@
         </div>
 
     </div>
+    </a>
+
+    <a href="article_description">
     <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <img src="/img/articles/pull1.png" alt="pull1.png" class='prodpic' />
         <div class='price'>
             15€
         </div>
@@ -77,8 +81,12 @@
         </div>
 
     </div>
+    </a>
+
+
+    <a href="article_description">
     <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <img src="/img/articles/pull1.png" alt="pull1.png" class='prodpic' />
         <div class='price'>
             15€
         </div>
@@ -87,9 +95,10 @@
         </div>
 
     </div>
+    </a>
 
     <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <img src="/img/articles/pull1.png" alt="pull1.png" class='prodpic' />
         <div class='price'>
             15€
         </div>
@@ -98,7 +107,7 @@
         </div>
     </div>
     <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <img src="/img/articles/pull1.png" alt="pull1.png" class='prodpic' />
         <div class='price'>
             15€
         </div>
@@ -107,7 +116,7 @@
         </div>
     </div>
     <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <img src="/img/articles/pull1.png"  alt="pull1.png" class='prodpic' />
         <div class='price'>
             15€
         </div>
@@ -116,7 +125,7 @@
         </div>
     </div>
     <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <img src="/img/articles/pull1.png" alt="pull1.png" class='prodpic' />
         <div class='price'>
             15€
         </div>
@@ -125,7 +134,7 @@
         </div>
     </div>
     <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <img src="/img/articles/pull1.png" alt="pull1.png" class='prodpic' />
         <div class='price'>
             15€
         </div>
@@ -134,7 +143,7 @@
         </div>
     </div>
     <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <img src="/img/articles/pull1.png" alt="pull1.png" class='prodpic' />
         <div class='price'>
             15€
         </div>
@@ -143,7 +152,7 @@
         </div>
     </div>
     <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <img src="/img/articles/pull1.png" alt="pull1.png" class='prodpic' />
         <div class='price'>
             15€
         </div>
@@ -152,7 +161,7 @@
         </div>
     </div>
     <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <img src="/img/articles/pull1.png" alt="pull1.png" class='prodpic' />
         <div class='price'>
             15€
         </div>

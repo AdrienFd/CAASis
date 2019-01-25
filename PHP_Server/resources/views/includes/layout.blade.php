@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang='fr'>
 
 <head>
     <meta charset="utf-8">
@@ -20,28 +20,24 @@
 
     <!-- Content of each page -->
     <main>
-    <div class="content" onclick="close_menu()">
+        <!-- Connexion form -->
+        <div class="form">
+        <form method="POST" action="{{ route('login') }}" >
+            @csrf
+            <h3>Se connecter</h3>
+                <div class="fieldset">
+                    <input id="email" type="email" class="" name="email" placeholder="email" required autofocus>
+                </div>
+                <div class="fieldset">
+                    <input id="password" type="password" class="" name="password" placeholder="mot de passe" required>
+                </div>
+                <button name="submit" type="submit" id="contact-submit">Connexion</button>
+                <a href="register" class="form_link">S'inscrire</a>
+            </form>
+        </div>
 
-            <!-- Connexion form -->
-            <div class="form">
-                <form id="form_connexion" action="{{ route('login') }}" method="post">
-                    @csrf
-                    <h3>Se connecter</h3>
-                    <div class="fieldset">
-                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                required autofocus />
-                    </div>
-
-                    <div class="fieldset">
-                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                name="password" required> </div>
-
-                    <button name="submit" type="submit" id="contact-submit">Connexion</button>
-                    <a class="form_link">S'inscrire</a>
-                </form>
-            </div>
-
-        @yield('main')
+        <div class="content" onclick="close_menu(); close_login()">
+            @yield('main')
         </div>
     </main>
 
@@ -52,8 +48,8 @@
     </footer>
 
     <!-- Scripts -->
-    <script type="text/javascript" src="{{asset('js/navbar.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/form_connection.js')}}"></script>
+    <script src="{{asset('js/navbar.js')}}"></script>
+    <script src="{{asset('js/form_connection.js')}}"></script>
     @yield('scripts')
 </body>
 

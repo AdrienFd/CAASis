@@ -19,7 +19,7 @@ Route::get('/idea', function () {
 });
 
 Route::get('/index', function () {
-    return view('index');
+    return view('home');
 });
 
 Route::get('/event', function () {
@@ -38,10 +38,17 @@ Route::get('/article_description', function () {
     return view('article_description');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function () {
+    return view('home');
+});
+//'HomeController@index')->name('home');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/', function () {
-    return view('index');
+    return view('home');
+});
+
+Route::get('/test', function () {
+    return view('test');
 });
