@@ -12,7 +12,7 @@ var Member={
     },
 
     addMember:function(Member,callback){
-        return db.query("Insert into member(member_name,member_firstname,email,password,id_location,id_status) values(?,?,?,?,?,?)",[Member.name,Member.firstname,Member.email,Member.password,Member.id_location,Member.id_status],callback);
+        return db.query("Insert into member(member_name,member_firstname,email,password,id_location,id_statut) values(?,?,?,?,?,?)",[Member.name,Member.firstname,Member.email,Member.password,Member.id_location,Member.id_statut],callback);
     },
 
     deleteMember:function(id,callback){
@@ -20,7 +20,7 @@ var Member={
     },
 
     UpdateMember:function(id,Member,callback){
-        return db.query("Update Member set member_name=?,member_firstname=?,email=?,password=?,id_location=?,id_status=? where id_member = ?)",[Member.name,Member.firstname,Member.email,Member.password,Member.id_location,Member.id_status,id],callback);
+        return db.query("Update Member set member_name=?,member_firstname=?,email=?,password=?,id_location=?,id_statut=? where id_member = ?)",[Member.name,Member.firstname,Member.email,Member.password,Member.id_location,Member.id_statut,id],callback);
     },
 }
 

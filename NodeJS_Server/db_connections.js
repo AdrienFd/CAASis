@@ -24,5 +24,4 @@ var connNational = mysql.createConnection({
   });
  
 
-module.exports = connLocal;
 module.exports = connNational;
