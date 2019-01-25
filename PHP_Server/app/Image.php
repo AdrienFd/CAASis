@@ -46,7 +46,7 @@ class Image extends Model
     */
     public function member_approbate()
     {
-        return $this->belongsTo('App\Member', 'id_member_approbator', 'id_member');
+        return $this->belongsTo('App\User', 'id_member_approbator', 'id_member');
     }
 
     /**
@@ -54,7 +54,7 @@ class Image extends Model
     */
     public function member()
     {
-        return $this->belongsTo('App\Member', 'id_member', 'id_member');
+        return $this->belongsTo('App\User', 'id_member', 'id_member');
     }
 
     /**

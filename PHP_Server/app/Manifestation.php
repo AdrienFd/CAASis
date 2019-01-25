@@ -52,7 +52,7 @@ class Manifestation extends Model
      */
     public function member_approbate()
     {
-        return $this->belongsTo('App\Member', 'id_member_approbator', 'id_member');
+        return $this->belongsTo('App\User', 'id_member_approbator', 'id_member');
     }
 
     /**
@@ -60,7 +60,7 @@ class Manifestation extends Model
      */
     public function member_plan()
     {
-        return $this->belongsTo('App\Member', 'id_member_plan', 'id_member');
+        return $this->belongsTo('App\User', 'id_member_plan', 'id_member');
     }
 
     /**
@@ -68,7 +68,7 @@ class Manifestation extends Model
      */
     public function member_suggest()
     {
-        return $this->belongsTo('App\Member', 'id_member_suggest', 'id_member');
+        return $this->belongsTo('App\User', 'id_member_suggest', 'id_member');
     }
 
     /**
@@ -84,7 +84,7 @@ class Manifestation extends Model
      */
     public function members_participate()
     {
-        return $this->belongsToMany('App\Member', 'participate', 'id_manifestation', 'id_member');
+        return $this->belongsToMany('App\User', 'participate', 'id_manifestation', 'id_member');
     }
 
     /**
@@ -92,6 +92,6 @@ class Manifestation extends Model
      */
     public function members_vote()
     {
-        return $this->belongsToMany('App\Member', 'vote', 'id_manifestation', 'id_member');
+        return $this->belongsToMany('App\User', 'vote', 'id_manifestation', 'id_member');
     }
 }

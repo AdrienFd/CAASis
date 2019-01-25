@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Hash;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,9 +12,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Auth::routes();
 
 Route::get('/idea', function () {
     return view('idea');
@@ -21,7 +20,7 @@ Route::get('/idea', function () {
 
 Route::get('/index', function () {
     return view('index');
-})->name('index');
+});
 
 Route::get('/event', function () {
     return view('event');
@@ -39,3 +38,10 @@ Route::get('/article_description', function () {
     return view('article_description');
 });
 
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::get('/', function () {
+    return view('index');
+});

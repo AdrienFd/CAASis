@@ -1,15 +1,14 @@
 @extends('includes.layout')
 
 @section('header')
-    <button href="#navPanel" class="menu_button">&#x2630</button>
-    
     @include('includes.navbar')
 
     <!-- Background image -->
-    <div id="bg"></div>
+    <div id="bg" onclick="close_menu()"></div>
 @endsection
 
 @section('main')
+@if(Auth::check())
 <!-- Container of the 2 sections -->
 <div class="container">
 
@@ -27,4 +26,5 @@
         <img src="/img/location.png">
     </div>
 </div>
+@endif
 @endsection

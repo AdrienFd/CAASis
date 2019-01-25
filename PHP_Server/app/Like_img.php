@@ -40,6 +40,6 @@ class Like_img extends Model
      */
     public function member()
     {
-        return $this->belongsTo('App\Member', 'id_member', 'id_member');
+        return $this->belongsTo('App\User', 'id_member', 'id_member');
     }
 }

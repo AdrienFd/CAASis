@@ -36,6 +36,6 @@ class Statut extends Model
     */
     public function members()
     {
-        return $this->hasMany('App\Member', 'id_statut', 'id_statut');
+        return $this->hasMany('App\User', 'id_statut', 'id_statut');
     }
 }

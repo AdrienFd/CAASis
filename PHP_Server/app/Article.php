@@ -67,6 +67,6 @@ class Article extends Model
     */
     public function members()
     {
-        return $this->belongsToMany('App\Member', 'shopping_cart', 'id_article', 'id_member');
+        return $this->belongsToMany('App\User', 'shopping_cart', 'id_article', 'id_member');
     }
 }

@@ -36,6 +36,6 @@ class Location extends Model
      */
     public function members()
     {
-        return $this->hasMany('App\Member', 'id_location', 'id_location');
+        return $this->hasMany('App\User', 'id_location', 'id_location');
     }
 }
