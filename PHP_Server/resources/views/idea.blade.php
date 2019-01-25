@@ -37,5 +37,6 @@
         </div>
         <?php $i++; ?>
     @endforeach
+    {{$manifestations->links()}}
 </div>
 @endsection

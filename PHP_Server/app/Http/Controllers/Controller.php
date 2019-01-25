@@ -18,7 +18,7 @@ class Controller extends BaseController
         $data_manifestation= '\App\\' . 'Manifestation';
         $data_votes='\App\\' . 'Vote';
         //$a=json_decode($a::all());
-        $manifestations=$data_manifestation::where('manifestation_is_idea','1')->orderBy('manifestation_name','asc')->get();
+        $manifestations=$data_manifestation::where('manifestation_is_idea','1')->orderBy('manifestation_name','asc')->paginate(5);
         //dump(json_decode($selectAll));
 
         $votes = array();
