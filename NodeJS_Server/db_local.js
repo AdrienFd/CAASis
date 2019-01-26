@@ -1,9 +1,9 @@
 var mysql = require("mysql");
 var connLocal = mysql.createConnection({
     database: 'caasis_local_Arras_db',
-    host: "10.162.129.12",
-    user: "admin",
-    password: "admin"
+    host: "localhost",
+    user: "root",
+    password: ""
 });
 
 connLocal.connect(function (err) {

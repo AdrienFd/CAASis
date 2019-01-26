@@ -1,26 +1,26 @@
 var db=require('../db_local');
 
-var Member={
+var Manifestation={
 
-    getAllMembers:function(callback){
-        return db.query("Select * from member",callback);
+    getAllManifestations:function(callback){
+        return db.query("Select * from manifestation",callback);
 
     },
 
-    getMemberById:function(id,callback){
-        return db.query("select * from member where id_member = ?",[id],callback);
+    getManifestationById:function(id,callback){
+        return db.query("select * from manifestation where id_manifestation = ?",[id],callback);
     },
 
-    addMember:function(Member,callback){
-        return db.query("Insert into member(member_name,member_firstname,email,password,id_location,id_statut) values(?,?,?,?,?,?)",[Member.member_name,Member.member_firstname,Member.email,Member.password,Member.id_location,Member.id_statut],callback);
+    addManifestation:function(Manifestation,callback){
+        return db.query("Insert into manifestation(manifestation_name, manifestation_description, manifestation_recurrency, manifestation_frequency, manifestation_price, manifestation_date, manifestation_votes, manifestation_is_idea) values(?,?,?,?,?,?,?,?)",[Manifestation.manifestation_name, Manifestation.manifestation_description, Manifestation.manifestation_recurrency, Manifestation.manifestation_frequency, Manifestation.manifestation_price, Manifestation.manifestation_date, Manifestation.manifestation_votes, Manifestation.manifestation_is_idea],callback);
     },
 
-    deleteMember:function(id,callback){
-        return db.query("delete from member where id_member=?",[id],callback);
+    deleteManifestation:function(id,callback){
+        return db.query("delete from manifestation where id_manifestation=?",[id],callback);
     },
 
-    UpdateMember:function(id,Member,callback){
-        return db.query("Update Member set member_name=?,member_firstname=?,email=?,password=?,id_location=?,id_statut=? where id_member = ?)",[Member.member_name,Member.member_firstname,Member.email,Member.password,Member.id_location,Member.id_statut,id],callback);
+    UpdateManifestation:function(id,Manifestation,callback){
+        return db.query("Update manifestation set manifestation_name=?, manifestation_description=?, manifestation_recurrency=?, manifestation_frequency=?, manifestation_price=?, manifestation_date=?, manifestation_votes=?, manifestation_is_idea=? where id_manifestation = ?)",[Manifestation.manifestation_name, Manifestation.manifestation_description, Manifestation.manifestation_recurrency, Manifestation.manifestation_frequency, Manifestation.manifestation_price, Manifestation.manifestation_date, Manifestation.manifestation_votes, Manifestation.manifestation_is_idea, id],callback);
     },
 }
-module.exports=Member;
+module.exports=Manifestation;

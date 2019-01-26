@@ -21,7 +21,7 @@ router.get('/:id?', function(req, res) {
             }  
         });  
     }  
-});  
+});
 
 router.post('/',function(req,res,){
     Image.addImage(req.body,function(err,count){
@@ -42,7 +42,7 @@ router.delete('/:id', function(req, res, next) {
           res.json(count);  
       }  
   });  
-});  
+});
 
 router.put('/:id', function(req, res, next) {  
   Image.updateImage(req.params.id, req.body, function(err, rows) {  
@@ -52,6 +52,6 @@ router.put('/:id', function(req, res, next) {
           res.json(rows);  
       }
   });  
-});  
+});
 
 module.exports = router;

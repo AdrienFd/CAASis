@@ -11,6 +11,7 @@ var memberRouter = require('./routes/member');
 var articleRouter = require('./routes/article');
 var commentRouter = require('./routes/comment');
 var imageRouter = require('./routes/image');
+var manifestationRouter = require('./routes/manifestation');
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use('/member', memberRouter);
 app.use('/article', articleRouter);
 app.use('/comment', commentRouter);
 app.use('/image', imageRouter);
+app.use('/manifestation', manifestationRouter);
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
