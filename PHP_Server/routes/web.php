@@ -60,3 +60,6 @@ Route::get('/index', function () {
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('basic', 'MailController@basic_email');
+Route::post('html', 'MailController@html_email');

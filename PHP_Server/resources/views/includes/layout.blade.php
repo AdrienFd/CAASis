@@ -26,6 +26,9 @@
             @csrf
             <h3>Se connecter</h3>
                 <div class="fieldset">
+                    @if ($errors->has('email') || $errors->has('password'))
+                        <p class="form_errors" role="alert">Aucun compte n'est associé à cet email ou aucun enreigstrement ne correspond au couple email / mot de passe entré</p>
+                    @endif
                     <input id="email" type="email" class="" name="email" placeholder="email" required autofocus>
                 </div>
                 <div class="fieldset">

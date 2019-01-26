@@ -44,7 +44,7 @@ CREATE TABLE Member(
         member_firstname  Varchar (50) NOT NULL ,
         email             Varchar (255) NOT NULL ,
         email_verified_at Date NULL ,
-        password          Varchar (255) NOT NULL ,
+        password          Varchar (50) NOT NULL ,
         token             Varchar (255) NULL,
         created_at        Date NOT NULL,
         updated_at        Date NOT NULL,

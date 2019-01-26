@@ -12,4 +12,5 @@ class Register extends Controller
         $table_data = $table_path::orderBy('location_name','asc')->get();
         return view('auth.register',['locations'=>$table_data,]);
     }
+
 }
