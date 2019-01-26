@@ -41,6 +41,10 @@ Route::get('/home', function () {
 });
 //'HomeController@index')->name('home');
 
+Route::post('authenticate', 'Auth\LoginController@authenticate')->name('authenticate');
+Route::post('subscribe', 'Auth\RegisterController@register')->name('subscribe');
+
+
 Route::get('logout', 'Auth\LoginController@logout');
 
 Route::get('register', 'MVC\Register@getLocation')->name('register');
@@ -62,4 +66,6 @@ Route::get('/', function () {
 });
 
 Route::get('basic', 'MailController@basic_email');
-Route::post('html', 'MailController@html_email');
+Route::get('html', 'MailController@html_email');
+
+Route::get('/user/activation/{token}', 'Auth\LoginController@userActivation');

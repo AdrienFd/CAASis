@@ -22,11 +22,11 @@
         </ul>
         <!-- Links to others pages -->
         <ul class="links">
-            <li><a href="home">Acceuil</a><li>
+            <li><a href="home">Accueil</a><li>
             <li><a href="idea">Boîte à idées</a><li>
             <li><a href="event">Évenements</a><li>
             <li><a href="shop">Boutique</a><li>
-            <li><a href="">Mentions légal</a><li>
+            <li><a href="">Mentions légales</a><li>
         </ul>
         <!-- Button to close the nav panel -->
         <a class="close" onclick="close_menu()">&#x2716</a>

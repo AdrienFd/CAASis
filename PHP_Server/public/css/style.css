@@ -169,6 +169,11 @@ header {
 
 }
 
+.already_log {
+    text-align: center;
+    color : rgba(0, 125, 255, 1)
+}
+
 /*----------------------------ARTICLE PRESENTATION-----------------------------*/
 .article {
     width: 100%;

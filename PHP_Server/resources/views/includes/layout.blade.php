@@ -22,8 +22,9 @@
     <main>
         <!-- Connexion form -->
         <div class="form">
-        <form method="POST" action="{{ route('login') }}" >
+        <form method="POST" action="{{ route('authenticate') }}" >
             @csrf
+            @if(!Auth::check())
             <h3>Se connecter</h3>
                 <div class="fieldset">
                     @if ($errors->has('email') || $errors->has('password'))
@@ -37,6 +38,7 @@
                 <button name="submit" type="submit" id="contact-submit">Connexion</button>
                 <a href="register" class="form_link">S'inscrire</a>
             </form>
+            @endif
         </div>
 
         <div class="content" onclick="close_menu(); close_login()">
