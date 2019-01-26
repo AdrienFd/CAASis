@@ -46,11 +46,44 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
+    protected $data;
+
+    protected function manipulateData (array $data){
+        //Explode mail to get two parts : before @ in [0] and after @ in [1]
+        $separateMail = explode("@", $data['email']);
+
+        //Explode first part of email to get name and firstname : before . in [0] and after . in [1]
+        $separateNames = explode(".", $separateMail[0]);
+              
+        $data['name'] = $separateNames[0];
+        if(isset($separateNames[1])){
+            $data['firstname'] = $separateNames[1];
+        }
+       
+       
+        $separateDomainName = explode(".", $separateMail[1]);
+
+        if ($separateDomainName[0] == 'cesi' || $separateDomainName[0] == 'CESI'){
+            $data['statut'] = 3; //id_statut 3 = CESI employee
+        }
+        else if ($separateDomainName[0] == 'viacesi' || $separateDomainName[0] == 'VIACESI'){
+            $data['statut'] = 1; //id_statut 1 = CESI student
+        }
+       
+        return $data;       
+        
+    }
+
     protected function validator(array $data)
     {
+        $data = $this->manipulateData($data);
+ 
         return Validator::make($data, [
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:member'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:member', 'regex:/^[a-zA-Z0-9._-]+@(cesi|viacesi)\.fr$/'],
+            'password' => ['required', 'string', 'min:8', 'confirmed', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]{0,})(?=.{8,})/'],
+            'name' => ['required', 'string'],
+            'firstname' => ['required', 'string'],
         ]);
     }
 
@@ -62,9 +95,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $data = $this->manipulateData($data);
+
         return User::create([
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'id_location' => $data['location'],
+            'member_name' => $data['name'],
+            'member_firstname' => $data['firstname'],
+            'id_statut' => $data['statut'],
         ]);
     }
 }

@@ -2,21 +2,6 @@ var inscription_email = document.getElementById('email_register');
 var inscription_email_error = document.getElementById('email_register_error');
 var inscription_psw = document.getElementById('password_register');
 var inscription_psw_error = document.getElementById('password_register_error');
-var inscription_psw_confirm = document.getElementById('password_confirm');
-var inscription_psw_confirm_error = document.getElementById('password_confirm_error');
-var inscription_location_list = document.getElementById('inscription_location');
-var inscription_location;
-
-inscription_location_list.addEventListener('change', function() {
-   if(inscription_location_list.value === ""){
-      surligne(inscription_location_list, true)
-   }
-   else {
-      surligne(inscription_location_list, false)
-      inscription_location = inscription_location_list.value;
-      alert(inscription_location_list.value);
-   }
-});
 
 inscription_email.addEventListener('blur', function() {
    verifMail(inscription_email, inscription_email_error)

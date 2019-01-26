@@ -5,7 +5,7 @@
 @endsection
 
 @section('main')
-<div class="form" style="display:block; position:relative; z-index:-1">
+<div class="form" style="display:block; position:relative; z-index:0">
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <h3>Se connecter</h3>

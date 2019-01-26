@@ -117,6 +117,7 @@ header .authentification a, .footer a, .idea_author {
 
 /*Shadow under the header*/
 header {
+    position: relative;
     border-radius: 500px/10px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
     margin-bottom: 20px;

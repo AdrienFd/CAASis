@@ -18,9 +18,7 @@ Route::get('/idea', function () {
     return view('idea');
 });
 
-Route::get('/index', function () {
-    return view('home');
-});
+
 
 Route::get('/event', function () {
     return view('event');
@@ -43,12 +41,22 @@ Route::get('/home', function () {
 });
 //'HomeController@index')->name('home');
 
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('logout', 'Auth\LoginController@logout');
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('register', 'MVC\Register@getLocation')->name('register');
+
+Route::get('login', function () {
+    return view('auth.login');
+})->name('login');
 
 Route::get('/test', function () {
     return view('test');
+});
+
+Route::get('/index', function () {
+    return view('home');
+});
+
+Route::get('/', function () {
+    return view('home');
 });
