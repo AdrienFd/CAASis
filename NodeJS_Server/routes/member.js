@@ -54,4 +54,30 @@ router.put('/:id', function(req, res, next) {
   });  
 });  
 
+router.post('/login',function(req,res,){
+    Member.LoginMember(req.body,function(err,count){
+        if (user.length == 0 ){
+            return res.status(403).json({
+                message: "Echec de la connexion"
+            });
+        }
+
+        else{
+            const user = {
+                id : user[0],
+                name:user[1],
+                firstname:user[2],
+                email:user[3],
+                password:user[4]
+            }
+            jwt.sign({user:user},'secretkey',(err,token)=>{
+                res.json({
+                    token: token
+                });
+            });
+            
+        }
+    });
+});
+
 module.exports = router;
