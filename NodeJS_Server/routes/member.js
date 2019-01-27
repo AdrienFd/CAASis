@@ -34,7 +34,20 @@ router.post('/',function(req,res,){
     });
 });
 
-router.delete('/:id', function(req, res, next) {  
+router.delete('/:id',verifyToken,function(req, res, next) {
+    jwt.verify(req.token,'secretkey',(err,authData)=>{
+        if (err){
+            res.sendStatus(403);
+        }
+        else {
+            res.json({
+                message :'request accepted',
+                authData 
+            })
+            next();
+        }
+
+    });
   Member.deleteMember(req.params.id, function(err, count) {  
       if (err) {  
           res.json(err);  
@@ -57,7 +70,7 @@ router.put('/:id', function(req, res, next) {
 router.post('/login',function(req,res,){
     Member.LoginMember(req.body,function(err,count){
         if (user.length == 0 ){
-            return res.status(403).json({
+            return res.sendStatus(403).json({
                 message: "Echec de la connexion"
             });
         }
@@ -79,5 +92,20 @@ router.post('/login',function(req,res,){
         }
     });
 });
+
+function verifyToken(req, res, next){
+    const baererHeader = req.headers['authorization'];
+
+    if(typeof baererHeader !== 'undefined'){
+
+        const baerer = baererHeader.split(' ');
+        const baererToken = baerer[1];
+        req.token = baererToken;
+        next();
+    }
+    else{
+        res.sendStatus(403);
+    }
+}
 
 module.exports = router;
