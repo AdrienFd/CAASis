@@ -22,15 +22,16 @@ class ForgotPasswordController extends Controller
 
     use SendsPasswordResetEmails;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest');
     }
+
+    /*
+     * 
+     *  Function called on user asking to reset psw
+     * 
+     */
 
     protected function resetPassword(Request $request) {
 

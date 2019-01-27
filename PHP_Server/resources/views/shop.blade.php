@@ -174,3 +174,7 @@
 
 
 @endsection
+
+@section('scripts')
+<script src="{{asset('js/filter_price_shop.js')}}"></script>
+@endsection

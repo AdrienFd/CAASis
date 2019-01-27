@@ -18,15 +18,14 @@
         @yield('header')
     </header>
 
-    <!-- Content of each page -->
+    <!-- Main -->
     <main>
-        <!-- Connexion form -->
+        <!-- Connexion form display is user is guest-->
         @if(!Auth::check())
         <div class="form" id="form_login">
-        <form method="POST" action="{{ route('authenticate') }}" >
-            @csrf
-            
-            <h3>Se connecter</h3>
+            <form method="POST" action="{{ route('authenticate') }}" >
+                @csrf
+                <h3>Se connecter</h3>
                 <div class="fieldset">
                     @if ($errors->has('email') || $errors->has('password'))
                         <p class="form_errors" role="alert">Aucun compte n'est associé à cet email ou aucun enreigstrement ne correspond au couple email / mot de passe entré</p>
@@ -37,13 +36,13 @@
                     <input type="password" class="" name="password" placeholder="mot de passe" required>
                 </div>
                 <button name="submit" type="submit">Connexion</button>
-                <a href="register" class="form_link">S'inscrire</a>
-                <a href="reset" class="form_link">Mot de passe oublié ?</a>
+                <a href="{{ route('register') }}" class="form_link">S'inscrire</a>
+                <a href="{{ route('resetPSW') }}" class="form_link">Mot de passe oublié ?</a>
             </form>
-           
         </div>
         @endif
-  
+        
+        <!-- Main content of each page -->
         <div class="content" onclick="close_menu(); close_login()">
             @yield('main')
         </div>

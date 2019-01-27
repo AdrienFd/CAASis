@@ -26,8 +26,8 @@
                 </div>
 
                 <button name="submit" type="submit" id="contact-submit">Connexion</button>
-                <a href="register" class="form_link">S'inscrire</a>
-                <a href="reset" class="form_link">Mot de passe oublié ?</a>
+                <a href="{{ route('register') }}" class="form_link">S'inscrire</a>
+                <a href="{{ route('resetPSW') }}" class="form_link">Mot de passe oublié ?</a>
 
             </form>
         </div>

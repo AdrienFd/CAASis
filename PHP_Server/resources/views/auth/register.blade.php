@@ -45,7 +45,7 @@
                 </div>
 
                 <button type="submit" id="register-submit">Inscription</button>
-                <a href="login" class="form_link">Se connecter</a>
+                <a href="{{ route('login') }}" class="form_link">Se connecter</a>
 
             </form>
         </div>

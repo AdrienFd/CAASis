@@ -23,32 +23,25 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
     protected $redirectTo = '/home';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-
     public function authenticable() {
-        
-        //return view('test');      
+        //
     }
-
 
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
     }
 
+    /*
+     * 
+     *  Function called on user login
+     * 
+     */
+
     protected function authenticate(Request $request) {
-        //dump($request);
+
         //try to get the user by his email in db to get the user we search only activated email
         $user = User::where([
             ['email','=',$request['email']],
@@ -70,9 +63,16 @@ class LoginController extends Controller
             }
         }
         else {
-            return redirect()->to('login')->withErrors(['Email incorrecte ou non activée']);//return to login page and give error
+            return redirect()->to('login')->withErrors(['Ce compte n\'existe pas ou n\'est pas activé']);//return to login page and give error
         }
     }
+
+
+    /*
+     * 
+     *  Function called on user Activation link
+     * 
+     */
 
     protected function userActivation($token) {
 

@@ -26,18 +26,8 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
     protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    
     public function __construct()
     {
         $this->middleware('guest');
@@ -126,7 +116,7 @@ class RegisterController extends Controller
             ]);
 
             //return to the login page and print user he should activate his account
-            return redirect('login')->withErrors(['Un mail vous à été envoyé cliquez sur le lien pour validez votre inscription']);
+            return redirect('login')->withErrors(['Un mail vous a été envoyé, cliquez sur le lien pour validez votre inscription']);
         }
     }
 

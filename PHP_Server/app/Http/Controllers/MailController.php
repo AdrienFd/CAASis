@@ -7,33 +7,17 @@ use Mail;
 
 class MailController extends Controller
 {
-    public function index(){
-        return view('emails.mail');
-    }
-
-    public function basic_email(Request $req) {
-        $data = [
-            'name'=>'ad fd'
-        ];
+    /*
+    *
+    * Function to send a notification mail for idea that as been moved to event
+    *
+    */
+    public function notif_email(Request $request) {
         
-        Mail::send(['text'=>'mail'],$data,function($message){
-            $message->to('adrien.fiand@viacesi.fr','Adrien Fiand')->subject('Send Mail from laravel');
-            $message->from('caasisproject@gmail.com','CAASIS Project');
+        \Mail::send(['html'=>'mail.notify'], $request, function($message) use ($request){
+            $message->to($request['email']);
+            $message->subject('Félicitation - Votre idée d\'évenement à été retenue');
         });
-
-        echo 'basic';
-    }
-
-    public function html_email(){
-        $data = [
-            'name'=>'ad fd'
-        ];
-        
-        Mail::send(['html'=>'mail'],$data,function($message){
-            $message->to('adrien.fiand@viacesi.fr','Adrien Fiand')->subject('can use html');
-            $message->from('caasisproject@gmail.com','CAASIS Project');
-        });
-        echo 'HTLM';
-    }
     
+    }
 }

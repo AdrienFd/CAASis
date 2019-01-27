@@ -2,7 +2,7 @@
 //$a=Hash::make('5lWmkbjMSs');
 //echo $a;
 //session()->push('a','test');
-dump($request()->all());
+dump(session()->all());
 /*
 if(Hash::check('5lWmkbjMSs', bcrypt('5lWmkbjMSs')))
 {
