@@ -11,6 +11,12 @@ var memberRouter = require('./routes/member');
 var articleRouter = require('./routes/article');
 var commentRouter = require('./routes/comment');
 var imageRouter = require('./routes/image');
+var manifestationRouter = require('./routes/manifestation');
+var locationRouter = require('./routes/location');
+var orderRouter = require('./routes/order');
+var statutRouter =require('/routes/statut');
+var shoppingcartRouter = require ('/routes/shopping_cart');
+var categoryRouter =require ('/routes/category');
 
 var app = express();
 
@@ -32,6 +38,12 @@ app.use('/member', memberRouter);
 app.use('/article', articleRouter);
 app.use('/comment', commentRouter);
 app.use('/image', imageRouter);
+app.use('/manifestation',manifestationRouter);
+app.use('/location',locationRouter);
+app.use('/order',orderRouter);
+app.use('/statut',statutRouter);
+app.use('/shopping_cart',shoppingcartRouter);
+app.use('/category',categoryRouter);
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

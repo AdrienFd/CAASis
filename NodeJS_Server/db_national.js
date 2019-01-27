@@ -1,9 +1,9 @@
 var mysql = require("mysql");
 var connNational = mysql.createConnection({
   database: 'caasis_national_db',
-  host: "localhost",
-  user: "root",
-  password: ""
+  host: "10.162.129.12",
+  user: "admin",
+  password: "admin"
 });
 
 connNational.connect(function (err) {
