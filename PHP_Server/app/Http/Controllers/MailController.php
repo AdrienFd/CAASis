@@ -29,7 +29,7 @@ class MailController extends Controller
             'name'=>'ad fd'
         ];
         
-        Mail::send(['text'=>'mail'],$data,function($message){
+        Mail::send(['html'=>'mail'],$data,function($message){
             $message->to('adrien.fiand@viacesi.fr','Adrien Fiand')->subject('can use html');
             $message->from('caasisproject@gmail.com','CAASIS Project');
         });

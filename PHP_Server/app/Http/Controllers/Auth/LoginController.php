@@ -47,7 +47,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function authenticate(Request $request) {
+    protected function authenticate(Request $request) {
         //dump($request);
         //try to get the user by his email in db to get the user we search only activated email
         $user = User::where([
@@ -61,6 +61,8 @@ class LoginController extends Controller
             //check if the password of user and request match by hashing requested password
             if (app('hash')->check($request->password, $user->password)) {
                 Auth::loginUsingId($user->id_member, false);
+                //add into the global varaiable SESSION the statut of the user
+                session()->put('statut', $user->statut->statut_name);
                 return redirect()->back(); //return to the same page
             }
             else {
@@ -72,7 +74,7 @@ class LoginController extends Controller
         }
     }
 
-    public function userActivation($token) {
+    protected function userActivation($token) {
 
         $check = User::where('activation_link','=',$token)->first();
         if (!is_null($check)){
@@ -89,6 +91,7 @@ class LoginController extends Controller
         }
         return redirect()->to('login')->withErrors(['Ce lien d\'activation ne correspond à aucun compte mail']);
 
-
     }
+
+
 }

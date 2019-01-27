@@ -21,31 +21,33 @@
     <!-- Content of each page -->
     <main>
         <!-- Connexion form -->
-        <div class="form">
+        @if(!Auth::check())
+        <div class="form" id="form_login">
         <form method="POST" action="{{ route('authenticate') }}" >
             @csrf
-            @if(!Auth::check())
+            
             <h3>Se connecter</h3>
                 <div class="fieldset">
                     @if ($errors->has('email') || $errors->has('password'))
                         <p class="form_errors" role="alert">Aucun compte n'est associé à cet email ou aucun enreigstrement ne correspond au couple email / mot de passe entré</p>
                     @endif
-                    <input id="email" type="email" class="" name="email" placeholder="email" required autofocus>
+                    <input type="email" class="" name="email" placeholder="email" required autofocus>
                 </div>
                 <div class="fieldset">
-                    <input id="password" type="password" class="" name="password" placeholder="mot de passe" required>
+                    <input type="password" class="" name="password" placeholder="mot de passe" required>
                 </div>
-                <button name="submit" type="submit" id="contact-submit">Connexion</button>
+                <button name="submit" type="submit">Connexion</button>
                 <a href="register" class="form_link">S'inscrire</a>
+                <a href="reset" class="form_link">Mot de passe oublié ?</a>
             </form>
-            @endif
+           
         </div>
-
+        @endif
+  
         <div class="content" onclick="close_menu(); close_login()">
             @yield('main')
         </div>
     </main>
-
 
     <!-- Footer -->
     <footer onclick="close_menu()">

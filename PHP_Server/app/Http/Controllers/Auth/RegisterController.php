@@ -49,15 +49,17 @@ class RegisterController extends Controller
     *
     */
     protected function manipulateData (array $data){
+        $mail = strtolower($data['email']);
+
         //Explode mail to get two parts : before @ in [0] and after @ in [1]
-        $separateMail = explode("@", $data['email']);
+        $separateMail = explode("@", $mail);
 
         //Explode first part of email to get name and firstname : before . in [0] and after . in [1]
         $separateNames = explode(".", $separateMail[0]);
               
-        $data['name'] = $separateNames[0];
+        $data['name'] = ucfirst($separateNames[0]);
         if(isset($separateNames[1])){
-            $data['firstname'] = $separateNames[1];
+            $data['firstname'] = strtoupper($separateNames[1]);
         }
        
        //Explode second part of email to get domain and country : before . in [0] and after . in [1]
@@ -107,9 +109,9 @@ class RegisterController extends Controller
             $request['link'] = str_random(50);
 
             //send a mail with the activation link
-            Mail::send('mail.activation', $request, function($message) use ($request){
+            Mail::send(['html'=>'mail.activation'], $request, function($message) use ($request){
                 $message->to($request['email']);
-                $message->subject('CAASIS - Activation');
+                $message->subject('Register - Activation');
             });
     
             //create the user record in db

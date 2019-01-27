@@ -18,7 +18,7 @@
                 @endif
 
                 <div class="fieldset">               
-                    <input id="email" type="email" class="" name="email" placeholder="email" required autofocus>
+                    <input id="email" type="email" class="" name="email" placeholder="email" required>
                 </div>
 
                 <div class="fieldset">
@@ -27,10 +27,14 @@
 
                 <button name="submit" type="submit" id="contact-submit">Connexion</button>
                 <a href="register" class="form_link">S'inscrire</a>
+                <a href="reset" class="form_link">Mot de passe oublié ?</a>
 
             </form>
         </div>
     @else
+        @if($errors->any())
+            <p class="already_log">{{$errors->first()}}</p>
+        @endif
         <p class="already_log">Utilisateur connecté</p>
     @endif
 

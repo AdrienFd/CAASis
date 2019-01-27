@@ -1,9 +1,9 @@
 <?php
-$a=Hash::make('5lWmkbjMSs');
+//$a=Hash::make('5lWmkbjMSs');
 //echo $a;
 //session()->push('a','test');
-dump(session()->all());
-
+dump($request()->all());
+/*
 if(Hash::check('5lWmkbjMSs', bcrypt('5lWmkbjMSs')))
 {
     //echo 'yes';
@@ -15,6 +15,6 @@ if (Hash::check('5lWmkbzjMSs', $a))
 {
     //echo 'yes';
 };
-
+*/
 
 ?>

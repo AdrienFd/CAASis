@@ -1,5 +1,4 @@
-Bienvenue, {{ $name }}
+Bonjour {{ $name }}<br><br>
+activez votre compte en cliquant sur le lien :<br><br>
 
-Veuillez activer votre compte :
-
-<a>{{ url('user/activation', $link )}}</a>
+<a href='{{ $link }}'>{{ url('user/activation', $link )}}</a><br>

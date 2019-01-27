@@ -24,7 +24,7 @@
 
                 <div class="fieldset">
                     @if ($errors->has('password'))
-                        <p class="form_errors" role="alert">Le mot de passe ne correspond pas au format demandé</p>
+                        <p class="form_errors" role="alert">Le mot de passe ne correspond pas au format demandé ou les mots de passe ne sont pas les mêmes</p>
                     @endif
 
                     <input id="password_register" type="password" class="" name="password" placeholder="mot de passe" required>

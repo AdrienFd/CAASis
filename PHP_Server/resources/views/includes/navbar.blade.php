@@ -9,7 +9,8 @@
         <ul class="authentification">
             @if(Auth::check())
             <li>
-                <a href="logout">Se déconnecter</a>
+                <a href="logout">Déconnexion</a>
+                <a href="change">Changer mdp</a>
             </li>
             @else
             <li class="connect">
