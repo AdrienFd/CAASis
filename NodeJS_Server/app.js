@@ -14,9 +14,9 @@ var imageRouter = require('./routes/image');
 var manifestationRouter = require('./routes/manifestation');
 var locationRouter = require('./routes/location');
 var orderRouter = require('./routes/order');
-var statutRouter =require('/routes/statut');
-var shoppingcartRouter = require ('/routes/shopping_cart');
-var categoryRouter =require ('/routes/category');
+var statutRouter =require('./routes/statut');
+var shoppingcartRouter = require ('./routes/shopping_cart');
+var categoryRouter =require ('./routes/category');
 
 var app = express();
 

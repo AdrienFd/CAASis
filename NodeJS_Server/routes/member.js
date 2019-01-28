@@ -34,7 +34,7 @@ router.post('/',function(req,res,){
     });
 });
 
-router.delete('/:id',verifyToken,function(req, res, next) {
+router.delete('/:id',function(req, res, next) {
     jwt.verify(req.token,'secretkey',(err,authData)=>{
         if (err){
             res.sendStatus(403);
@@ -69,43 +69,15 @@ router.put('/:id', function(req, res, next) {
 
 router.post('/login',function(req,res,){
     Member.LoginMember(req.body,function(err,count){
-        if (user.length == 0 ){
-            return res.sendStatus(403).json({
-                message: "Echec de la connexion"
-            });
+        if (err){
+            res.json(err);
         }
-
         else{
-            const user = {
-                id : user[0],
-                name:user[1],
-                firstname:user[2],
-                email:user[3],
-                password:user[4]
-            }
-            jwt.sign({user:user},'secretkey',(err,token)=>{
-                res.json({
-                    token: token
-                });
-            });
-            
+            res.json(req.body);
         }
     });
 });
 
-function verifyToken(req, res, next){
-    const baererHeader = req.headers['authorization'];
 
-    if(typeof baererHeader !== 'undefined'){
-
-        const baerer = baererHeader.split(' ');
-        const baererToken = baerer[1];
-        req.token = baererToken;
-        next();
-    }
-    else{
-        res.sendStatus(403);
-    }
-}
 
 module.exports = router;

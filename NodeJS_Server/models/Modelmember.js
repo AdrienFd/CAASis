@@ -1,6 +1,8 @@
 var db=require('../db_national');
 var jwt = require('jsonwebtoken');
 
+
+
 var Member={
 
     getAllMembers:function(callback){
@@ -25,8 +27,31 @@ var Member={
     },
 
     LoginMember:function(Member,callback){
-       return  user = [db.query("Select * from member where member_name=? and member_firstname=?  and member_email =? and member_password = ?",[Member.member_name,Member.member_firstname,Member.email,Member.password],callback)];
+       user = db.query("Select password from member where email =? and password = ?",[Member.email,Member.password],callback);
+       if (user.length == 0 ){
+        return res.sendStatus(403).json({
+            message: "Echec de la connexion"
+        });
+        }
+        else{
+            const user = {
+                name:Member.member_name,
+                firstname:Member.member_firstname,
+                email:Member.email,
+                password:Member.password
+            }
+            
+        jwt.sign({user:user},'secretkey',(err,token)=>{
+           var token = json({
+                token: token,
+                user : user
+            });
+        });
+        
+        return token;
+        
 
     }
+}
 }
 module.exports=Member;
