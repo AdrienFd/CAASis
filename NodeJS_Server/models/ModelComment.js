@@ -1,4 +1,4 @@
-var db=require('../db_local');
+/*var db=require('../db_local');
 
 var Image_comment={
 
@@ -23,4 +23,4 @@ var Image_comment={
         return db.query("Update comment set comment_content=?,comment_approbate_date=?,id_member=?, id_member_approbator=? where id_comment = ?)",[Image_comment.comment_content,Image_comment.comment_approbate_date, Image_comment.id_member, Image_comment.id_member_approbator],callback);
     },
 }
-module.exports=Image_comment;
+module.exports=Image_comment;*/

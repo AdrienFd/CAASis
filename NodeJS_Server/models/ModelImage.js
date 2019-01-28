@@ -1,4 +1,4 @@
-var db=require('../db_local');
+/*var db=require('../db_local');
 
 var Image={
 
@@ -23,4 +23,4 @@ var Image={
         return db.query("Update Image set img_name=?, img_url=?, img_likes=?, id_member=? where id_img = ?)",[Image.img_name, Image.img_url, Image.img_like, Image.id_member, id],callback);
     },
 }
-module.exports=Image;
+module.exports=Image;*/

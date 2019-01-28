@@ -7,11 +7,15 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require ('body-parser');
 var cors = require('cors');
 var indexRouter = require('./routes/index');
-var memberRouter = require('./routes/member');
+//var memberRouter = require('./routes/member');
 var articleRouter = require('./routes/article');
-var commentRouter = require('./routes/comment');
-var imageRouter = require('./routes/image');
-var manifestationRouter = require('./routes/manifestation');
+//var commentRouter = require('./routes/comment');
+//var imageRouter = require('./routes/image');
+//var manifestationRouter = require('./routes/manifestation');
+var categoryRouter = require('./routes/category');
+var purchaseRouter = require('./routes/purchase');
+var statusRouter = require('./routes/status');
+var locationRouter = require('./routes/location');
 
 var app = express();
 
@@ -29,11 +33,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/member', memberRouter);
+//app.use('/member', memberRouter);
 app.use('/article', articleRouter);
-app.use('/comment', commentRouter);
-app.use('/image', imageRouter);
-app.use('/manifestation', manifestationRouter);
+//app.use('/comment', commentRouter);
+//app.use('/image', imageRouter);
+//app.use('/manifestation', manifestationRouter);
+app.use('/category', categoryRouter);
+app.use('/purchase', purchaseRouter);
+app.use('/status', statusRouter);
+app.use('/location', locationRouter);
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

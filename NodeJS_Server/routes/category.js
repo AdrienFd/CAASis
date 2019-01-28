@@ -1,11 +1,11 @@
-/*var express = require('express');
+var express = require('express');
 var router = express.Router();
-var Member = require('../models/Modelmember');
+var Category = require('../models/ModelCategory');
 
 
 router.get('/:id?', function(req, res) {  
     if (req.params.id) {  
-        Member.getMemberById(req.params.id, function(err, rows) {  
+        Category.getCategoryById(req.params.id, function(err, rows) {  
             if (err) {  
                 res.json(err);  
             } else {  
@@ -13,7 +13,7 @@ router.get('/:id?', function(req, res) {
             }  
         });  
     } else {  
-        Member.getAllMembers(function(err, rows) {  
+        Category.getAllCategories(function(err, rows) {  
             if (err) {  
                 res.json(err);   
             } else {  
@@ -21,10 +21,10 @@ router.get('/:id?', function(req, res) {
             }  
         });  
     }  
-});  
+});
 
 router.post('/',function(req,res,){
-    Member.addMember(req.body,function(err,count){
+    Category.addCategory(req.body,function(err,count){
         if(err){
             res.json(err);
         }
@@ -35,23 +35,23 @@ router.post('/',function(req,res,){
 });
 
 router.delete('/:id', function(req, res, next) {  
-  Member.deleteMember(req.params.id, function(err, count) {  
+  Category.deleteCategory(req.params.id, function(err, count) {  
       if (err) {  
           res.json(err);  
       } else {  
           res.json(count);  
       }  
   });  
-});  
+});
 
 router.put('/:id', function(req, res, next) {  
-  Member.updateMember(req.params.id, req.body, function(err, rows) {  
+  Category.updateCategory(req.params.id, req.body, function(err, rows) {  
       if (err) {  
           res.json(err);  
       } else {  
           res.json(rows);  
-      }  
+      }
   });  
-});  
+});
 
-module.exports = router;*/
+module.exports = router;

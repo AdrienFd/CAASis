@@ -1,4 +1,4 @@
-var db=require('../db_national');
+/*var db=require('../db_national');
 
 var Member={
 
@@ -23,4 +23,4 @@ var Member={
         return db.query("Update Member set member_name=?,member_firstname=?,email=?,password=?,id_location=?,id_statut=? where id_member = ?)",[Member.member_name,Member.member_firstname,Member.email,Member.password,Member.id_location,Member.id_statut,Member.id_member],callback);
     },
 }
-module.exports=Member;
+module.exports=Member;*/
