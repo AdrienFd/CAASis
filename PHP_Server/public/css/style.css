@@ -466,6 +466,7 @@ div.bloc {
 
 /*Ideas*/
 .idea {
+    width: 90%;
     position: relative;
     margin: 0px 20px 50px 20px;
     text-align: justify;
@@ -648,12 +649,41 @@ div.bloc {
     padding: 10px;
     font-size: 15px;
   }
+
+   /*form of the submit button*/
+   .form button[type="button"][name="close"] {
+    margin-top: 5px;
+    cursor: pointer;
+    width: 96%;
+    border: none;
+    background: #5a2222;
+    color: #FFF;
+    padding: 10px;
+    font-size: 15px;
+  }
   
   /*Focus*/
   .form input:focus,.form textarea:focus 
   {
     outline: 0;
     border: 1px solid #aaa;
+  }
+  
+/* button to add idea*/
+  button[type="button"][name="add"] {
+      position: fixed;
+      top: 90px;
+      right: 10px;
+    z-index : 1;
+    border-radius: 100%;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: #22285a;
+    color: #FFF;
+    font-size: 50px;
+    line-height: 0px;
   }
 
 /*----------------------------------------------------------------*/

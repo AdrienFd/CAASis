@@ -39,11 +39,11 @@ Route::post('Mot de passe oublié', 'Auth\ForgotPasswordController@resetPassword
 * Navigation routes
 *
 */
-Route::get('Acceuil', function () { return view('home'); })->name('home');
+Route::get('Accueil', function () { return view('home'); })->name('home');
 
 Route::get('Mentions légales', function () { return view('home'); })->name('mention');
 
-Route::get('Idées', function () { return view('idea'); })->name('ideas');
+//Route::get('Idées', function () { return view('idea'); })->name('ideas');
 
 Route::get('évenements', function () { return view('event'); })->name('events');
 Route::get('évenements/{ page }', function ($page) { return view('event_presentation'); })->name('event/{ name }');
@@ -52,6 +52,16 @@ Route::get('Boutique', function () { return view('shop'); })->name('shop');
 Route::get('Article/{name}', function () { return view('article_description'); })->name('article/{name}');
 
 Route::get('/', function () { return view('home'); });
+
+//Print the ideas
+Route::get('Idées', 'MVC\ideaController@getIdeas')->name('ideas');
+Route::post('Idées/Vote', "MVC\ideaController@Vote")->name('vote');
+Route::post('Idées/Add', "MVC\ideaController@Add")->name('add');
+Route::post('Idées/Transform', "MVC\ideaController@Transform")->name('transformIdea');
+
+
+//Print the articles
+Route::get('Boutique', 'MVC\ShopController@getArticles')->name('shop');
 
 
 /*
