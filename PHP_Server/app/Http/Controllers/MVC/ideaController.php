@@ -5,8 +5,7 @@ namespace App\Http\Controllers\MVC;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ideaController extends Controller
-{
+class ideaController extends Controller{
      //Print the ideas
      public function getIdeas(){
 
@@ -26,7 +25,6 @@ class ideaController extends Controller
 
             //Add the count on the table
             array_push($votes,$count_votes);
-            
         }
         return view('idea', [
             //Sending data to the view

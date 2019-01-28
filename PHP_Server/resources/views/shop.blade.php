@@ -51,7 +51,7 @@
     <div class='displayprod'>
         <img src="{{ $row->image->img_url }}" class='prodpic' />
         <div class='price'>
-        {{ $row->article_price }} €
+        {{ $row->article_price }}
         </div>
 
         <div class='description'>

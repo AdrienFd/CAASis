@@ -45,8 +45,8 @@ Route::get('Mentions légales', function () { return view('home'); })->name('men
 
 //Route::get('Idées', function () { return view('idea'); })->name('ideas');
 
-Route::get('évenements', function () { return view('event'); })->name('events');
-Route::get('évenements/{ page }', function ($page) { return view('event_presentation'); })->name('event/{ name }');
+//Route::get('Evenements', function () { return view('event'); })->name('events');
+//Route::get('Evenements/{ page }', function ($page) { return view('event_presentation'); })->name('event/{ name }');
 
 Route::get('Boutique', function () { return view('shop'); })->name('shop');
 Route::get('Article/{name}', function () { return view('article_description'); })->name('article/{name}');
@@ -55,6 +55,10 @@ Route::get('/', function () { return view('home'); });
 
 //Print the ideas
 Route::get('Idées', 'MVC\ideaController@getIdeas')->name('ideas');
+
+//Print the events
+Route::get('Evenements', 'MVC\eventController@getEvents') -> name('events');
+Route::get('Evenement/{id}', 'MVC\eventController@getEvent') -> name('event');
 
 //Print the articles
 Route::get('Boutique', 'MVC\ShopController@getArticles')->name('shop');

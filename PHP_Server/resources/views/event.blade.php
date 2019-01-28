@@ -6,66 +6,40 @@
 
 @section('main')
 <div>
+<?php
+$description = "description_left";
+$image = "img_right";
+$i=0;
+?>
+
+@foreach($manifestations as $row)
+    <?php
+    if($description == "description_left" && $image == "img_right"){
+        $description = "description_right";
+        $image = "img_left";
+    }
+    else{
+        $description = "description_left";
+        $image = "img_right";
+    }
+    ?>
 
     <div class="event">
-        <div class="img_right">
-            <img src="/img/events_img/img1_event1.jpg" alt="Photo de l'exia party">
+        <div class="{{ $image }}">
+            <img src="{{ $url[$i] }}" alt="test">
         </div>
-        <div class="description_left">
+        <div class="{{ $description }}">
             <div class="bloc">
-                <h2>TITRE DE L'EVENEMENT</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Accusantium autem, qui, aperiam porro cum omnis possimus cumque unde adipisci nemo provident
-                    asperiores sit animi consequuntur iste suscipit ad fuga maxime.</p>
-                <a href="shop" class="read_more" onclick="alert('a')">LIRE LA SUITE</a>
+                <h2>{{ $row -> manifestation_name }}</h2>
+                <p>{{ $row -> manifestation_description }}</p>
+                <a href="{{Route('event', [ 'id' => $row->id_manifestation]) }}" class="read_more">LIRE LA SUITE</a>
             </div>
         </div>
     </div>
 
-    <div class="event">
-        <div class="img_left">
-            <img src="/img/events_img/img1_event2.jpg" alt="Photo de foot">
-        </div>
-        <div class="description_right">
-            <div class="bloc">
-                <h2>TITRE DE L'EVENEMENT 2</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Accusantium autem, qui, aperiam porro cum omnis possimus cumque unde adipisci nemo provident
-                    asperiores sit animi consequuntur iste suscipit ad fuga maxime.</p>
-                <a class="read_more" href="/event_presentation">LIRE LA SUITE</a>
-            </div>
-        </div>
-    </div>
+    <?php $i++; ?>
+    @endforeach
 
-    <div class="event">
-        <div class="img_right">
-            <img src="/img/events_img/img1_event1.jpg" alt="Photo de l'exia party">
-        </div>
-        <div class="description_left">
-            <div class="bloc">
-                <h2>TITRE DE L'EVENEMENT 3</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Accusantium autem, qui, aperiam porro cum omnis possimus cumque unde adipisci nemo provident
-                    asperiores sit animi consequuntur iste suscipit ad fuga maxime.</p>
-                <a class="read_more" href="event_presentation">LIRE LA SUITE</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="event">
-        <div class="img_left">
-            <img src="/img/events_img/img1_event2.jpg" alt="Photo de foot">
-        </div>
-        <div class="description_right">
-            <div class="bloc">
-                <h2>TITRE DE L'EVENEMENT 4</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Accusantium autem, qui, aperiam porro cum omnis possimus cumque unde adipisci nemo provident
-                    asperiores sit animi consequuntur iste suscipit ad fuga maxime.</p>
-                <a class="read_more" href="event_presentation">LIRE LA SUITE</a>
-            </div>
-        </div>
-    </div>
-
+    {{$manifestations->links()}}
 </div>
 @endsection
