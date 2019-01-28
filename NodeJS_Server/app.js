@@ -16,6 +16,8 @@ var categoryRouter = require('./routes/category');
 var purchaseRouter = require('./routes/purchase');
 var statusRouter = require('./routes/status');
 var locationRouter = require('./routes/location');
+var shoppingcartRouter = require ('/routes/shopping_cart');
+var orderRouter = require('./routes/order');
 
 var app = express();
 
@@ -42,6 +44,8 @@ app.use('/category', categoryRouter);
 app.use('/purchase', purchaseRouter);
 app.use('/status', statusRouter);
 app.use('/location', locationRouter);
+app.use('/shopping_cart',shoppingcartRouter);
+app.use('/order',orderRouter);
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
