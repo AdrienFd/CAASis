@@ -3,8 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Auth\Authenticatable as basicAuth;
+
 /**
  * @property int $id_member //PK
  * @property int $id_location //FK
@@ -16,10 +15,8 @@ use Illuminate\Auth\Authenticatable as basicAuth;
  * @property Location $location //Object of type Location
  * @property Statut $statut //Object of type Statut
  */
-class User extends Model implements Authenticatable
+class Member extends Model
 {
-
-    use basicauth;
     /**
      * The table associated with the model.
      */
@@ -33,8 +30,8 @@ class User extends Model implements Authenticatable
     /**
      * Attribute that can be assigned
      */
-    protected $fillable = ['id_location', 'id_statut', 'member_name', 'member_firstname', 'email', 'activation_link','password','email_verified'];
-    protected $hidden = ['password', 'token','activation_link'];
+    protected $fillable = ['id_location', 'id_statut', 'member_name', 'member_firstname', 'member_email', 'member_password'];
+
     /**
      * The connection name for the model.
      */
@@ -55,19 +52,4 @@ class User extends Model implements Authenticatable
     {
         return $this->belongsTo('App\Statut', 'id_statut', 'id_statut');
     }
-
-    public function getRememberToken()
-{
-    return $this->token;
-}
-
-public function setRememberToken($value)
-{
-    $this->token = $value;
-}
-
-public function getRememberTokenName()
-{
-    return 'token';
-}
 }

@@ -1,23 +1,30 @@
-@extends('layouts.app')
+@extends('includes.layout')
 
-@section('content')
+@section('header')
+    @include('includes.navbar')
+
+    <!-- Background image -->
+    <div id="bg" onclick="close_menu(); close_login()"></div>
+@endsection
+
+@section('main')
+
+<!-- Container of the 2 sections -->
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+<!-- WebSite's description -->
+<div class="section left">
+    <h2>Description</h2>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga eum nihil suscipit dolorum!Blanditiisnisi quidelectus veniam expedita, possimus ad eius exercitationem voluptates numquam molestiae, quae, asitcupiditate.Lorem ipsum dolor sit amet consectetur adipisicing elit. Et accusamus hic, nobis nihil dictaerror?</p>
 
-                    You are logged in!
-                </div>
-            </div>
-        </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam autem eius ullam. Pariatur voluptate culpa illum. Soluta, natus, aut nemo dolor dolorum, quos quasi facere repellat modi fugiat ut quod.</p>
+    
+    </div>
+    <!-- Location image, to replace with the google map's api -->
+    <div class="section right">
+        <h2>Locations</h2>
+        <img src="/img/location.png">
     </div>
 </div>
+
 @endsection

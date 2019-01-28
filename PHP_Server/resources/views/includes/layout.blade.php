@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang='fr'>
 
 <head>
     <meta charset="utf-8">
@@ -18,38 +18,44 @@
         @yield('header')
     </header>
 
-    <!-- Content of each page -->
-    <div id="mainOverlay" class="content">
-
-        <!-- Connexion form -->
-        <div class="form">
-            <form id="form_connexion" action="{{ route('login') }}" method="post">
+    <!-- Main -->
+    <main>
+        <!-- Connexion form display is user is guest-->
+        @if(!Auth::check())
+        <div class="form" id="form_login">
+            <form method="POST" action="{{ route('authenticate') }}" >
                 @csrf
                 <h3>Se connecter</h3>
                 <div class="fieldset">
-                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                        required autofocus />
+                    @if ($errors->has('email') || $errors->has('password'))
+                        <p class="form_errors" role="alert">Aucun compte n'est associé à cet email ou aucun enreigstrement ne correspond au couple email / mot de passe entré</p>
+                    @endif
+                    <input type="email" class="" name="email" placeholder="email" required autofocus>
                 </div>
-
                 <div class="fieldset">
-                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                        name="password" required> </div>
-
-                <button name="submit" type="submit" id="contact-submit">Connexion</button>
-                <a class="form_link">S'inscrire</a>
+                    <input type="password" class="" name="password" placeholder="mot de passe" required>
+                </div>
+                <button name="submit" type="submit">Connexion</button>
+                <a href="{{ route('register') }}" class="form_link">S'inscrire</a>
+                <a href="{{ route('resetPSW') }}" class="form_link">Mot de passe oublié ?</a>
             </form>
         </div>
-
-        @yield('main')
-    </div>
+        @endif
+        
+        <!-- Main content of each page -->
+        <div class="content" onclick="close_menu(); close_login()">
+            @yield('main')
+        </div>
+    </main>
 
     <!-- Footer -->
-    <footer>
+    <footer onclick="close_menu()">
         @include('includes.footer')
     </footer>
 
     <!-- Scripts -->
-    <script type="text/javascript" src="{{asset('js/navbar.js')}}"></script>
+    <script src="{{asset('js/navbar.js')}}"></script>
+    <script src="{{asset('js/form_connection.js')}}"></script>
     @yield('scripts')
 </body>
 

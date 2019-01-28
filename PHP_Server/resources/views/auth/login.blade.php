@@ -1,56 +1,41 @@
-@extends('layouts.app')
+@extends('includes.layout')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+@section('header')
+@include('includes.header')
+@endsection
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+@section('main')
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+    @if(!Auth::check())
+        <div class="form" style="display:block; position:relative; z-index:0">
+            <form method="POST" action="{{ route('authenticate') }}">
+                @csrf
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                <h3>Se connecter</h3>
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                @if($errors->any())
+                    <h4 class="form_errors">{{$errors->first()}}</h4>
+                @endif
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                            </div>
-                        </div>
-                    </form>
+                <div class="fieldset">               
+                    <input id="email" type="email" class="" name="email" placeholder="email" required>
                 </div>
-            </div>
+
+                <div class="fieldset">
+                    <input id="password" type="password" class="" name="password" placeholder="mot de passe" required>
+                </div>
+
+                <button name="submit" type="submit" id="contact-submit">Connexion</button>
+                <a href="{{ route('register') }}" class="form_link">S'inscrire</a>
+                <a href="{{ route('resetPSW') }}" class="form_link">Mot de passe oublié ?</a>
+
+            </form>
         </div>
-    </div>
-</div>
+    @else
+        @if($errors->any())
+            <p class="already_log">{{$errors->first()}}</p>
+        @endif
+        <p class="already_log">Utilisateur connecté</p>
+    @endif
+
 @endsection

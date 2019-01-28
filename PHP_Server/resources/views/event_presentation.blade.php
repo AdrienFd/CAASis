@@ -16,12 +16,12 @@
     <div class="first_bloc">
         <div class="images">
             <img src="/img/events_img/img1_event1.jpg" alt="Première photo de l'exia Party">
-            <button href="comment" class="comment_button">Click to comment</button>
+            <a href="comment" class="comment_a">Click to comment</a>
         </div>
         <div class="image_list">
-            <img href="event_presentation" src="/img/events_img/img2_event1.jpg" alt="Second Picture">
-            <img href="event_presentation" src="/img/events_img/img3_event1.jpg" alt="Third Picture">
-            <img href="event_presentation" src="/img/events_img/img2_event1.jpg" alt="Fourth Picture">
+            <a href="event_presentation"><img  src="/img/events_img/img2_event1.jpg" alt="Second Picture"></a>
+            <a href="event_presentation"><img  src="/img/events_img/img3_event1.jpg" alt="Third Picture"></a>
+            <a href="event_presentation"><img  src="/img/events_img/img2_event1.jpg" alt="Fourth Picture"></a>
         </div>
         <div class="event_description">
             <h2>PRESENTATION</h2>
@@ -30,7 +30,7 @@
                 pariatur et.
                 Minima in exercitationem est possimus mollitia quisquam nihil!</p>
             <div class="event_price">10 Euros</div>
-            <button class="participate_button">I participate</button>
+            <a class="participate_a">I participate</a>
         </div>
     </div>
 

@@ -28,7 +28,7 @@
                 </p>
             </div>
 
-            <form method="post" action="/vote">
+            <form method="post" action="{{ route('ideas') }}">
                 @csrf
                 <button name="id" type="submit" value="{{ $row->id_manifestation }}" class="button votes">Vote!</button>
             </form>

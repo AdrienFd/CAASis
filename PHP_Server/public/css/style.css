@@ -43,8 +43,10 @@ h2 {
 
     /*Position of the button*/
     position: fixed;
-    top: 5px;
+    top: 10px;
     right: 10px;
+    width: 50px;
+    height: 50px;
     z-index: 2;
 }
 
@@ -63,16 +65,10 @@ h2 {
     display: none;
 }
 
-/*Links in the nav menu*/
-#navPanel .links { padding-top: 30px; }
 
-/*Small grey text, used in different contexts*/
-#navPanel .authentification a, .footer a, .idea_author {
-    text-decoration: none;
-    font-family: "Montserrat", Helvetica, sans-serif;
-    font-size: 8px italic;
-    font-style: italic;
-    color: #5A5A5A;
+/*Links in the nav menu*/
+#navPanel .links { 
+    padding-top: 30px; 
 }
 
 /*Links of the nav menu*/
@@ -90,6 +86,24 @@ h2 {
     color: black;
 }
 
+header li {
+    list-style-type:none;
+}
+
+header .authentification li{
+    float: left;
+    margin-right: 10px;
+}
+
+/*Small grey text, used in different contexts*/
+header .authentification a, .footer a, .idea_author {
+    text-decoration: none;
+    font-family: "Montserrat", Helvetica, sans-serif;
+    font-size: 15px;
+    font-style: italic;
+    color: #5A5A5A;
+}
+
 /*Button to close the nav menu*/
 .close {
     position: fixed;
@@ -98,10 +112,12 @@ h2 {
     color: #111;
     text-decoration: none;
     font-size: 25px;
+    cursor:pointer;
 }
 
 /*Shadow under the header*/
 header {
+    position: relative;
     border-radius: 500px/10px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
     margin-bottom: 20px;
@@ -134,10 +150,12 @@ header {
 
 /*Logo cesi inside the header*/
 .header img {
-    float: left;
-    width: auto;
-    max-width: 20%;
-    padding-left: 10px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+	width: 60px;
+    height: 60px;
+
 }
 
 /*Grey footer with copyright in the bottom of the page*/
@@ -149,6 +167,11 @@ header {
     border-bottom: 15px solid #EEEEEE;
     margin-top: 15px;
 
+}
+
+.already_log {
+    text-align: center;
+    color : rgba(0, 125, 255, 1)
 }
 
 /*----------------------------ARTICLE PRESENTATION-----------------------------*/
@@ -190,7 +213,7 @@ header {
 }
 
 .event p {
-    height: 190px auto;
+    height: 190px;
     overflow: hidden;
 }
 
@@ -213,8 +236,9 @@ header {
 }
 
 .event img {
+    object-fit: cover;
     width: 100%;
-    height: 100% auto;
+    height: auto;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
 }
@@ -287,7 +311,7 @@ div.bloc {
 
 .images img {
     width: 100%;
-    height: 100% auto;
+    height: 100%;
     vertical-align: middle;
 }
 
@@ -444,15 +468,15 @@ div.bloc {
 .idea {
     position: relative;
     margin: 0px 20px 50px 20px;
-    padding-left:5px;
     text-align: justify;
     display: inline-block;
-    border-left:solid 5px rgb(121, 121, 121);
+    border:solid 1px rgb(121, 121, 121);
+    border-radius:3%;
 }
 
 /*Idea's description*/
 .idea_description {
-    height: 150px;
+    height: 200px;
     display: block;
 }
 
@@ -531,6 +555,106 @@ div.bloc {
     background: #4CAF50;
     cursor: pointer;
 }
+
+
+/*Forms*/
+
+/*Position of the forms*/
+.form {
+    position:absolute;
+    max-width: 400px;
+    width: 80%;
+    top: 20%;
+    left: 50%;
+    transform:translateX(-50%);
+    z-index: 99;
+    display:none;
+  }
+  
+  .form_errors {
+      width: 96%;
+      color : #990000
+  }
+  
+  .form_lists {
+      width: 96%;
+      height: 35px;
+      margin: 0 0 15px;
+      background-color: #FFF;
+      font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+      border: 1px solid #ccc;
+      padding-left: 5px;
+      cursor:pointer;
+  }
+  
+  .form#subscribe {
+      position: relative;
+      z-index: 1;
+  }
+  
+  
+  /*Style of the form*/
+  .form form {
+    background: #F9F9F9;
+    padding: 25px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  
+  /*title of the form*/
+  .form h3 {
+    display: block;
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    margin-top:0px;
+    text-align:center;
+  }
+  /*link of the form*/
+  .form_link{
+      font-size:12px;
+      text-align:center;
+      text-decoration:underline;
+      font-style: italic;
+      color:rgb(95, 95, 95);
+      cursor:pointer;
+  }
+  /*content of the form*/
+  .fieldset {
+    border: medium none !important;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 0;
+    width: 100%;
+  }
+  
+  /*Style of the text fields*/
+  .form input
+  {
+    width: 90%;
+    border: 1px solid #ccc;
+    background: #FFF;
+    padding: 10px;
+    font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+  
+  }
+  
+  /*form of the submit button*/
+  .form button[type="submit"] {
+    cursor: pointer;
+    width: 96%;
+    border: none;
+    background: #222d5a;
+    color: #FFF;
+    padding: 10px;
+    font-size: 15px;
+  }
+  
+  /*Focus*/
+  .form input:focus,.form textarea:focus 
+  {
+    outline: 0;
+    border: 1px solid #aaa;
+  }
 
 /*----------------------------------------------------------------*/
 /*Tablet mode*/
@@ -626,8 +750,12 @@ div.bloc {
         height: 200px;
     }
 
+    .event h2 {
+        font-size: 15px;
+    }
+
     .event p {
-        height: 78px;
+        height: 60px;
         margin-bottom: 10px;
     }
 
@@ -648,6 +776,7 @@ div.bloc {
     }
 
     .event img {
+        height: 100%;
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
@@ -774,106 +903,4 @@ div.bloc {
     .read_more {
         margin: 0;
     }
-}
-
-/*Forms*/
-
-/*Position of the forms*/
-.form {
-    position:absolute;
-  max-width: 400px;
-  width: 80%;
-  top: 20%;
-  left: 50%;
-  transform:translateX(-50%);
-  z-index: 99;
-  display:none;
-}
-
-.form#subscribe {
-    position: relative;
-}
-
-
-
-/*Stlpe of the font*/
-.form input[type="password"], .form input[type="email"], .form textarea, .form button[type="submit"] 
-{
-  font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
-}
-
-/*Style of the form*/
-.form form {
-  background: #F9F9F9;
-  padding: 25px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-
-/*title of the form*/
-.form h3 {
-  display: block;
-  font-size: 30px;
-  font-weight: 300;
-  margin-bottom: 10px;
-  margin-top:0px;
-  text-align:center;
-}
-/*link of the form*/
-.form_link{
-    font-size:12px;
-    text-align:center;
-    text-decoration:underline;
-    font-style: italic;
-    color:rgb(95, 95, 95);
-    cursor:pointer;
-}
-/*content of the form*/
-.fieldset {
-  border: medium none !important;
-  margin: 0 0 10px;
-  min-width: 100%;
-  padding: 0;
-  width: 100%;
-}
-/*Style of the link*/
-.form_link {
-    text-align: center;
-  }
-/*Style of the text fields*/
-.form input[type="email"],.form input[type="password"],.form textarea 
-{
-  width: 90%;
-  border: 1px solid #ccc;
-  background: #FFF;
-  padding: 10px;
-}
-/*Animation of the fields*/
-.form input[type="password"]:hover,.form input[type="email"]:hover,.form textarea:hover 
-{
-  -webkit-transition: border-color 0.3s ease-in-out;
-  -moz-transition: border-color 0.3s ease-in-out;
-  transition: border-color 0.3s ease-in-out;
-  border: 1px solid #aaa;
-}
-/*form of the submit button*/
-.form button[type="submit"] {
-  cursor: pointer;
-  width: 96%;
-  border: none;
-  background: #222d5a;
-  color: #FFF;
-  margin: 0 0 5px;
-  padding: 10px;
-  font-size: 15px;
-}
-/*Click on the button*/
-.form button[type="submit"]:active {
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-/*Focus*/
-.form input:focus,.form textarea:focus 
-{
-  outline: 0;
-  border: 1px solid #aaa;
 }

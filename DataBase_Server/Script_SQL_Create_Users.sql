@@ -9,7 +9,7 @@ FLUSH PRIVILEGES;
 
 USE CAASis_NATIONAL_DB;
 CREATE VIEW API_Member AS
-    SELECT member_name,member_firstname,member_email,location_name,statut_name
+    SELECT member_name,member_firstname,email,location_name,statut_name
 	FROM member
 	NATURAL JOIN statut
 	NATURAL JOIN location;
@@ -17,23 +17,23 @@ CREATE VIEW API_Member AS
 USE CAASis_LOCAL_ARRAS_DB;
 CREATE VIEW API_Manifestation AS
     SELECT manifestation_name,manifestation_description,manifestation_recurrency,manifestation_frequency,manifestation_price,manifestation_date,member_name,member_firstname
-    FROM Manifestation
+    FROM CAASis_LOCAL_ARRAS_DB.Manifestation
     INNER JOIN CAASis_NATIONAL_DB.Member ON CAASis_LOCAL_ARRAS_DB.Manifestation.id_member_approbator = CAASis_NATIONAL_DB.Member.id_member
     WHERE manifestation_is_idea = 0
-    AND Manifestation.id_member_approbator IS NOT NULL ;
+    AND CAASis_LOCAL_ARRAS_DB.Manifestation.id_member_approbator IS NOT NULL ;
 
 CREATE VIEW API_Comment AS
     SELECT comment_content,img_url,member_name,member_firstname
-    FROM Comment
+    FROM CAASis_LOCAL_ARRAS_DB.Comment
     INNER JOIN CAASis_NATIONAL_DB.Member ON Comment.id_member = CAASis_NATIONAL_DB.Member.id_member
-    INNER JOIN Image ON Comment.id_img = Image.id_img
+    INNER JOIN CAASis_LOCAL_ARRAS_DB.Image ON Comment.id_img = CAASis_LOCAL_ARRAS_DB.Image.id_img
     WHERE comment.id_member_approbator IS NOT NULL;
 
 CREATE VIEW API_Image AS
-    SELECT img_url, img_likes, member_name,member_firstname
-    FROM Image
+    SELECT img_url, member_name,member_firstname
+    FROM CAASis_LOCAL_ARRAS_DB.Image
     INNER JOIN CAASis_NATIONAL_DB.Member ON CAASis_LOCAL_ARRAS_DB.Image.id_member = CAASis_NATIONAL_DB.Member.id_member
-    WHERE Image.id_member_approbator IS NOT NULL;
+    WHERE CAASis_LOCAL_ARRAS_DB.Image.id_member_approbator IS NOT NULL;
 
 CREATE USER 'CAASis_National_Admin'@'%' IDENTIFIED BY 'CAASis_National_PSW';
 GRANT ALL PRIVILEGES ON CAASis_NATIONAL_DB.* TO 'CAASis_National_Admin'@'%' WITH GRANT OPTION;
@@ -54,7 +54,7 @@ GRANT SELECT ON CAASis_NATIONAL_DB.API_Member TO 'CAASis_National_API'@'%' ;
 
 CREATE USER 'CAASis_Arras_API'@'%' IDENTIFIED BY 'CAASis_Arras_PSW';
 REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'CAASis_Arras_API'@'%';
-GRANT SELECT ON CAASis_LOCAL_ARRAS_DB.Article TO 'CAASis_Arras_API'@'%' IDENTIFIED BY 'CAASis_Arras_PSW';
+GRANT SELECT ON CAASis_LOCAL_ARRAS_DB.Article TO 'CAASis_Arras_API'@'%';
 GRANT SELECT ON CAASis_LOCAL_ARRAS_DB.Category TO 'CAASis_Arras_API'@'%';
 GRANT SELECT ON CAASis_LOCAL_ARRAS_DB.API_Manifestation TO 'CAASis_Arras_API'@'%';
 GRANT SELECT ON CAASis_LOCAL_ARRAS_DB.API_Image TO 'CAASis_Arras_API'@'%';

@@ -19,7 +19,6 @@ INSERT INTO location (location_name)
 			('Le Mans'),
 			('Lille'),
 			('Lyon'),
-			('Lyon'),
 			('Montpellier'),
 			('Nancy'),
 			('Nantes'),

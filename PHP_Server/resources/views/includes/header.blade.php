@@ -1,8 +1,12 @@
-<div id="headerOverlay" class="header">
-    <img src="/img/logo.png" />
+<?php
+$URL = $_SERVER['REQUEST_URI'];
+$PAGE = urldecode(basename($URL));
+?>
+<!-- the header bar -->
+<div onclick="close_menu(); close_login()" class="header">
+    <a>{{ $PAGE }}</a>
+    <img src="/img/logo.png" alt="logo" />
 </div>
 
-<!-- Nav button -->
-<button href="#navPanel" class="menu_button">&#x2630</button>
-
+<!-- include the menu -->
 @include('includes.navbar')
