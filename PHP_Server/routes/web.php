@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Hash;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,31 +12,62 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+/*
+*
+* Authentification & account management routes
+*
+*/
+Route::get('Connexion', function () { return view('auth.login'); })->name('login');
+Route::post('Connexion', 'Auth\LoginController@authenticate')->name('authenticate');
+
+Route::get('Inscription', 'MVC\Register@getLocation')->name('register');
+Route::post('Inscription', 'Auth\RegisterController@register')->name('subscribe');
+
+Route::get('/user/activation/{token}', 'Auth\LoginController@userActivation');
+
+Route::get('Déconnexion', 'Auth\LoginController@logout')->name('logout');;
+
+Route::get('Changé le mot de passe', function () { return view('auth.passwords.change'); });
+Route::post('Changé le mot de passe', 'Auth\ResetPasswordController@changePassword')->name('changePSW');
+
+Route::get('Mot de passe oublié', function () { return view('auth.passwords.reset'); });
+Route::post('Mot de passe oublié', 'Auth\ForgotPasswordController@resetPassword')->name('resetPSW');
+
+
+/*
+*
+* Navigation routes
+*
+*/
+Route::get('Acceuil', function () { return view('home'); })->name('home');
+
+Route::get('Mentions légales', function () { return view('home'); })->name('mention');
+
+//Route::get('Idées', function () { return view('idea'); })->name('ideas');
+
+Route::get('évenements', function () { return view('event'); })->name('events');
+Route::get('évenements/{ page }', function ($page) { return view('event_presentation'); })->name('event/{ name }');
+
+Route::get('Boutique', function () { return view('shop'); })->name('shop');
+Route::get('Article/{name}', function () { return view('article_description'); })->name('article/{name}');
+
+Route::get('/', function () { return view('home'); });
+
+//Print the ideas
+Route::get('Idées', 'MVC\ideaController@getIdeas')->name('ideas');
+
+//Print the articles
+Route::get('Boutique', 'MVC\ShopController@getArticles')->name('shop');
+
+//Vote for an idea
+Route::post('/vote', "Controller@Vote");
+
+/*
+*
+* Testing routes
+*
+*/
+
+Route::get('test', function () {
+    return view('test');
 });
-
-Route::get('/idea', function () {
-    return view('idea');
-});
-
-Route::get('/index', function () {
-    return view('index');
-})->name('index');
-
-Route::get('/event', function () {
-    return view('event');
-});
-
-Route::get('/event_presentation', function () {
-    return view('event_presentation');
-});
-
-Route::get('/shop', function () {
-    return view('shop');
-});
-
-Route::get('/article_description', function () {
-    return view('article_description');
-});
-

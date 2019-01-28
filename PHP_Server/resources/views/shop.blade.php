@@ -1,7 +1,10 @@
-@extends('layout')
+@extends('includes.layout')
 
+@section('header')
+@include('includes.header')
+@endsection
 
-@section('content')
+@section('main')
 
 <!-- Filter section -->
 <fieldset class="filter">
@@ -12,12 +15,10 @@
         <h2>Categories</h2>
         <select name="my_html_select_box">
 
-            <option value="All" selected="yes">All</option>
-            <option value="T-Shirt">T-Shirt</option>
-            <option value="Pull">Pull</option>
-            <option value="Pantalon">Pantalon</option>
-            <option value="Sac">Sac</option>
-            <option Value="Goodies">Goodies</option>
+        <option value="category" selected="yes">All</option>
+            @foreach($category as $row2)
+                <option value="category">{{ $row2->category_name }}</option>
+            @endforeach
         </select>
     </div>
     <!-- Selection of the price order -->
@@ -40,123 +41,25 @@
     </div>
 
 </fieldset>
-    <!-- Items on the shop -->
+
+
+<!-- Items on the shop -->
+<?php $i=0; ?>
 <div class="shop_content">
+
+    @foreach($articles as $row)
     <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
+        <img src="{{ $row->image->img_url }}" class='prodpic' />
         <div class='price'>
-            150€
+        {{ $row->article_price }} €
         </div>
 
         <div class='description'>
-            Pull Exia
+            {{ $row->article_name }}
         </div>
     </div>
+    @endforeach
 
-
-    <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
-        <div class='price'>
-            150€
-        </div>
-        <div class='description' style='font-size:20px'>
-            Pull Exia
-        </div>
-
-    </div>
-    <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
-        <div class='price'>
-            15€
-        </div>
-        <div class='description' style='font-size:20px'>
-            Pull Exia
-        </div>
-
-    </div>
-    <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
-        <div class='price'>
-            15€
-        </div>
-        <div class='description' style='font-size:20px'>
-            Pull Exia
-        </div>
-
-    </div>
-
-    <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
-        <div class='price'>
-            15€
-        </div>
-        <div class='description' style='font-size:20px'>
-            Pull Exia
-        </div>
-    </div>
-    <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
-        <div class='price'>
-            15€
-        </div>
-        <div class='description' style='font-size:20px'>
-            Pull Exia
-        </div>
-    </div>
-    <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
-        <div class='price'>
-            15€
-        </div>
-        <div class='description' style='font-size:20px'>
-            Pull Exia
-        </div>
-    </div>
-    <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
-        <div class='price'>
-            15€
-        </div>
-        <div class='description' style='font-size:20px'>
-            Pull Exia
-        </div>
-    </div>
-    <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
-        <div class='price'>
-            15€
-        </div>
-        <div class='description' style='font-size:20px'>
-            Pull Exia
-        </div>
-    </div>
-    <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
-        <div class='price'>
-            15€
-        </div>
-        <div class='description' style='font-size:20px'>
-            Pull Exia
-        </div>
-    </div>
-    <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
-        <div class='price'>
-            15€
-        </div>
-        <div class='description' style='font-size:20px'>
-            Pull Exia
-        </div>
-    </div>
-    <div class='displayprod'>
-        <img src="/img/articles/pull1.png" , class='prodpic' />
-        <div class='price'>
-            15€
-        </div>
-        <div class='description' style='font-size:20px'>
-            Pull Exia
-        </div>
-    </div>
 </div>
 
 

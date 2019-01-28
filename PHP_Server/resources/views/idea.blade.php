@@ -1,91 +1,42 @@
-@extends('layout')
+@extends('includes.layout')
 
+@section('header')
+@include('includes.header')
+@endsection
 
-@section('content')
+@section('main')
 
-<!-- Idea's container -->
 <div class="ideaBox_content">
-    <!-- An idea -->
-    <div class="idea">
-        <div class="idea_name">
-            <h2>Idea's name</h2>
-        </div>
 
-        <div class="idea_author">
-            By Adrien Demol
-        </div>
+    <?php $i=0; ?>
 
-        <div class="idea_description">
-            <p>Dès la rentrée une première soirée au bar l'Annexe, situé près du lycée Baudimont nous aurons l'occasion
-                de faire connaissance et de bénéficier des prix spécialement proposé pour nous par l'Annexe prix moyen
-                d'une boisson 3€. Gae lcharles adrien henri hugo jules nathan et adrien ne sont surtout pas à inviter.</p>
-        </div>
+    @foreach($manifestations as $row)
+        <div class="idea">
+            <div class="idea_name">
+                <h2>
+                    {{ $row->manifestation_name }}
+                </h2>
+            </div>
 
-        <button class="button votes">Vote!</button>
-        <div class="button count">158 votes
-        </div>
-    </div>
+            <div class="idea_author">
+                By {{ $row->member_suggest->member_name }} {{ $row->member_suggest->member_firstname }}
+            </div>
 
-    <div class="idea">
-        <div class="idea_name">
-            <h2>Idea's name</h2>
-        </div>
+            <div class="idea_description">
+                <p>
+                    {{ $row->manifestation_description }}
+                </p>
+            </div>
 
-        <div class="idea_author">
-            By Adrien Demol
+            <form method="post" action="{{ route('ideas') }}">
+                @csrf
+                <button name="id" type="submit" value="{{ $row->id_manifestation }}" class="button votes">Vote!</button>
+            </form>
+            <div class="button count"> {{ $votes[$i] }}
+            </div>
         </div>
-
-        <div class="idea_description">
-            <p>Dès la rentrée une première soirée au bar l'Annexe, situé près du lycée Baudimont nous aurons l'occasion
-                de faire connaissance et de bénéficier des prix spécialement proposé pour nous par l'Annexe prix moyen
-                d'une boisson 3€. Gae lcharles adrien henri hugo jules nathan et adrien ne sont surtout pas à inviter.</p>
-        </div>
-
-        <button class="button votes">Vote!</button>
-        <div class="button count">158 votes
-        </div>
-    </div>
-
-    <div class="idea">
-        <div class="idea_name">
-            <h2>Idea's name</h2>
-        </div>
-
-        <div class="idea_author">
-            By Adrien Demol
-        </div>
-
-        <div class="idea_description">
-            <p>Dès la rentrée une première soirée au bar l'Annexe, situé près du lycée Baudimont nous aurons l'occasion
-                de faire connaissance et de bénéficier des prix spécialement proposé pour nous par l'Annexe prix moyen
-                d'une boisson 3€. Gae lcharles adrien henri hugo jules nathan et adrien ne sont surtout pas à inviter.</p>
-        </div>
-
-        <button class="button votes">Vote!</button>
-        <div class="button count">158 votes
-        </div>
-    </div>
-
-    <div class="idea">
-        <div class="idea_name">
-            <h2>Idea's name</h2>
-        </div>
-
-        <div class="idea_author">
-            By Adrien Demol
-        </div>
-
-        <div class="idea_description">
-            <p>Dès la rentrée une première soirée au bar l'Annexe, situé près du lycée Baudimont nous aurons l'occasion
-                de faire connaissance et de bénéficier des prix spécialement proposé pour nous par l'Annexe prix moyen
-                d'une boisson 3€. Gae lcharles adrien henri hugo jules nathan et adrien ne sont surtout pas à inviter.</p>
-        </div>
-
-        <button class="button votes">Vote!</button>
-        <div class="button count">158 votes
-        </div>
-    </div>
-
+        <?php $i++; ?>
+    @endforeach
+    {{$manifestations->links()}}
 </div>
-
 @endsection

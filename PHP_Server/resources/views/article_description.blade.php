@@ -1,8 +1,10 @@
-@extends('layout')
+@extends('includes.layout')
 
+@section('header')
+    @include('includes.header')
+@endsection
 
-@section('content')
-
+@section('main')
 <div class="presentation">
     <h2>NOM DE L'ARTICLE</h2>
 
@@ -21,6 +23,4 @@
         </div>
     </div>
 </div>
-
-
 @endsection

@@ -1,21 +1,30 @@
-@extends('layout')
+@extends('includes.layout')
 
+@section('header')
+    @include('includes.navbar')
 
-@section('content')
-<h1>BDE's Website</h1>
-
-<section>
     <!-- Background image -->
-    <div id="background_img">
-        <img id="background_image" src="/img/background_img1.jpg">
+    <div id="bg" onclick="close_menu(); close_login()"></div>
+@endsection
+
+@section('main')
+
+<!-- Container of the 2 sections -->
+<div class="container">
+
+<!-- WebSite's description -->
+<div class="section left">
+    <h2>Description</h2>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga eum nihil suscipit dolorum!Blanditiisnisi quidelectus veniam expedita, possimus ad eius exercitationem voluptates numquam molestiae, quae, asitcupiditate.Lorem ipsum dolor sit amet consectetur adipisicing elit. Et accusamus hic, nobis nihil dictaerror?</p>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam autem eius ullam. Pariatur voluptate culpa illum. Soluta, natus, aut nemo dolor dolorum, quos quasi facere repellat modi fugiat ut quod.</p>
+    
     </div>
-
-    <div id="article_left">
-        <p>Lorem ipsum efp;ef,ezkf,zkfl,fkkfkrkgkkf,ekfker,frogkt
-            Lorem ipsum efp;ef,ezkf,zkfl,fkkfkrkgkkf,ekfker,frogkteo
-        </p>
+    <!-- Location image, to replace with the google map's api -->
+    <div class="section right">
+        <h2>Locations</h2>
+        <img src="/img/location.png">
     </div>
+</div>
 
-
-</section>
 @endsection
