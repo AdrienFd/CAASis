@@ -7,17 +7,17 @@
 @section('main')
 
 <!-- Filter section -->
+<form method="post" action="{{ route('shop') }}">
 <fieldset class="filter">
     <legend>Filter</legend>
 
     <!-- Selection of a category -->
     <div class="categories">
         <h2>Categories</h2>
-        <select name="my_html_select_box">
 
-        <option value="category" selected="yes">All</option>
-            @foreach($category as $row2)
-                <option value="category">{{ $row2->category_name }}</option>
+        <select id="category_selection" name="category">
+            @foreach($category as $row)
+            <option value="{{$row->id_category}}">{{ $row->category_name }}</option>
             @endforeach
         </select>
     </div>
@@ -41,6 +41,7 @@
     </div>
 
 </fieldset>
+</form>
 
 
 <!-- Items on the shop -->
@@ -51,8 +52,9 @@
     <div class='displayprod'>
         <img src="{{ $row->image->img_url }}" class='prodpic' />
         <div class='price'>
-        {{ $row->article_price }} €
+            {{ $row->article_price }} €
         </div>
+        
 
         <div class='description'>
             {{ $row->article_name }}
@@ -61,7 +63,8 @@
     @endforeach
 
 </div>
+@endsection
 
-
-
+@section('scripts')
+<script src="{{asset('js/filter_price_shop.js')}}"></script>
 @endsection
