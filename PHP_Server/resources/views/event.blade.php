@@ -1,7 +1,7 @@
 @extends('includes.layout')
 
 @section('header')
-    @include('includes.header')
+@include('includes.header')
 @endsection
 
 @section('main')

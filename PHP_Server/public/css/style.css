@@ -513,6 +513,17 @@ div.bloc {
     float: left;
 }
 
+.button.toEvent {
+    background-color: #222d5a;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    width: 40%;
+    text-align: center;
+    float: right;
+}
+
 /*Idea's count of votes*/
 .button.count {
     background-color: #c2c2c2;
@@ -629,9 +640,10 @@ div.bloc {
   }
   
   /*Style of the text fields*/
-  .form input
+  .form input, textarea
   {
-    width: 90%;
+    max-width: 90%;
+    min-width: 90%;
     border: 1px solid #ccc;
     background: #FFF;
     padding: 10px;
@@ -670,20 +682,19 @@ div.bloc {
   }
   
 /* button to add idea*/
-  button[type="button"][name="add"] {
-      position: fixed;
-      top: 90px;
-      right: 10px;
+  button[name="add"] {
+    border: none;
+    position: fixed;
+    top: 90px;
+    right: 10px;
     z-index : 1;
-    border-radius: 100%;
-    cursor: pointer;
+    border-radius: 50px;
     width: 50px;
     height: 50px;
-    border: none;
     background: #22285a;
     color: #FFF;
     font-size: 50px;
-    line-height: 0px;
+    line-height: 50px;text-decoration: none;
   }
 
 /*----------------------------------------------------------------*/
