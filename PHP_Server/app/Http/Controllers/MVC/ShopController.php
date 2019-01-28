@@ -4,28 +4,45 @@ namespace App\Http\Controllers\MVC;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Article;
+use App\Category;
 
 class ShopController extends Controller
 {
         public function getArticles(){
 
-            //Get data from the application table
-            $articles_data= '\App\\' . 'Article';
-            //Look in the database
-            $articles=$articles_data::all();
+            //Get the categories
+            $category=Category::all();
 
-            $category_value=request('category');
+            //Get data from the view
+            $cancel=request('cancel');
+            $category_id=request('category');
 
-            echo $category_value;
-            echo "yoyo";  
+            $max_price=request('max_price');
 
-            /*switch(request('category')){
+            $descending=request('descending');
+            $increassing=request('increassing');
+            echo $category_id . "--" . $max_price;
 
-            }*/
 
-            $category_data= '\App\\' . 'Category';
 
-            $category=$category_data::all();
+            //Print only the good categories
+            if(isset($max_price)){
+                if($category_id==0){
+                    $articles=Article::where('article_price', '<=',  $max_price)
+                    ->get();
+                    echo "test";
+                }
+                else{
+                    $articles=Article::where('article_price', '<=',  $max_price)
+                    ->where('id_category', $category_id)
+                    ->get();
+                }
+            }
+        else{
+            $articles=Article::all();
+
+        }
 
             return view('shop', [
                 //Sending data to the view

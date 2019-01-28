@@ -8,6 +8,7 @@
 
 <!-- Filter section -->
 <form method="post" action="{{ route('shop') }}">
+@csrf
 <fieldset class="filter">
     <legend>Filter</legend>
 
@@ -16,10 +17,12 @@
         <h2>Categories</h2>
 
         <select id="category_selection" name="category">
+            <option value="0">Tout</option>
             @foreach($category as $row)
             <option value="{{$row->id_category}}">{{ $row->category_name }}</option>
             @endforeach
         </select>
+
     </div>
     <!-- Selection of the price order -->
     <div class="param">
@@ -35,12 +38,14 @@
     <div class="param" id="slider_price">
         <h2>Price</h2>
         <div class="slidecontainer">
-            <input type="range" min="1" max="100" value="100" class="slider" id="myRange">
+            <input name="max_price" type="range" min="1" max="100" value="100" class="slider" id="myRange">
             <h2>Less than: <span id="max_price"></span> €</h2>
         </div>
     </div>
 
 </fieldset>
+<button name="cancel" value="0" type="submit">Filtrer</button>
+
 </form>
 
 

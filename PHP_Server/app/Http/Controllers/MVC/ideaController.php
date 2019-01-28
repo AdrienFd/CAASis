@@ -23,7 +23,7 @@ class ideaController extends Controller
 
             //Get the vote number, by manifestation
             $count_votes= $data_votes::where('id_manifestation',$row->id_manifestation)->count();
-
+            
             //Add the count on the table
             array_push($votes,$count_votes);
             
