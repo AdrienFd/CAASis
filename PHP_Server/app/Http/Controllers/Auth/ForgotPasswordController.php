@@ -68,15 +68,15 @@ class ForgotPasswordController extends Controller
 
                     $user->update(['password'=> \Hash::make($request['password'])]);
 
-                    return redirect()->to('login')->withErrors(['Un email de réinitialisation à était envoyé']);
+                    return redirect()->route('login')->withErrors(['Un email de réinitialisation à était envoyé']);
                 }
                 else{
-                    return redirect()->to('reset')->withErrors(['Le compte assocé n\'est pas activé']);
+                    return redirect()->route('resetPSW')->withErrors(['Le compte assocé n\'est pas activé']);
                 }
 
             }
             else {
-                return redirect()->to('reset')->withErrors(['Aucun compte n\'est associé à cet email']);
+                return redirect()->route('resetPSW')->withErrors(['Aucun compte n\'est associé à cet email']);
             }
 
         }

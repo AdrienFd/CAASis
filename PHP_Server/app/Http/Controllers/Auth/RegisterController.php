@@ -90,7 +90,7 @@ class RegisterController extends Controller
 
         //if validation fails we return to subscribe
         if ($validator->fails()) {
-            return redirect('register')->withErrors($validator);
+            return redirect()->route('register')->withErrors($validator);
         }
 
         //if validation success we prepare user activation and recording
@@ -116,7 +116,7 @@ class RegisterController extends Controller
             ]);
 
             //return to the login page and print user he should activate his account
-            return redirect('login')->withErrors(['Un mail vous a été envoyé, cliquez sur le lien pour validez votre inscription']);
+            return redirect()->route('login')->withErrors(['Un mail vous a été envoyé, cliquez sur le lien pour validez votre inscription']);
         }
     }
 

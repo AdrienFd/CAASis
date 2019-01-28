@@ -65,21 +65,21 @@ class ResetPasswordController extends Controller
                     //if the actual and new passord are different update psw in db 
                     if($request['new_password'] != $request['actual_password']){
                         $user->update(['password'=> \Hash::make($request['new_password'])]);
-                        return redirect()->to('login')->withErrors(['Votre mot de passe à bien était modifié']);
+                        return redirect()->route('login')->withErrors(['Votre mot de passe à bien était modifié']);
                     }
                     else {
-                        return redirect()->to('change')->withErrors(['Votre nouveau mot de passe ne peut être identique à l\'ancien']);
+                        return redirect()->route('changePSW')->withErrors(['Votre nouveau mot de passe ne peut être identique à l\'ancien']);
                     }
 
                    
                 }
                 else{
-                    return redirect()->to('change')->withErrors(['Impossible de changer le mot de passe, le compte associé n\'est pas activé ou le mot de passe actuel que vous avez entré ne correspond pas']);
+                    return redirect()->route('changePSW')->withErrors(['Impossible de changer le mot de passe, le compte associé n\'est pas activé ou le mot de passe actuel que vous avez entré ne correspond pas']);
                 }
 
             }
             else {
-                return redirect()->to('change')->withErrors(['Aucun compte n\'est associé à cet email']);
+                return redirect()->route('changePSW')->withErrors(['Aucun compte n\'est associé à cet email']);
             }
 
         }

@@ -59,11 +59,11 @@ class LoginController extends Controller
                 return redirect()->back(); //return to the same page
             }
             else {
-                return redirect()->to('login')->withErrors(['Mot de passe incorrect']);//return to login page and give error
+                return redirect()->route('login')->withErrors(['Mot de passe incorrect']);//return to login page and give error
             }
         }
         else {
-            return redirect()->to('login')->withErrors(['Ce compte n\'existe pas ou n\'est pas activé']);//return to login page and give error
+            return redirect()->route('login')->withErrors(['Ce compte n\'existe pas ou n\'est pas activé']);//return to login page and give error
         }
     }
 
@@ -82,14 +82,14 @@ class LoginController extends Controller
             $user = User::where('id_member','=',$check->id_member);
             $userData = $user->first();
             if($userData->email_verified == 1){
-                return redirect()->to('login')->withErrors(['Utilisateur déja activé']);
+                return redirect()->route('login')->withErrors(['Utilisateur déja activé']);
             }
             else{
                 $user->update(['email_verified'=> 1]);
-                return redirect()->to('login')->withErrors(['Utilisateur activé avec succès']);
+                return redirect()->route('login')->withErrors(['Utilisateur activé avec succès']);
             }    
         }
-        return redirect()->to('login')->withErrors(['Ce lien d\'activation ne correspond à aucun compte mail']);
+        return redirect()->route('login')->withErrors(['Ce lien d\'activation ne correspond à aucun compte mail']);
 
     }
 
