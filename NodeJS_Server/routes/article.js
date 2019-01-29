@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var Article = require('../models/ModelArticle');
+var Token = require('../models/Modeltoken');
+var jwt = require('jsonwebtoken');
 
 
 router.get('/:id?', function(req, res) {  
@@ -23,35 +25,57 @@ router.get('/:id?', function(req, res) {
     }  
 });  
 
-router.post('/',function(req,res,){
-    Article.addArticle(req.body,function(err,count){
-        if(err){
-            res.json(err);
+router.post('/',Token.verifyToken,function(req,res,){
+    jwt.verify(req.token,'secretKey1', (err, authData)=> {
+        if (err){
+            res.sendStatus(403);
         }
         else{
-            res.json(count);
+            Article.addArticle(req.body,function(err,count){
+                if(err){
+                    res.json(err);
+                }
+                else{
+                    res.json(count);
+                }
+            });
         }
     });
 });
 
-router.delete('/:id', function(req, res, next) {  
-  Article.deleteArticle(req.params.id, function(err, count) {  
-      if (err) {  
-          res.json(err);  
-      } else {  
-          res.json(count);  
-      }  
-  });  
-});  
+router.delete('/:id',Token.verifyToken,function(req, res, next) {
+    jwt.verify(req.token,'secretKey1', (err, authData)=> {
+        if (err){
+            res.sendStatus(403);
+        }
+        else{ 
+            Article.deleteArticle(req.params.id, function(err, count) {  
+                if (err) {  
+                    res.json(err);  
+                } else {  
+                    res.json(count);  
+                }  
+            });
+        }  
+    }); 
+}); 
 
-router.put('/:id', function(req, res, next) {  
-  Article.updateArticle(req.params.id, req.body, function(err, rows) {  
-      if (err) {  
-          res.json(err);  
-      } else {  
-          res.json(rows);  
-      }  
-  });  
-});  
+router.put('/:id',Token.verifyToken,function(req, res, next) {  
+    jwt.verify(req.token,'secretKey1', (err, authData)=> {
+        if (err){
+            res.sendStatus(403);
+        }
+        else{
+            Article.updateArticle(req.params.id, req.body, function(err, rows) {  
+                if (err) {  
+                    res.json(err);  
+                } else {  
+                    res.json(rows);  
+                }  
+            })
+        };  
+    });
+});
+
 
 module.exports = router;

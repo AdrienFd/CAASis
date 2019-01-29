@@ -17,6 +17,7 @@ var orderRouter = require('./routes/order');
 var statutRouter =require('./routes/statut');
 var shoppingcartRouter = require ('./routes/shopping_cart');
 var categoryRouter =require ('./routes/category');
+var loginRouter = require ('./routes/login');
 
 var app = express();
 
@@ -44,6 +45,7 @@ app.use('/order',orderRouter);
 app.use('/statut',statutRouter);
 app.use('/shopping_cart',shoppingcartRouter);
 app.use('/category',categoryRouter);
+app.use('/login',loginRouter);
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
