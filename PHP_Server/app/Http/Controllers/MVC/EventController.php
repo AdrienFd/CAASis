@@ -125,8 +125,21 @@ class eventController extends Controller{
     * Function that move an event into an approbate one
     *
     */
-    public function Approbate() {
+    public function Approbate(Request $request) {
+        //get the event to approve from the request
+        $request = json_decode($request->event);
+        
+        //begin auto handle transaction & update the event
+        DB::transaction(function () use ($request) {
+            
+            Manifestation::where('id_manifestation',$request->id_manifestation)->update([
+                'id_member_approbator' => \Auth::id(),
+                'manifestation_approbate_date' => date("Y-m-d",time()),
+            ]);
+        });
 
+        //return to the last page
+        return redirect()->back();
     }
 }
 ?>

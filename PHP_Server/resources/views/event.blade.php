@@ -5,12 +5,14 @@
 @endsection
 
 @section('main')
+<!-- declare variable for alterning left and right event style, also a counter for the foreach -->
 <?php
 $description = "description_left";
 $image = "img_right";
 $i=0;
 ?>
 
+<!-- if the user is a member of the SDK then hhe can add an event with the form -->
 @if(session('statut') == "Student Desk Member")
 <button type="button" name="add" onclick="open_popup()">+</button>
 
@@ -48,7 +50,9 @@ $i=0;
 </div>
 @endif
 
+<!-- Loop that create the event of the page -->
 @foreach($manifestations as $row)
+<!-- alternate between left and right style at each tour of the loop -->
 <?php
     if($description == "description_left" && $image == "img_right"){
         $description = "description_right";
@@ -60,12 +64,36 @@ $i=0;
     }
 ?>
 
-@if(is_null($row->id_member_approbator ))
-<div style="background-color : rgba(173,255,47,0.5)">
+<!-- if the user is an employee he can see if the event is approbate or not, if not approbate he can approbate the event-->
+@if(session('statut') == "Employee" && is_null($row->id_member_approbator ))
+    <div class="form" id="{{ $row->id_manifestation }}">
+            <form method="post" action="{{ route('approbateEvent') }}">
+                @csrf
+
+                <input type="hidden" name="event" value="{{ $row }}" >
+
+                <div class="fieldset">
+                    <div>{{ $row->manifestation_name }}</div>
+                </div>
+
+                <div class="fieldset">
+                    <div>{{ $row->manifestation_description }}</div>
+                </div>
+
+                <button name="id" type="submit" value="" class="">Approbate</button>
+                <button name="close" type="button" onclick="close_approbate('{{ $row->id_manifestation }}')">Fermer</button>
+            </form>
+    </div>
+
+    <div style="background-color : rgba(178,34,34,0.5)" onclick="open_approbate({{ $row->id_manifestation }})">
+<!-- the user is an employee and the event is already approved -->
+@elseif(session('statut') == "Employee")
+    <div style="background-color : rgba(173,255,47,0.5)">
+<!-- else it's a guest, student or member of student desk, they see the events that are approbate -->
 @else
-<div style="background-color : rgba(178,34,34,0.5)">
+    <div>
 @endif
-<div class="event" onclick="open_approbate({{ $row->id_manifestation }})">
+<div class="event" style="border-bottom: 1px solid #D3D3D3">
     <div class="{{ $image }}">
         <img src="{{ $url[$i] }}" alt="{{ $name[$i] }}">
     </div>
@@ -79,29 +107,12 @@ $i=0;
     </div>
 </div>
 </div>
-@if(session('statut') == "Employee")
-<div class="form" id="{{ $row->id_manifestation }}">
-        <form method="post" action="approbateEvent">
-            @csrf
 
-            <input type="hidden" name="id_event" value="{{ $row->id_manifestation }}" >
-
-            <div class="fieldset">
-                <div>{{ $row->manifestation_name }}</div>
-            </div>
-
-            <div class="fieldset">
-                <div>{{ $row->manifestation_description }}</div>
-            </div>
-
-            <button name="id" type="submit" value="" class="">Approbate</button>
-            <button name="close" type="button" onclick="close_approbate('{{ $row->id_manifestation }}')">Fermer</button>
-        </form>
-</div>
-@endif
+<!-- increment the counter -->
 <?php $i++; ?>
 @endforeach
 
+<!-- pagination links -->
 {{$manifestations->links()}}
 </div>
 @endsection
