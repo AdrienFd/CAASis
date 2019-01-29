@@ -17,11 +17,17 @@ class eventController extends Controller{
     */
     public function getEvents(){
         //Get data from the manifestation table (only events)
-        $manifestations = Manifestation::where('manifestation_is_idea','0')->paginate(6);
+        $manifestations = Manifestation::where('manifestation_is_idea','0');
+
+        if(session('statut') != "Employee"){
+            $manifestations = $manifestations->whereNotNull('id_member_approbator');
+        }
+
+        $manifestations = $manifestations->paginate(6);
 
         //array to store one image url for each event
         $url = array();
-        
+        $name =array();
         //for each event we :
         foreach ($manifestations as $row) {
             //try to get a record a the first img
@@ -30,11 +36,13 @@ class eventController extends Controller{
             //if there is a record with a url we store that url in the array
             if(isset($img)){
                 array_push($url,$img->img_url);
-
+                array_push($name,$img->img_name);
             //else we put a default picture to illustrate
             }else{
-                $default_img = "/img/events_img/img1_event1.jpg";
+                $default_img = "img/index.png";
+                $default_name = "fake image";
                 array_push($url,$default_img);
+                array_push($name,$default_name);
             }
         }
 
@@ -42,29 +50,27 @@ class eventController extends Controller{
         return view('event', [
             'manifestations' => $manifestations,
             'url' => $url,
+            'name' => $name,
         ]);
     }
 
-////////////////////////////////////////////////////////
-    ///////////////////// TO DO ////////////////////
-////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////
-////////////////////////////////////////////////////////
-        //    Get event img like comment ...    //
-////////////////////////////////////////////////////////
     /*
     *
     * Function that return a specific event in a dedicated view where you like img add comment ...
     *
     */
     public function getEvent(){
-        $URL = $_SERVER['REQUEST_URI'];
-        $id = urldecode(basename($URL));
+        $url = $_SERVER['REQUEST_URI'];
+        $id = explode('/',$url)[2];
+        
         $event = Manifestation::where('id_manifestation', $id)->first();
-        dump(json_decode($event));
-        /*return view('event', [
-            'name' => $event,
-        ]);*/
+
+        //try to get a record a the first img
+        $imgs= $event->images->all();
+
+        //if there is a record with a url we store that url in the array
+
+        return view('event_presentation', ['event' => $event, 'imgs' => $imgs]);
     }
 
     /*
@@ -111,6 +117,16 @@ class eventController extends Controller{
 
         //return to the last page
         return redirect()->back();
+    }
+
+
+    /*
+    *
+    * Function that move an event into an approbate one
+    *
+    */
+    public function Approbate() {
+
     }
 }
 ?>

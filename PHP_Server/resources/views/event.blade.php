@@ -27,7 +27,7 @@ $i=0;
         </div>
 
         <div class="fieldset">
-            <input type="date" name="date" placeholder="date" required>
+            <input type="date" name="date" required>
         </div>
 
         <div class="fieldset">
@@ -58,21 +58,47 @@ $i=0;
         $description = "description_left";
         $image = "img_right";
     }
-    ?>
+?>
 
-<div class="event">
+@if(is_null($row->id_member_approbator ))
+<div style="background-color : rgba(173,255,47,0.5)">
+@else
+<div style="background-color : rgba(178,34,34,0.5)">
+@endif
+<div class="event" onclick="open_approbate({{ $row->id_manifestation }})">
     <div class="{{ $image }}">
-        <img src="{{ $url[$i] }}" alt="test">
+        <img src="{{ $url[$i] }}" alt="{{ $name[$i] }}">
     </div>
+
     <div class="{{ $description }}">
         <div class="bloc">
             <h2>{{ $row -> manifestation_name }}</h2>
             <p>{{ $row -> manifestation_description }}</p>
-            <a href="{{Route('event', [ 'id' => $row->id_manifestation]) }}" class="read_more">LIRE LA SUITE</a>
+            <a href="{{Route('event', ['name' => $row->manifestation_name,  'id' => $row->id_manifestation]) }}" class="read_more">LIRE LA SUITE</a>
         </div>
     </div>
 </div>
+</div>
+@if(session('statut') == "Employee")
+<div class="form" id="{{ $row->id_manifestation }}">
+        <form method="post" action="approbateEvent">
+            @csrf
 
+            <input type="hidden" name="id_event" value="{{ $row->id_manifestation }}" >
+
+            <div class="fieldset">
+                <div>{{ $row->manifestation_name }}</div>
+            </div>
+
+            <div class="fieldset">
+                <div>{{ $row->manifestation_description }}</div>
+            </div>
+
+            <button name="id" type="submit" value="" class="">Approbate</button>
+            <button name="close" type="button" onclick="close_approbate('{{ $row->id_manifestation }}')">Fermer</button>
+        </form>
+</div>
+@endif
 <?php $i++; ?>
 @endforeach
 
@@ -81,5 +107,6 @@ $i=0;
 @endsection
 
 @section('scripts')
+<script src="{{asset('js/approbate.js')}}"></script>
 <script src="{{asset('js/popup_addevent.js')}}"></script>
 @endsection

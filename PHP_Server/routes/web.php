@@ -61,7 +61,8 @@ Route::post('Idées/Transform', "MVC\IdeaController@Transform")->name('moveToEve
 //Print the events
 Route::get('Evenements', 'MVC\EventController@getEvents') -> name('events');
 Route::post('Evenements/Add', 'MVC\EventController@Add') -> name('addEvent');
-Route::get('Evenement/{id}', 'MVC\EventController@getEvent') -> name('event');
+Route::post('Evenements/Approbate', 'MVC\EventController@Approbate') -> name('approbateEvent');
+Route::get('Evenement/{id}/{name}', 'MVC\EventController@getEvent') -> name('event');
 
 Route::get('Boutique', 'MVC\ShopController@getArticles')->name('shop');
 Route::post('Boutique', 'MVC\ShopController@getArticles')->name('shop');

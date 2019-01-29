@@ -752,7 +752,7 @@ div.bloc {
     }
 
     .images {
-        width: 44%;
+        width: 75%;
         margin-bottom: 30px;
         text-align: center;
     }
@@ -944,4 +944,5 @@ div.bloc {
     .read_more {
         margin: 0;
     }
+
 }
