@@ -10,6 +10,7 @@
     <!-- Links -->
     @yield('stylesheets')
     <link href="{{asset('css/style.css')}}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300" rel="stylesheet">
 </head>
 
 <body>
@@ -20,30 +21,37 @@
 
     <!-- Main -->
     <main>
-        <!-- Connexion form display is user is guest-->
+        <!-- Connexion form display is user is guest (not login)-->
         @if(!Auth::check())
         <div class="form" id="form_login">
-            <form method="POST" action="{{ route('authenticate') }}" >
+            <form method="POST" action="{{ route('authenticate') }}">
                 @csrf
                 <h3>Se connecter</h3>
+
+                <!-- Email field -->
                 <div class="fieldset">
                     @if ($errors->has('email') || $errors->has('password'))
-                        <p class="form_errors" role="alert">Aucun compte n'est associé à cet email ou aucun enreigstrement ne correspond au couple email / mot de passe entré</p>
+                    <p class="form_errors" role="alert">Aucun compte n'est associé à cet email ou aucun enreigstrement
+                        ne correspond au couple email / mot de passe entré</p>
                     @endif
                     <input type="email" class="" name="email" placeholder="email" required autofocus>
                 </div>
+
+                <!-- PSW field -->
                 <div class="fieldset">
                     <input type="password" class="" name="password" placeholder="mot de passe" required>
                 </div>
+
+                <!-- Button & link aera -->
                 <button name="submit" type="submit">Connexion</button>
                 <a href="{{ route('register') }}" class="form_link">S'inscrire</a>
                 <a href="{{ route('resetPSW') }}" class="form_link">Mot de passe oublié ?</a>
             </form>
         </div>
         @endif
-        
+
         <!-- Main content of each page -->
-        <div class="content" onclick="close_menu(); close_login()">
+        <div class="content" <?php if(!Auth::check()) {echo 'onclick="close_menu(); close_login()"';} else {echo 'onclick="close_menu()"';}?>>
             @yield('main')
         </div>
     </main>
@@ -55,7 +63,9 @@
 
     <!-- Scripts -->
     <script src="{{asset('js/navbar.js')}}"></script>
+    @if(!Auth::check())
     <script src="{{asset('js/form_connection.js')}}"></script>
+    @endif
     @yield('scripts')
 </body>
 

@@ -76,7 +76,7 @@ h2 {
     width: 90%;
     border-bottom: 2px solid rgb(94, 94, 94);
     display: block;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
     font-weight: 900;
     letter-spacing: 0.075em;
@@ -96,9 +96,9 @@ header .authentification li{
 }
 
 /*Small grey text, used in different contexts*/
-header .authentification a, .footer a, .idea_author {
+header .authentification a, .footer , .footer a, .idea_author {
     text-decoration: none;
-    font-family: "Montserrat", Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     font-style: italic;
     color: #5A5A5A;
@@ -134,13 +134,33 @@ header {
     /*Shadow inside the header*/
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
+/*Pagination style*/
+
+/*------------------------Style of the div-----------------*/
+.pagination_bottom ul {
+    border-right: 5px solid #394c99;
+    background-color: #f1f1f1;
+    list-style-type: none;
+    padding: 10px 20px;
+    text-align:center;
+  }
+  /*Vertical align of the pagination*/
+  .pagination_bottom li{
+    display: inline-block;
+    font-weight: bold;
+    color:#111;
+  }
+  /*Items not active*/
+  .pagination_bottom span{
+    color: #5A5A5A;
+  }
 
 /*Title of the page*/
 .header p {
     position: absolute;
     color: #394c99;
     font-size: 40px;
-    font-family: 'Century', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
     /*Center*/
     left: 50%;
@@ -352,10 +372,40 @@ div.bloc {
     font-size: 18px;
 }
 
-/*Utility ???????*/
+/*Container of the legal mentions */
 .container {
     height: auto;
+    width:80%;
+    margin:0 auto;
 }
+/*Introductions of the legal mentions*/
+.introduction{
+    text-align:center;
+}
+
+.container h2{
+    font-size:35px;
+    line-height:35px;
+}
+
+.part{
+    text-align:left;
+    margin-bottom: 50px;
+}
+.part p{
+    line-height:5px;
+}
+
+.mention p,.introduction p{
+    line-height:30px;
+}
+
+.container h2, .container h3{
+    margin-left:0px;
+    margin-bottom:10px;
+    margin-top:30px;
+}
+
 
 /* Both sections in the content of the index */
 .section {
@@ -466,6 +516,7 @@ div.bloc {
 
 /*Ideas*/
 .idea {
+    width: 90%;
     position: relative;
     margin: 0px 20px 50px 20px;
     text-align: justify;
@@ -510,6 +561,17 @@ div.bloc {
     width: 40%;
     text-align: center;
     float: left;
+}
+
+.button.toEvent {
+    background-color: #222d5a;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    width: 40%;
+    text-align: center;
+    float: right;
 }
 
 /*Idea's count of votes*/
@@ -628,9 +690,10 @@ div.bloc {
   }
   
   /*Style of the text fields*/
-  .form input
+  .form input, textarea
   {
-    width: 90%;
+    max-width: 90%;
+    min-width: 90%;
     border: 1px solid #ccc;
     background: #FFF;
     padding: 10px;
@@ -648,6 +711,18 @@ div.bloc {
     padding: 10px;
     font-size: 15px;
   }
+
+   /*form of the submit button*/
+   .form button[type="button"][name="close"] {
+    margin-top: 5px;
+    cursor: pointer;
+    width: 96%;
+    border: none;
+    background: #5a2222;
+    color: #FFF;
+    padding: 10px;
+    font-size: 15px;
+  }
   
   /*Focus*/
   .form input:focus,.form textarea:focus 
@@ -655,10 +730,27 @@ div.bloc {
     outline: 0;
     border: 1px solid #aaa;
   }
+  
+/* button to add idea*/
+  button[name="add"] {
+    border: none;
+    position: fixed;
+    top: 90px;
+    right: 10px;
+    z-index : 1;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    background: #22285a;
+    color: #FFF;
+    font-size: 50px;
+    line-height: 50px;text-decoration: none;
+  }
 
 /*----------------------------------------------------------------*/
 /*Tablet mode*/
 @media (min-width:600px) {
+
     .header a {
         font-size: 40px;
         margin-top: 10px;
@@ -739,10 +831,6 @@ div.bloc {
         font-size: 16px;
     }
 
-
-    /*----------------------------//-----------------------------*/
-
-
     /*------------------Affichage des événements----------------*/
 
 
@@ -807,6 +895,15 @@ div.bloc {
 
 /*Fullscreen mode*/
 @media (min-width:1200px) {
+
+    .part.hosting{
+        float:right;
+    }
+    
+    .part.editors{
+        display:inline-block;
+    }
+
     .header a {
         font-size: 50px;
         margin-top: 10px;

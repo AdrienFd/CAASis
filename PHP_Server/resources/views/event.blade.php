@@ -1,71 +1,86 @@
 @extends('includes.layout')
 
 @section('header')
-    @include('includes.header')
+@include('includes.header')
 @endsection
 
 @section('main')
-<div>
+<?php
+$description = "description_left";
+$image = "img_right";
+$i=0;
+?>
 
-    <div class="event">
-        <div class="img_right">
-            <img src="/img/events_img/img1_event1.jpg" alt="Photo de l'exia party">
-        </div>
-        <div class="description_left">
-            <div class="bloc">
-                <h2>TITRE DE L'EVENEMENT</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Accusantium autem, qui, aperiam porro cum omnis possimus cumque unde adipisci nemo provident
-                    asperiores sit animi consequuntur iste suscipit ad fuga maxime.</p>
-                <a href="shop" class="read_more" onclick="alert('a')">LIRE LA SUITE</a>
-            </div>
-        </div>
-    </div>
+@if(session('statut') == "Student Desk Member")
+<button type="button" name="add" onclick="open_popup()">+</button>
 
-    <div class="event">
-        <div class="img_left">
-            <img src="/img/events_img/img1_event2.jpg" alt="Photo de foot">
-        </div>
-        <div class="description_right">
-            <div class="bloc">
-                <h2>TITRE DE L'EVENEMENT 2</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Accusantium autem, qui, aperiam porro cum omnis possimus cumque unde adipisci nemo provident
-                    asperiores sit animi consequuntur iste suscipit ad fuga maxime.</p>
-                <a class="read_more" href="/event_presentation">LIRE LA SUITE</a>
-            </div>
-        </div>
-    </div>
+<div class="form" id="addEvent">
+    <form method="post" action="{{ route('addEvent') }}">
+        @csrf
 
-    <div class="event">
-        <div class="img_right">
-            <img src="/img/events_img/img1_event1.jpg" alt="Photo de l'exia party">
+        <div class="fieldset">
+            <input type="text" name="name" placeholder="name" required>
         </div>
-        <div class="description_left">
-            <div class="bloc">
-                <h2>TITRE DE L'EVENEMENT 3</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Accusantium autem, qui, aperiam porro cum omnis possimus cumque unde adipisci nemo provident
-                    asperiores sit animi consequuntur iste suscipit ad fuga maxime.</p>
-                <a class="read_more" href="event_presentation">LIRE LA SUITE</a>
-            </div>
-        </div>
-    </div>
 
-    <div class="event">
-        <div class="img_left">
-            <img src="/img/events_img/img1_event2.jpg" alt="Photo de foot">
+        <div class="fieldset">
+            <textarea name="desc" placeholder="description" required></textarea>
         </div>
-        <div class="description_right">
-            <div class="bloc">
-                <h2>TITRE DE L'EVENEMENT 4</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Accusantium autem, qui, aperiam porro cum omnis possimus cumque unde adipisci nemo provident
-                    asperiores sit animi consequuntur iste suscipit ad fuga maxime.</p>
-                <a class="read_more" href="event_presentation">LIRE LA SUITE</a>
-            </div>
-        </div>
-    </div>
 
+        <div class="fieldset">
+            <input type="date" name="date" placeholder="date" required>
+        </div>
+
+        <div class="fieldset">
+            <input type="checkbox" name="reccurent" value="Yes">Récurent ?<br>
+        </div>
+
+        <div class="fieldset">
+            <input type="number" name="reccurency" placeholder="délai de réccurence">
+        </div>
+
+        <div class="fieldset">
+            <input type="number" name="price" placeholder="prix">
+        </div>
+
+        <button name="id" type="submit" value="" class="">Ajouter event</button>
+        <button name="close" type="button" onclick="close_popup()">Fermer</button>
+    </form>
 </div>
+@endif
+
+@foreach($manifestations as $row)
+<?php
+    if($description == "description_left" && $image == "img_right"){
+        $description = "description_right";
+        $image = "img_left";
+    }
+    else{
+        $description = "description_left";
+        $image = "img_right";
+    }
+    ?>
+
+<div class="event">
+    <div class="{{ $image }}">
+        <img src="{{ $url[$i] }}" alt="test">
+    </div>
+    <div class="{{ $description }}">
+        <div class="bloc">
+            <h2>{{ $row -> manifestation_name }}</h2>
+            <p>{{ $row -> manifestation_description }}</p>
+            <a href="{{Route('event', [ 'id' => $row->id_manifestation]) }}" class="read_more">LIRE LA SUITE</a>
+        </div>
+    </div>
+</div>
+
+<?php $i++; ?>
+@endforeach
+    <div class="pagination_bottom">
+        {{$manifestations->links()}}
+    </div>
+</div>
+@endsection
+
+@section('scripts')
+<script src="{{asset('js/popup_addevent.js')}}"></script>
 @endsection

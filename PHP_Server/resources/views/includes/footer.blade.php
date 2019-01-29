@@ -1,4 +1,4 @@
 <!-- the page footer -->
 <div class="footer">
-    <a>@CAASis Team | 2019</a>
+    @CAASis Team | 2019 | <a href="{{ route('mention') }}">Mentions légales</a>
 </div>
