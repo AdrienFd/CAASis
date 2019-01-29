@@ -19,8 +19,8 @@ var Location={
         return db.query("delete from location where id_location=?",[id],callback);
     },
 
-    UpdateLocation:function(Location){
-        return db.query("Update location set location_name=? where id_location = ?)",[Location.location_name,Location.id_location]);
+    updateLocation:function(id,Location,callback){
+        return db.query("Update location set location_name=? where id_location = ?",[Location.location_name,Location.id_location],callback);
     },
 }
 module.exports= Location;

@@ -19,7 +19,7 @@ var Statut={
         return db.query("delete from statut where id_statut=?",[id],callback);
     },
 
-    UpdateStatut:function(id,Statut,callback){
+    updateStatut:function(id,Statut,callback){
         return db.query("Update Statut set statut_name=? where id_statut=?",[Statut.statut_name,Statut.id_statut],callback);
     },
 }

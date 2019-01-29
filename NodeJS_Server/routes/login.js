@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 var jwt = require('jsonwebtoken');
 db= require ('../db_national');
-
+var jwt = require('jsonwebtoken');
+var Token = require('../models/Modeltoken');
 
 
 

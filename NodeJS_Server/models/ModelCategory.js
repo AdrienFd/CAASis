@@ -19,8 +19,8 @@ var Category={
         return db.query("delete from category where id_category=?",[id],callback);
     },
 
-    UpdateCategory:function(Category){
-        return db.query("Update category set category_name=? where id_category = ?)",[Category.category_name,Category.id_category]);
+    updateCategory:function(Category,callback){
+        return db.query("Update category set category_name=? where id_category = ?",[Category.category_name,Category.id_category],callback);
     },
 }
 module.exports=Category;

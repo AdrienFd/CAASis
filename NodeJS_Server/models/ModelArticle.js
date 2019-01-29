@@ -19,8 +19,8 @@ var Article={
         return db.query("delete from article where id_article=?",[id],callback);
     },
 
-    UpdateArticle:function(Article){
-        return db.query("Update article set article_name=?,article_description=?,Article_price=?,id_category=? where id_article = ?)",[Article.article_name, Article.article_description, Article.article_price, Article.id_category, Article.id_article]);
+    updateArticle:function(Article,callback){
+        return db.query("Update article set article_name=?,article_description=?,Article_price=?,id_category=? where id_article = ?",[Article.article_name, Article.article_description, Article.article_price, Article.id_category, Article.id_article],callback);
     },
 }
 module.exports=Article;

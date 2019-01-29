@@ -19,8 +19,8 @@ var Order={
         return db.query("delete from purchase where id_purchase=?",[id],callback);
     },
 
-    UpdateOrder:function(id,Order,callback){
-        return db.query("Update purchase set purchase_date=?,purchase_price=?,id_member=? where id_purchase =?)",[Order.purchase_date,Order.purchase_price,Order.id_member,Order.id_purchase],callback);
+    updateOrder:function(Order,callback){
+        return db.query("Update purchase set purchase_date=?,purchase_price=?,id_member=? where id_purchase =?",[Order.purchase_date,Order.purchase_price,Order.id_member,Order.id_purchase],callback);
     },
 }
 module.exports=Order;
