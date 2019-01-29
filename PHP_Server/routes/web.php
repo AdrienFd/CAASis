@@ -42,15 +42,12 @@ Route::post('Mot de passe oublié', 'Auth\ForgotPasswordController@resetPassword
 Route::get('add', function () { return view('images.create'); })->name('add');
 Route::post('add', 'ImageController@store')->name('addImage');
 
-
-
 /*
 *
 * Navigation routes
 *
 */
 Route::get('Accueil', function () { return view('home'); })->name('home');
-
 Route::get('Mentions légales', function () { return view('mention'); })->name('mention');
 
 //Ideas routes
@@ -65,6 +62,7 @@ Route::post('Évenements/Add', 'MVC\EventController@Add') -> name('addEvent');
 Route::post('Évenements/Approbate', 'MVC\EventController@Approbate') -> name('approbateEvent');
 Route::get('Évenement/{id}/{name}', 'MVC\EventController@getEvent') -> name('event');
 
+//Shop routes
 Route::get('Boutique', 'MVC\ShopController@getArticles')->name('shop');
 Route::post('Boutique', 'MVC\ShopController@getArticles')->name('shop');
 Route::post('Boutique/AddArticle', 'MVC\ShopController@AddArticle')->name('addArticle');
@@ -72,15 +70,19 @@ Route::post('Boutique/DelArticle', 'MVC\ShopController@DelArticle')->name('delAr
 Route::post('Boutique/AddToCart', 'MVC\ShopController@AddArticle')->name('addToCart');
 Route::post('Boutique/DelFromCart', 'MVC\ShopController@DelArticle')->name('delFromCart');
 
-
-Route::get('/', function () { return view('home'); });
-
 /*
 *
 * Testing routes
 *
 */
-
 Route::get('test', function () {
     return view('test');
 });
+
+/*
+*
+* Wildcard routes
+*
+*/
+Route::get('/', function () { return view('home'); });
+

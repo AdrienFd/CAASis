@@ -55,8 +55,9 @@
                 <input type="date" name="date" required>
             </div>
 
-            <div class="fieldset">
-                <input type="checkbox" name="reccurent" value="Yes">Récurent ?<br>
+            <div class="fieldset" style="transform: translateY(10px)">
+                Récurent ?
+                <input type="checkbox" name="reccurent" value="Yes" style="transform: translate(70px,-20px)">
             </div>
 
             <div class="fieldset">

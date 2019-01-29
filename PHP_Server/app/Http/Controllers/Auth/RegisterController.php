@@ -78,6 +78,9 @@ class RegisterController extends Controller
         //give the request to manipulateData so it will explode email to add user name, first name, statut
         $request = $this->manipulateData($request->all());
         
+        if(!isset($request['rules']) || !isset($request['cookie'])){
+            return redirect()->route('register')->withErrors(array('check' => 'Login field is required.'));
+        }
 
         //Validator verify the pattern of email and password, also check if name and firstname were successfully extracted
         $validator = Validator::make($request, [
