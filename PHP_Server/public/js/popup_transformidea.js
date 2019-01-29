@@ -1,5 +1,3 @@
-var object = document.querySelector('#addIdea');
-
 function close_popup_transform(id) {
     var object = document.getElementById(id);
     if (object.style.display == 'block') {

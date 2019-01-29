@@ -4,6 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Projet" content="CAASis">
+    <meta name="description" content="CAASis est un projet de quatre étudiants en Ecole d'Ingénieurs.
+    Il consiste en la mise en place d'un site web contenant diverses informations à propos de la vie des étudiants,
+    ainsi qu'une boutique destinée non seulement à ces derniers, mais également aux salariés CESI.">
+    <meta name="keywords" content="projet, caasis, bde, evenement, cesi, ecole, ingenieur, etudiant,boutique, goodies, arras, rouen, reims, lille">
 
     <title>CAASis's Project</title>
 

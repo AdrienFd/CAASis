@@ -94,22 +94,25 @@
 
     <!-- create all article in the shop -->
     @foreach($articles as $row)
-    <div class='displayprod'>
-        <img src="{{ $row->image->img_url }}" class='prodpic' />
-        <div class='price'>
-            {{ $row->article_price }} €
-        </div>
+    <a href="{{Route('article', ['name' => $row->article_name,  'id' => $row->id_article]) }}">
+        <div class='displayprod'>
+            <img src="{{ $row->image->img_url }}" class='prodpic' alt="{{ $row->image->img_name }}" />
+            <div class='price'>
+                {{ $row->article_price }} €
+            </div>
 
-        <div class='description'>
-            {{ $row->article_name }}
+            <div class='description'>
+                {{ $row->article_name }}
+            </div>
         </div>
-    </div>
+    </a>
     @endforeach
 
     <!-- pagination link -->
     <div class="pagination_bottom">
-        {{$articles->links("pagination::bootstrap-4")}}
+        {{$articles->links()}}
     </div>
+</div>
 </div>
 @endsection
 

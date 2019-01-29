@@ -68,4 +68,21 @@ class ShopController extends Controller
             }
           
     }
+
+    /*
+    *
+    * Function that return a specific article in a dedicated view where you can buy it
+    *
+    */
+    public function getArticle(){
+        $url = $_SERVER['REQUEST_URI'];
+        $id = explode('/',$url)[2];
+
+        $article=Article::where('id_article', $id)
+        ->first();
+
+        return view('article_description', [
+            'article' => $article,
+        ]);
+    }
 }
