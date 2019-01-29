@@ -39,32 +39,34 @@ Route::post('Mot de passe oublié', 'Auth\ForgotPasswordController@resetPassword
 * Navigation routes
 *
 */
-Route::get('Acceuil', function () { return view('home'); })->name('home');
+Route::get('Accueil', function () { return view('home'); })->name('home');
 
 Route::get('Mentions légales', function () { return view('home'); })->name('mention');
 
 //Route::get('Idées', function () { return view('idea'); })->name('ideas');
 
-//Route::get('Evenements', function () { return view('event'); })->name('events');
-//Route::get('Evenements/{ page }', function ($page) { return view('event_presentation'); })->name('event/{ name }');
+//Route::get('évenements', function () { return view('event'); })->name('events');
+//Route::get('évenements/{ page }', function ($page) { return view('event_presentation'); })->name('event/{ name }');
 
-Route::get('Boutique', function () { return view('shop'); })->name('shop');
-Route::get('Article/{name}', function () { return view('article_description'); })->name('article/{name}');
-
-Route::get('/', function () { return view('home'); });
-
-//Print the ideas
-Route::get('Idées', 'MVC\ideaController@getIdeas')->name('ideas');
-
-//Print the events
-Route::get('Evenements', 'MVC\eventController@getEvents') -> name('events');
-Route::get('Evenement/{id}', 'MVC\eventController@getEvent') -> name('event');
+//ideas
+Route::get('Idées', 'MVC\IdeaController@getIdeas')->name('ideas');
+Route::post('Idées/Vote', "MVC\IdeaController@Vote")->name('vote');
+Route::post('Idées/Add', "MVC\IdeaController@Add")->name('addIdea');
+Route::post('Idées/Transform', "MVC\IdeaController@Transform")->name('moveToEvent');
 
 //Print the articles
-Route::get('Boutique', 'MVC\ShopController@getArticles')->name('shop');
+//Route::get('Boutique', 'MVC\ShopController@getArticles')->name('shop');
+//Route::get('Article/{name}', function () { return view('article_description'); })->name('article/{name}');
 
-//Vote for an idea
-Route::post('/vote', "Controller@Vote");
+//Print the events
+Route::get('Evenements', 'MVC\EventController@getEvents') -> name('events');
+Route::post('Evenements/Add', 'MVC\EventController@Add') -> name('addEvent');
+Route::get('Evenement/{id}', 'MVC\EventController@getEvent') -> name('event');
+
+Route::get('Boutique', 'MVC\ShopController@getArticles')->name('shop');
+Route::post('Boutique', 'MVC\ShopController@getArticles')->name('shop');
+
+Route::get('/', function () { return view('home'); });
 
 /*
 *
