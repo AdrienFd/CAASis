@@ -21,6 +21,9 @@ class eventController extends Controller{
 
         //array to store one image url for each event
         $url = array();
+
+        //array to store one image name for each event
+        $alt = array();
         
         //for each event we :
         foreach ($manifestations as $row) {
@@ -30,11 +33,13 @@ class eventController extends Controller{
             //if there is a record with a url we store that url in the array
             if(isset($img)){
                 array_push($url,$img->img_url);
-
+                array_push($alt,$img->img_name);
             //else we put a default picture to illustrate
             }else{
                 $default_img = "/img/events_img/img1_event1.jpg";
                 array_push($url,$default_img);
+                $default_alt = "Alt par défaut";
+                array_push($alt,$default_alt);
             }
         }
 
@@ -42,6 +47,7 @@ class eventController extends Controller{
         return view('event', [
             'manifestations' => $manifestations,
             'url' => $url,
+            'alt' => $alt,
         ]);
     }
 

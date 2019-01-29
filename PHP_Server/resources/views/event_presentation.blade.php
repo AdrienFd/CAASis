@@ -16,7 +16,7 @@
     <div class="first_bloc">
         <div class="images">
             <img src="/img/events_img/img1_event1.jpg" alt="Première photo de l'exia Party">
-            <a href="comment" class="comment_a">Click to comment</a>
+            <a href="comment" class="comment_a">Commenter la photo</a>
         </div>
         <div class="image_list">
             <a href="event_presentation"><img  src="/img/events_img/img2_event1.jpg" alt="Second Picture"></a>
@@ -29,8 +29,8 @@
                 Molestias necessitatibus perspiciatis expedita beatae deserunt, sed ipsa quasi, inventore eos velit
                 pariatur et.
                 Minima in exercitationem est possimus mollitia quisquam nihil!</p>
-            <div class="event_price">10 Euros</div>
-            <a class="participate_a">I participate</a>
+            <div class="event_price">10 euros</div>
+            <a class="participate_a">Je participe</a>
         </div>
     </div>
 

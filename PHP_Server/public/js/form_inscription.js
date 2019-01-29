@@ -52,7 +52,7 @@ function verifPassword(champ,error)
    if(!regex.test(champ.value))
    {
       surligne(champ, true);
-      error.innerHTML = "<ul> Le mot de passe :</ul> <li> doit être d'au moins 8 caractères </li> <li> doit être constitué d'au moins une Majuscule </li> <li> doit être constitué d'au moins une Minuscule </li> <li>doit être constitué d'au moins un Chiffre</li> <li>peut être constitué des caractères spécicaux ! @ # $ % ^ & * </li>";
+      error.innerHTML = "<ul> Le mot de passe :</ul> <li> doit être constitué d'au moins 8 caractères </li> <li> doit être constitué d'au moins une Majuscule </li> <li> doit être constitué d'au moins une Minuscule </li> <li>doit être constitué d'au moins un Chiffre</li> <li>peut être constitué des caractères spéciaux ! @ # $ % ^ & * </li>";
    }
         
    else

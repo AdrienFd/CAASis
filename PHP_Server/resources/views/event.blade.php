@@ -27,7 +27,7 @@ $i=0;
         </div>
 
         <div class="fieldset">
-            <input type="date" name="date" placeholder="date" required>
+            <input type="date" name="date" required>
         </div>
 
         <div class="fieldset">
@@ -62,7 +62,7 @@ $i=0;
 
 <div class="event">
     <div class="{{ $image }}">
-        <img src="{{ $url[$i] }}" alt="test">
+        <img src="{{ $url[$i] }}" alt="{{ $alt[$i] }}">
     </div>
     <div class="{{ $description }}">
         <div class="bloc">

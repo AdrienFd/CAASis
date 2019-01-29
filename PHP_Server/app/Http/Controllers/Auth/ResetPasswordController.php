@@ -66,7 +66,7 @@ class ResetPasswordController extends Controller
                     //if the actual and new passord are different update psw in db 
                     if($request['new_password'] != $request['actual_password']){
                         $user->update(['password'=> \Hash::make($request['new_password'])]);
-                        return redirect()->route('login')->withErrors(['Votre mot de passe à bien était modifié']);
+                        return redirect()->route('login')->withErrors(['Votre mot de passe à bien été modifié']);
                     }
                     else {
                         return redirect()->route('changePSW')->withErrors(['Votre nouveau mot de passe ne peut être identique à l\'ancien']);

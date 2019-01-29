@@ -95,7 +95,7 @@
     <!-- create all article in the shop -->
     @foreach($articles as $row)
     <div class='displayprod'>
-        <img src="{{ $row->image->img_url }}" class='prodpic' />
+        <img src="{{ $row->image->img_url }}" class='prodpic' alt="{{ $row->image->img_name }}"/>
         <div class='price'>
             {{ $row->article_price }} €
         </div>
@@ -107,7 +107,7 @@
     @endforeach
 
     <!-- pagination link -->
-    {{$articles->links()}}
+    {{ $articles->links() }}
 </div>
 @endsection
 

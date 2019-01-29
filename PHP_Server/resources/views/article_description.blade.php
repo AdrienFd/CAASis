@@ -19,7 +19,7 @@
                 pariatur et.
                 Minima in exercitationem est possimus mollitia quisquam nihil!</p>
             <div class="article_price">10 Euros</div>
-            <button class="buy_button">BUY</button>
+            <button class="buy_button">ACHETER</button>
         </div>
     </div>
 </div>
