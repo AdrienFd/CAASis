@@ -10,7 +10,6 @@ use DB;
 use App\User;
 use Mail;
 
-
 class ideaController extends Controller
 {
      /*

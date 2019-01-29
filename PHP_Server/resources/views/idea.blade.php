@@ -14,7 +14,7 @@
     <button type="button" name="add" onclick="open_popup()">+</button>
 
     <div class="form" id="addIdea">
-        <form method="post" action="{{ route('add') }}">
+        <form method="post" action="{{ route('addIdea') }}">
             @csrf
             <h3>Ajouter idée</h3>
             <div class="fieldset">

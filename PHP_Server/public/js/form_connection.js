@@ -1,5 +1,4 @@
 
-
 var form = document.querySelector('#form_login');
 
 function open_connection() {

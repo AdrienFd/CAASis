@@ -50,7 +50,7 @@
         @endif
 
         <!-- Main content of each page -->
-        <div class="content" onclick="close_menu(); close_login()">
+        <div class="content" <?php if(!Auth::check()) {echo 'onclick="close_menu(); close_login()"';} else {echo 'onclick="close_menu()"';}?>>
             @yield('main')
         </div>
     </main>
@@ -62,7 +62,9 @@
 
     <!-- Scripts -->
     <script src="{{asset('js/navbar.js')}}"></script>
+    @if(Auth::check())
     <script src="{{asset('js/form_connection.js')}}"></script>
+    @endif
     @yield('scripts')
 </body>
 

@@ -2,7 +2,8 @@ var inscription_email = document.getElementById('email_register');
 var inscription_email_error = document.getElementById('email_register_error');
 var inscription_psw = document.getElementById('password_register');
 var inscription_psw_error = document.getElementById('password_register_error');
-
+var inscription_psw_confirm = document.getElementById('password_confirm');
+var inscription_psw_confirm_error = document.getElementById('password_confirm_error');
 inscription_email.addEventListener('blur', function() {
    verifMail(inscription_email, inscription_email_error)
 });
