@@ -95,13 +95,15 @@
         </div>
         <!-- if user is asn't voted for the idea display the vote button -->
         @if(Auth::check())
-        @if(!$voted[$i])
-        <form method="post" action="{{ route('vote') }}">
-            @csrf
-            <button name="id" type="submit" value="{{ $row->id_manifestation }}" class="button votes">Vote!</button>
-        </form>
-        @endif
-        @endif
+                @if(!$voted[$i])
+                <form method="post" action="{{ route('vote') }}">
+                    @csrf
+                    <button name="id" type="submit" value="{{ $row->id_manifestation }}" class="button votes">Vote!</button>
+                </form>
+                @else
+                <button name="id" type="button" value="{{ $row->id_manifestation }}" class="button voted">Voté!</button>
+                @endif
+            @endif
 
         <div class="button count" onclick="open_popup_transform('{{ $row->id_manifestation }}')"> {{ $votes[$i] }}
         </div>
