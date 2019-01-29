@@ -5,11 +5,28 @@
 @endsection
 
 @section('main')
-<div id="goBack">
+@if(Auth::check())
+<button type="button" name="add" onclick="open_popup()">+</button>
 
+
+<div class="form" id="addImg">
+    <form method="post" action="{{ route('addImage')}}"  enctype="multipart/form-data">
+        @csrf
+        <input type="hidden" name="id_event" value="{{ $event->id_manifestation }}" required>
+
+        <div class="fieldset">
+            <input type="text" name="title" required>
+        </div>
+        <div class="fieldset">
+            <input type="file" name="file" required>
+        </div>
+
+        <button type="submit">Upload</button>
+        <button name="close" type="button" onclick="close_popup()">Fermer</button>
+        
+    </form>
 </div>
-
-
+@endif
 
 <div class="presentation">
     <h2>Programmé le : {{ $event->manifestation_date }}</h2>
@@ -34,7 +51,7 @@
             <button type="button" >commenter</button>
             </form>
         @else
-        <img src="{{ asset('img/index.png') }}" alt="No image">
+        <img src="{{ asset('img/index.png') }}" alt="CASSIS LOGO">
         @endif        
         </div>
         
@@ -74,5 +91,6 @@
 @endsection
 
 @section('scripts')
+<script src="{{asset('js/popup_addimg.js')}}"></script>
 <script src="{{asset('js/event_management.js')}}"></script>
 @endsection

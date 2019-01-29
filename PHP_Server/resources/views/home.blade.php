@@ -27,7 +27,7 @@
     <!-- Location image, to replace with the google map's api -->
     <div class="section right">
         <h2>Locations</h2>
-        <img src="/img/location.png" alt="plan">
+        <img src="/img/location.png" alt="Plan">
     </div>
 </div>
 

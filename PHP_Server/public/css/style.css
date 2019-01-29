@@ -9,6 +9,7 @@ body {
     text-align: justify;
 }
 
+/*All h2 titles*/
 h2 {
     margin-left: 5%;
     color: #222d5a;
@@ -67,8 +68,8 @@ h2 {
 
 
 /*Links in the nav menu*/
-#navPanel .links { 
-    padding-top: 30px; 
+#navPanel .links {
+    padding-top: 30px;
 }
 
 /*Links of the nav menu*/
@@ -87,21 +88,24 @@ h2 {
 }
 
 header li {
-    list-style-type:none;
+    list-style-type: none;
 }
 
-header .authentification li{
+header .authentification li {
     float: left;
     margin-right: 10px;
 }
 
 /*Small grey text, used in different contexts*/
-header .authentification a, .footer a, .idea_author {
+header .authentification a,
+.footer a,
+.idea_author {
     text-decoration: none;
     font-family: "Montserrat", Helvetica, sans-serif;
     font-size: 15px;
     font-style: italic;
     color: #5A5A5A;
+    padding: 10px;
 }
 
 /*Button to close the nav menu*/
@@ -112,7 +116,7 @@ header .authentification a, .footer a, .idea_author {
     color: #111;
     text-decoration: none;
     font-size: 25px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 /*Shadow under the header*/
@@ -128,8 +132,8 @@ header {
     background-color: #FFF;
     padding: 10px 0px 0px 0px;
     overflow: hidden;
-    height:65px;
-    text-align:center;
+    height: 65px;
+    text-align: center;
 
     /*Shadow inside the header*/
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1) inset;
@@ -145,7 +149,7 @@ header {
     /*Center*/
     left: 50%;
     transform: translateX(-50%);
-    margin:0 auto;
+    margin: 0 auto;
 }
 
 /*Logo cesi inside the header*/
@@ -153,7 +157,7 @@ header {
     position: absolute;
     top: 10px;
     left: 10px;
-	width: 60px;
+    width: 60px;
     height: 60px;
 
 }
@@ -171,15 +175,22 @@ header {
 
 .already_log {
     text-align: center;
-    color : rgba(0, 125, 255, 1)
+    color: rgba(0, 125, 255, 1)
 }
 
 /*----------------------------ARTICLE PRESENTATION-----------------------------*/
+
+/**
+* div containing the product image and description
+*/
 .article {
     width: 100%;
     margin: auto;
 }
 
+/**
+* Button to buy the article
+*/
 .buy_button {
     background-color: white;
     padding: 2px;
@@ -189,38 +200,66 @@ header {
     font-weight: bold;
 }
 
+/**
+* Presentation of the article (also containing the price and the 'buy' button)
+*/
 .article_description {
     border: solid black 1px;
     padding: 10px;
 }
 
-.article_img, .article_img  img {
+/**
+* div containing the article image
+*/
+.article_img,
+.article_img img {
     height: auto;
     width: 100%;
     display: inline-block;
 }
 
-.article h2 {margin-top: 0px;}
+/**
+* 'Description' title
+*/
+.article h2 {
+    margin-top: 0px;
+}
 
+/**
+* Price of the article
+*/
 .article_price {
     font-weight: bold;
     display: inline-block;
 }
+
 /*------------------------------Affichage des événements--------------------------*/
 
+/*
+* Represente an event (with short description and one illutration)
+*/
 .event {
     height: auto;
 }
 
+/**
+* All paragraphs in the event div
+*/
 .event p {
     height: 190px;
     overflow: hidden;
 }
 
+/**
+* Title of the event
+*/
 .event h2 {
     font-size: 16px;
 }
 
+/**
+* Div containing the illustration (cropped on the left)
+*/
 .img_right {
     height: 150px;
     overflow: hidden;
@@ -228,6 +267,9 @@ header {
     clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
 }
 
+/**
+* Div containing the illustration (cropped on the right)
+*/
 .img_left {
     height: 150px;
     overflow: hidden;
@@ -235,6 +277,9 @@ header {
     clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
 }
 
+/**
+* Event illustration
+*/
 .event img {
     object-fit: cover;
     width: 100%;
@@ -243,6 +288,9 @@ header {
     clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
 }
 
+/**
+* Short event description (on the left)
+*/
 div.description_left {
     width: 100%;
     height: 100%;
@@ -251,6 +299,9 @@ div.description_left {
     margin-bottom: 20px;
 }
 
+/**
+* Short event description (on the right)
+*/
 div.description_right {
     width: 100%;
     height: 100%;
@@ -259,6 +310,9 @@ div.description_right {
     margin-bottom: 20px;
 }
 
+/**
+* Center bloc containing : event name, short description, and a 'read more' button
+*/
 div.bloc {
     width: 80%;
     padding: 0px;
@@ -268,6 +322,9 @@ div.bloc {
     text-align: left;
 }
 
+/**
+* 'read more' button
+*/
 .read_more {
     color: black;
     text-decoration: none;
@@ -279,6 +336,9 @@ div.bloc {
 
 /*----------------------------EVENT PRESENTATION-----------------------------*/
 
+/**
+* Global div
+*/
 .presentation {
     height: auto;
     width: 90%;
@@ -286,6 +346,9 @@ div.bloc {
     overflow: hidden;
 }
 
+/**
+* All titles in the 'Event Presentation' page
+*/
 .presentation h2 {
     text-align: center;
     border-bottom: solid black 2px;
@@ -298,6 +361,9 @@ div.bloc {
     display: inline-block;
 }
 
+/**
+* All event images
+*/
 .image_list {
     height: 50px;
     margin-top: 20px;
@@ -305,6 +371,9 @@ div.bloc {
     display: inline-block;
 }
 
+/**
+* Image in the 'illustration' div
+*/
 .image_list img {
     height: 100%;
 }
@@ -315,6 +384,9 @@ div.bloc {
     vertical-align: middle;
 }
 
+/**
+* Div containing the presentation of the event (contains also the price and the 'participate' button
+*/
 .event_description {
     height: auto;
     width: 100%;
@@ -322,15 +394,24 @@ div.bloc {
     margin-bottom: 20px;
 }
 
+/**
+* All comments on the current image
+*/
 .last_comment {
     height: auto;
     width: 100%;
 }
 
+/**
+* Author of the comment
+*/
 .last_comment h3 {
     font-size: 14px;
 }
 
+/**
+* Button to comment the current image
+*/
 .comment_button {
     margin-top: 10px;
     background-color: white;
@@ -338,6 +419,9 @@ div.bloc {
     padding: 2px;
 }
 
+/**
+* Button to participate to the event
+*/
 .participate_button {
     background-color: white;
     padding: 2px;
@@ -346,6 +430,9 @@ div.bloc {
     font-weight: bold;
 }
 
+/**
+* Price of the event
+*/
 .event_price {
     display: inline-block;
     font-weight: bold;
@@ -471,7 +558,7 @@ div.bloc {
     margin: 0px 20px 50px 20px;
     text-align: justify;
     display: inline-block;
-    border:solid 1px rgb(121, 121, 121);
+    border:solid 4px rgb(93,137,218);
     border-radius:3%;
 }
 
@@ -479,6 +566,7 @@ div.bloc {
 .idea_description {
     height: 200px;
     display: block;
+    padding: 10px;
 }
 
 /*Idea's name*/
@@ -495,15 +583,14 @@ div.bloc {
 
 /*Idea's buttons*/
 .button {
-    border-radius: 15px;
-    border: none;
+    border-bottom-left-radius: 7px;
     font-size: 20px;
     padding: 15px 12%;
 }
 
-/*Button to add a vote*/
-.button.votes {
-    background-color: #222d5a;
+.button.voted {
+    font-size: 20px;
+    background-color:rgb(93,137,218);
     color: white;
     text-align: center;
     text-decoration: none;
@@ -511,6 +598,9 @@ div.bloc {
     width: 40%;
     text-align: center;
     float: left;
+    overflow: hidden;
+    border: none;
+    pointer-events: none;
 }
 
 .button.toEvent {
@@ -526,11 +616,26 @@ div.bloc {
 
 /*Idea's count of votes*/
 .button.count {
-    background-color: #c2c2c2;
-    margin: 0 auto;
-    margin-bottom: 5px;
-    width: 75%;
+    background-color: rgb(93,137,218) ;
+    overflow: hidden;
     text-align: right;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    z-index: -10;
+
+}
+
+/*Button to add a vote*/
+.button.votes {
+    background-color: #222d5a;
+    border:none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    width: 40%;
+    text-align: center;
+    float: left;
 }
 
 /*----------------------------slider (max price)------------------------*/
@@ -573,86 +678,88 @@ div.bloc {
 
 /*Position of the forms*/
 .form {
-    position:absolute;
+    position: absolute;
     max-width: 400px;
     width: 80%;
     top: 20%;
     left: 50%;
-    transform:translateX(-50%);
+    transform: translateX(-50%);
     z-index: 99;
-    display:none;
-  }
-  
-  .form_errors {
-      width: 96%;
-      color : #990000
-  }
-  
-  .form_lists {
-      width: 96%;
-      height: 35px;
-      margin: 0 0 15px;
-      background-color: #FFF;
-      font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
-      border: 1px solid #ccc;
-      padding-left: 5px;
-      cursor:pointer;
-  }
-  
-  .form#subscribe {
-      position: relative;
-      z-index: 1;
-  }
-  
-  
-  /*Style of the form*/
-  .form form {
+    display: none;
+}
+
+.form_errors {
+    width: 96%;
+    color: #990000
+}
+
+.form_lists {
+    width: 96%;
+    height: 35px;
+    margin: 0 0 15px;
+    background-color: #FFF;
+    font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+.form#subscribe {
+    position: relative;
+    z-index: 1;
+}
+
+
+/*Style of the form*/
+.form form {
     background: #F9F9F9;
     padding: 25px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  }
-  
-  /*title of the form*/
-  .form h3 {
+}
+
+/*title of the form*/
+.form h3 {
     display: block;
     font-size: 30px;
     font-weight: 300;
     margin-bottom: 10px;
-    margin-top:0px;
-    text-align:center;
-  }
-  /*link of the form*/
-  .form_link{
-      font-size:12px;
-      text-align:center;
-      text-decoration:underline;
-      font-style: italic;
-      color:rgb(95, 95, 95);
-      cursor:pointer;
-  }
-  /*content of the form*/
-  .fieldset {
+    margin-top: 0px;
+    text-align: center;
+}
+
+/*link of the form*/
+.form_link {
+    font-size: 12px;
+    text-align: center;
+    text-decoration: underline;
+    font-style: italic;
+    color: rgb(95, 95, 95);
+    cursor: pointer;
+}
+
+/*content of the form*/
+.fieldset {
     border: medium none !important;
     margin: 0 0 10px;
     min-width: 100%;
     padding: 0;
     width: 100%;
-  }
-  
-  /*Style of the text fields*/
-  .form input, textarea
-  {
+}
+
+/*Style of the text fields*/
+.form input,
+textarea {
     max-width: 90%;
     min-width: 90%;
     border: 1px solid #ccc;
     background: #FFF;
     padding: 10px;
     font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
-  
-  }
-  
-  /*form of the submit button*/
-  .form button[type="submit"] {
+
+}
+
+/*form of the submit button*/
+.form button[type="submit"] {
     cursor: pointer;
     width: 96%;
     border: none;
@@ -660,10 +767,10 @@ div.bloc {
     color: #FFF;
     padding: 10px;
     font-size: 15px;
-  }
+}
 
-   /*form of the submit button*/
-   .form button[type="button"][name="close"] {
+/*form of the submit button*/
+.form button[type="button"][name="close"] {
     margin-top: 5px;
     cursor: pointer;
     width: 96%;
@@ -672,63 +779,79 @@ div.bloc {
     color: #FFF;
     padding: 10px;
     font-size: 15px;
-  }
-  
-  /*Focus*/
-  .form input:focus,.form textarea:focus 
-  {
+}
+
+/*Focus*/
+.form input:focus,
+.form textarea:focus {
     outline: 0;
     border: 1px solid #aaa;
-  }
-  
+}
+
 /* button to add idea*/
-  button[name="add"] {
+button[name="add"] {
     border: none;
     position: fixed;
     top: 90px;
     right: 10px;
-    z-index : 1;
+    z-index: 1;
     border-radius: 50px;
     width: 50px;
     height: 50px;
     background: #22285a;
     color: #FFF;
     font-size: 50px;
-    line-height: 50px;text-decoration: none;
-  }
+    line-height: 50px;
+    text-decoration: none;
+}
 
 /*----------------------------------------------------------------*/
 /*Tablet mode*/
 @media (min-width:600px) {
+    
+    /* All links in header */
     .header a {
         font-size: 40px;
         margin-top: 10px;
 
     }
 
+    /* All images in header */
     .header img {
         max-width: 9%;
     }
 
+    /*filter section*/
     .filter {
         width: 70%;
     }
 
+    /*Ideas*/
     .idea {
         width: 40%;
     }
 
     /*----------------------------ARTICLE PRESENTATION-----------------------------*/
+
+    /**
+    * Presentation of the article (also containing the price and the 'buy' button)
+    */
     .article_description {
         width: 45%;
         float: right;
         height: 300px;
     }
 
+    /**
+    * All paragraphs in the 'article_description' div
+    */
     .article_description p {
         height: 200px;
     }
 
+    /**
+    * Div containing the article image
+    */
     .article_img {
         width: 45%;
         height: 300px;
@@ -736,46 +859,73 @@ div.bloc {
         text-align: center;
     }
 
+    /**
+    * Article image
+    */
     .article_img img {
         width: auto;
         height: 100%;
     }
 
+    /**
+    * Div containing the article image and the description
+    */
     .article {
         width: 100%;
         height: auto;
     }
 
     /*----------------------------EVENT PRESENTATION-----------------------------*/
+    /**
+    * All sections title
+    */
     .presentation h2 {
         margin-top: 0;
     }
 
+    /**
+    * Div containing images of the event and the 'comment' button
+    */
     .images {
         width: 75%;
         margin-bottom: 30px;
         text-align: center;
     }
 
+    /**
+    * All the event images
+    */
     .image_list {
         height: auto;
         width: 10%;
     }
 
+    /**
+    * Image in the list
+    */
     .image_list img {
         width: 100%;
     }
 
+    /**
+    * Presentation of the event (+price and 'participate' button
+    */
     .event_description {
         width: 44%;
         height: auto;
     }
 
+    /**
+    * Div containing all the event images and its presentation
+    */
     .first_bloc {
         height: auto;
         width: 100%;
     }
 
+    /**
+    * Button to participace to the event
+    */
     .participate_button {
         font-size: 16px;
     }
@@ -787,19 +937,31 @@ div.bloc {
     /*------------------Affichage des événements----------------*/
 
 
+    /**
+    * Short presentation of the event and its illustration
+    */
     .event {
         height: 200px;
     }
 
+    /**
+    * All h2 titles in this div
+    */
     .event h2 {
         font-size: 15px;
     }
 
+    /**
+    * All paragraphs in this div
+    */
     .event p {
         height: 60px;
         margin-bottom: 10px;
     }
 
+    /**
+    * Event illustration on the right (cropped on the left)
+    */
     .img_right {
         width: 60%;
         height: 200px;
@@ -808,6 +970,9 @@ div.bloc {
         float: right;
     }
 
+    /**
+    * Event illustration on the left (cropped on the right)
+    */
     .img_left {
         width: 60%;
         height: 200px;
@@ -816,18 +981,27 @@ div.bloc {
         float: left;
     }
 
+    /**
+    * Illustration of the event
+    */
     .event img {
         height: 100%;
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
 
+    /**
+    * Event presentation on the left
+    */
     div.description_left {
         width: 40%;
         height: 200px;
         margin-bottom: 0;
     }
 
+    /**
+    * Event presentation on the right
+    */
     div.description_right {
         width: 40%;
         height: 200px;
@@ -835,11 +1009,17 @@ div.bloc {
         margin: 0;
     }
 
+    /**
+    * Center div containing the event title, a short presentation, and a 'read more' button
+    */
     div.bloc {
         height: 82%;
         overflow: hidden;
     }
 
+    /**
+    * 'Read more' button -> open the 'Event Presentation' page
+    */
     .read_more {
         margin: 0;
     }
@@ -848,23 +1028,35 @@ div.bloc {
 
 /*Fullscreen mode*/
 @media (min-width:1200px) {
+    
+    /**
+    * All links in header
+    */
     .header a {
         font-size: 50px;
         margin-top: 10px;
     }
 
-    .header img {max-width: 4.5%;}
+    /**
+    * All images of the header
+    */
+    .header img {
+        max-width: 4.5%;
+    }
 
+    /*filter section*/
     .filter {
         width: 40%;
     }
 
+    /*Ideas*/
     .idea {
         width: 25%;
     }
 
     /*--- Put the 2 sections of the index on the same line ---*/
 
+    /* Both sections in the content of the index */
     .section {
         max-width: 45%;
         max-height: 100%;
@@ -877,6 +1069,9 @@ div.bloc {
 
     /*----------------------------ARTICLE PRESENTATION-----------------------------*/
 
+    /**
+    * Presentation of the article (also containing the price and the 'buy' button)
+    */
     .article_description {
         width: 35%;
         float: right;
@@ -884,10 +1079,16 @@ div.bloc {
         margin-right: 20px;
     }
 
+    /**
+    * All paragraph in this div
+    */
     .article_description p {
         height: 200px;
     }
 
+    /**
+    * div containing the article image
+    */
     .article_img {
         width: 60%;
         height: 500px;
@@ -895,41 +1096,70 @@ div.bloc {
         text-align: center;
     }
 
+    /**
+    * Image of the article
+    */
     .article_img img {
         width: auto;
         height: 100%;
     }
 
+    /**
+    * div containing the product image and description
+    */
     .article {
         width: 100%;
         height: auto;
     }
+
     /*------------------Affichage des événements----------------*/
+    
+    /*
+    * Represente an event (with short description and one illutration)
+    */
     .event {
         height: 300px;
     }
 
+    /**
+    * All paragraphs in the event div
+    */
     .event p {
         height: 150px;
     }
 
+    /**
+    * Title of the event
+    */
     .event h2 {
         font-size: 20px;
     }
 
+    /**
+    * Div containing the illustration (cropped on the left)
+    */
     .img_right {
         height: 300px;
     }
 
+    /**
+    * Div containing the illustration (cropped on the right)
+    */
     .img_left {
         height: 300px;
     }
 
+    /**
+    * Short event description (on the left)
+    */
     div.description_left {
         height: 300px;
         line-height: 300px;
     }
 
+    /**
+    * Short event description (on the right)
+    */
     div.description_right {
         width: 40%;
         height: 300px;
@@ -937,10 +1167,16 @@ div.bloc {
         float: right;
     }
 
+    /**
+    * Center bloc containing : event name, short description, and a 'read more' button
+    */
     div.bloc {
         height: 82%;
     }
 
+    /**
+    * 'read more' button
+    */
     .read_more {
         margin: 0;
     }

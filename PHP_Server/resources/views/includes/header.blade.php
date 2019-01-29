@@ -9,7 +9,7 @@ $TITLE = explode("?",$PAGE)[0];
 <!-- the header bar -->
 <div onclick="close_menu(); close_login()" class="header">
     <a>{{ $TITLE }} </a>
-    <img src="/img/logo.png" alt="logo" />
+    <img src="/img/logo.png" alt="Logo BDE Arras" />
 </div>
 
 <!-- include the menu -->

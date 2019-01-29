@@ -33,6 +33,16 @@ Route::post('Changé le mot de passe', 'Auth\ResetPasswordController@changePassw
 Route::get('Mot de passe oublié', function () { return view('auth.passwords.reset'); });
 Route::post('Mot de passe oublié', 'Auth\ForgotPasswordController@resetPassword')->name('resetPSW');
 
+/*
+*
+* Image routes
+*
+*/
+
+Route::get('add', function () { return view('images.create'); })->name('add');
+Route::post('add', 'ImageController@store')->name('addImage');
+
+
 
 /*
 *
