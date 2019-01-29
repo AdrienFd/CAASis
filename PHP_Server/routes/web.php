@@ -51,7 +51,7 @@ Route::post('add', 'ImageController@store')->name('addImage');
 */
 Route::get('Accueil', function () { return view('home'); })->name('home');
 
-Route::get('Mentions légales', function () { return view('home'); })->name('mention');
+Route::get('Mentions légales', function () { return view('mention'); })->name('mention');
 
 //Ideas routes
 Route::get('Idées', 'MVC\IdeaController@getIdeas')->name('ideas');

@@ -15,6 +15,7 @@
     <!-- Links -->
     @yield('stylesheets')
     <link href="{{asset('css/style.css')}}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300" rel="stylesheet">
 </head>
 
 <body>

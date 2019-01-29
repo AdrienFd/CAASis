@@ -107,7 +107,10 @@
     @endforeach
 
     <!-- pagination link -->
-    {{$articles->links()}}
+    <div class="pagination_bottom">
+        {{$articles->links()}}
+    </div>
+</div>
 </div>
 @endsection
 

@@ -77,7 +77,7 @@ h2 {
     width: 90%;
     border-bottom: 2px solid rgb(94, 94, 94);
     display: block;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
     font-weight: 900;
     letter-spacing: 0.075em;
@@ -101,7 +101,7 @@ header .authentification a,
 .footer a,
 .idea_author {
     text-decoration: none;
-    font-family: "Montserrat", Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     font-style: italic;
     color: #5A5A5A;
@@ -144,7 +144,7 @@ header {
     position: absolute;
     color: #394c99;
     font-size: 40px;
-    font-family: 'Century', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
     /*Center*/
     left: 50%;
@@ -805,6 +805,62 @@ button[name="add"] {
     text-decoration: none;
 }
 
+
+/*------------------------Style of the div-----------------*/
+.pagination_bottom ul {
+    border-right: 5px solid #394c99;
+    background-color: #f1f1f1;
+    list-style-type: none;
+    padding: 10px 20px;
+    text-align:center;
+  }
+  /*Vertical align of the pagination*/
+  .pagination_bottom li{
+    display: inline-block;
+    font-weight: bold;
+    color:#111;
+  }
+  /*Items not active*/
+  .pagination_bottom span{
+    color: #5A5A5A;
+  }
+
+
+/*Container of the legal mentions */
+.container {
+    height: auto;
+    width:80%;
+    margin:0 auto;
+}
+/*Introductions of the legal mentions*/
+.introduction{
+    text-align:center;
+}
+
+.container h2{
+    font-size:35px;
+    line-height:35px;
+}
+
+.part{
+    text-align:left;
+    margin-bottom: 50px;
+}
+.part p{
+    line-height:5px;
+}
+
+.mention p,.introduction p{
+    line-height:30px;
+}
+
+.container h2, .container h3{
+    margin-left:0px;
+    margin-bottom:10px;
+    margin-top:30px;
+}
+
+
 /*----------------------------------------------------------------*/
 /*Tablet mode*/
 @media (min-width:600px) {
@@ -1029,6 +1085,15 @@ button[name="add"] {
 /*Fullscreen mode*/
 @media (min-width:1200px) {
     
+    /*legal mention */
+    .part.hosting{
+        float:right;
+    }
+    
+    .part.editors{
+        display:inline-block;
+    }
+
     /**
     * All links in header
     */

@@ -113,7 +113,10 @@ $i=0;
 @endforeach
 
 <!-- pagination links -->
-{{$manifestations->links()}}
+<div class="pagination_bottom">
+        {{$manifestations->links()}}
+    </div>
+</div>
 </div>
 @endsection
 
