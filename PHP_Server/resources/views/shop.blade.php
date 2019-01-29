@@ -99,7 +99,6 @@
         <div class='price'>
             {{ $row->article_price }} €
         </div>
-
         <div class='description'>
             {{ $row->article_name }}
         </div>
