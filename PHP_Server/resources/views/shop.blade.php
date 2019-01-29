@@ -7,9 +7,11 @@
 @section('main')
 
 <!-- Filter section -->
-<form method="post" action="{{ route('shop') }}">
-    <fieldset class="filter">
-        <legend>Filter</legend>
+<fieldset class="filter">
+    <legend>Filter</legend>
+    <form method="post" action="{{ route('shop') }}">
+
+
         @csrf
 
         <!-- Selection of a category -->
@@ -78,12 +80,14 @@
             </div>
         </div>
         <button name="submit" type="submit">Filtrer</button>
-        <a href="{{ route('shop') }}"> <button type="button">Enlever les filtres</button> </a>
-    </fieldset>
+    </form>
 
-</form>
-
-
+    <!-- form to remove filter -->
+    <form method='GET' action="{{ route('shop') }}"> 
+        @csrf 
+        <button type="submit">Enlever les filtres</button> 
+    </form>
+</fieldset>
 <!-- Items on the shop -->
 <?php $i=0; ?>
 <div class="shop_content">

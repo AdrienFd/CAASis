@@ -21,7 +21,7 @@
                 <input type="text" class="" name="name" placeholder="name" required autofocus>
             </div>
             <div class="fieldset">
-                <textarea type="text" class="" name="description" placeholder="description" required></textarea>
+                <textarea class="" name="description" placeholder="description" required></textarea>
             </div>
             
             <button name="submit" type="submit">Ajouter l'idée</button>
@@ -40,19 +40,19 @@
         <form method="post" action="{{ route('moveToEvent') }}">
             @csrf
 
-            <input type="hidden" name="id_idea" value="{{ $row->id_manifestation }}" required>
-            <input type="hidden" name="id_creator" value="{{ $row->id_member_suggest }}" required>
+            <input type="hidden" name="id_idea" value="{{ $row->id_manifestation }}" >
+            <input type="hidden" name="id_creator" value="{{ $row->id_member_suggest }}" >
 
             <div class="fieldset">
                 <input type="text" name="name" value="{{ $row->manifestation_name }}" required>
             </div>
 
             <div class="fieldset">
-                <textarea type="text" name="desc" required>{{ $row->manifestation_description }}</textarea>
+                <textarea name="desc" required>{{ $row->manifestation_description }}</textarea>
             </div>
 
             <div class="fieldset">
-                <input type="date" name="date" placeholder="date" required>
+                <input type="date" name="date" required>
             </div>
 
             <div class="fieldset">

@@ -23,7 +23,7 @@ $i=0;
         </div>
 
         <div class="fieldset">
-            <textarea type="text" name="desc" placeholder="description" required></textarea>
+            <textarea name="desc" placeholder="description" required></textarea>
         </div>
 
         <div class="fieldset">

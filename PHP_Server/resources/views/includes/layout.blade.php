@@ -62,7 +62,7 @@
 
     <!-- Scripts -->
     <script src="{{asset('js/navbar.js')}}"></script>
-    @if(Auth::check())
+    @if(!Auth::check())
     <script src="{{asset('js/form_connection.js')}}"></script>
     @endif
     @yield('scripts')
