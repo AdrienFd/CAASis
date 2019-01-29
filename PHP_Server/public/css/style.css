@@ -9,6 +9,7 @@ body {
     text-align: justify;
 }
 
+/*All h2 titles*/
 h2 {
     margin-left: 5%;
     color: #222d5a;
@@ -43,8 +44,10 @@ h2 {
 
     /*Position of the button*/
     position: fixed;
-    top: 5px;
+    top: 10px;
     right: 10px;
+    width: 50px;
+    height: 50px;
     z-index: 2;
 }
 
@@ -63,16 +66,10 @@ h2 {
     display: none;
 }
 
-/*Links in the nav menu*/
-#navPanel .links { padding-top: 30px; }
 
-/*Small grey text, used in different contexts*/
-#navPanel .authentification a, .footer a, .idea_author {
-    text-decoration: none;
-    font-family: "Montserrat", Helvetica, sans-serif;
-    font-size: 13px italic;
-    font-style: italic;
-    color: #5A5A5A;
+/*Links in the nav menu*/
+#navPanel .links {
+    padding-top: 30px;
 }
 
 /*Links of the nav menu*/
@@ -80,7 +77,7 @@ h2 {
     width: 90%;
     border-bottom: 2px solid rgb(94, 94, 94);
     display: block;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
     font-weight: 900;
     letter-spacing: 0.075em;
@@ -88,6 +85,27 @@ h2 {
     text-transform: uppercase;
     text-decoration: none;
     color: black;
+}
+
+header li {
+    list-style-type: none;
+}
+
+header .authentification li {
+    float: left;
+    margin-right: 10px;
+}
+
+/*Small grey text, used in different contexts*/
+header .authentification a,
+.footer a,
+.idea_author {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-style: italic;
+    color: #5A5A5A;
+    padding: 10px;
 }
 
 /*Button to close the nav menu*/
@@ -98,10 +116,12 @@ h2 {
     color: #111;
     text-decoration: none;
     font-size: 25px;
+    cursor: pointer;
 }
 
 /*Shadow under the header*/
 header {
+    position: relative;
     border-radius: 500px/10px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
     margin-bottom: 20px;
@@ -112,8 +132,8 @@ header {
     background-color: #FFF;
     padding: 10px 0px 0px 0px;
     overflow: hidden;
-    height:65px;
-    text-align:center;
+    height: 65px;
+    text-align: center;
 
     /*Shadow inside the header*/
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1) inset;
@@ -124,20 +144,22 @@ header {
     position: absolute;
     color: #394c99;
     font-size: 40px;
-    font-family: 'Century', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
     /*Center*/
     left: 50%;
     transform: translateX(-50%);
-    margin:0 auto;
+    margin: 0 auto;
 }
 
 /*Logo cesi inside the header*/
 .header img {
-    float: left;
-    width: auto;
-    max-width: 20%;
-    padding-left: 10px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 60px;
+    height: 60px;
+
 }
 
 /*Grey footer with copyright in the bottom of the page*/
@@ -151,12 +173,24 @@ header {
 
 }
 
+.already_log {
+    text-align: center;
+    color: rgba(0, 125, 255, 1)
+}
+
 /*----------------------------ARTICLE PRESENTATION-----------------------------*/
+
+/**
+* div containing the product image and description
+*/
 .article {
     width: 100%;
     margin: auto;
 }
 
+/**
+* Button to buy the article
+*/
 .buy_button {
     background-color: white;
     padding: 2px;
@@ -166,38 +200,66 @@ header {
     font-weight: bold;
 }
 
+/**
+* Presentation of the article (also containing the price and the 'buy' button)
+*/
 .article_description {
     border: solid black 1px;
     padding: 10px;
 }
 
-.article_img, .article_img  img {
+/**
+* div containing the article image
+*/
+.article_img,
+.article_img img {
     height: auto;
     width: 100%;
     display: inline-block;
 }
 
-.article h2 {margin-top: 0px;}
+/**
+* 'Description' title
+*/
+.article h2 {
+    margin-top: 0px;
+}
 
+/**
+* Price of the article
+*/
 .article_price {
     font-weight: bold;
     display: inline-block;
 }
+
 /*------------------------------Affichage des événements--------------------------*/
 
+/*
+* Represente an event (with short description and one illutration)
+*/
 .event {
     height: auto;
 }
 
+/**
+* All paragraphs in the event div
+*/
 .event p {
-    height: 190px auto;
+    height: 190px;
     overflow: hidden;
 }
 
+/**
+* Title of the event
+*/
 .event h2 {
     font-size: 16px;
 }
 
+/**
+* Div containing the illustration (cropped on the left)
+*/
 .img_right {
     height: 150px;
     overflow: hidden;
@@ -205,6 +267,9 @@ header {
     clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
 }
 
+/**
+* Div containing the illustration (cropped on the right)
+*/
 .img_left {
     height: 150px;
     overflow: hidden;
@@ -212,13 +277,20 @@ header {
     clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
 }
 
+/**
+* Event illustration
+*/
 .event img {
+    object-fit: cover;
     width: 100%;
-    height: 100% auto;
+    height: auto;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
 }
 
+/**
+* Short event description (on the left)
+*/
 div.description_left {
     width: 100%;
     height: 100%;
@@ -227,6 +299,9 @@ div.description_left {
     margin-bottom: 20px;
 }
 
+/**
+* Short event description (on the right)
+*/
 div.description_right {
     width: 100%;
     height: 100%;
@@ -235,6 +310,9 @@ div.description_right {
     margin-bottom: 20px;
 }
 
+/**
+* Center bloc containing : event name, short description, and a 'read more' button
+*/
 div.bloc {
     width: 80%;
     padding: 0px;
@@ -244,6 +322,9 @@ div.bloc {
     text-align: left;
 }
 
+/**
+* 'read more' button
+*/
 .read_more {
     color: black;
     text-decoration: none;
@@ -255,6 +336,9 @@ div.bloc {
 
 /*----------------------------EVENT PRESENTATION-----------------------------*/
 
+/**
+* Global div
+*/
 .presentation {
     height: auto;
     width: 90%;
@@ -262,6 +346,9 @@ div.bloc {
     overflow: hidden;
 }
 
+/**
+* All titles in the 'Event Presentation' page
+*/
 .presentation h2 {
     text-align: center;
     border-bottom: solid black 2px;
@@ -274,6 +361,9 @@ div.bloc {
     display: inline-block;
 }
 
+/**
+* All event images
+*/
 .image_list {
     height: 50px;
     margin-top: 20px;
@@ -281,16 +371,22 @@ div.bloc {
     display: inline-block;
 }
 
+/**
+* Image in the 'illustration' div
+*/
 .image_list img {
     height: 100%;
 }
 
 .images img {
     width: 100%;
-    height: 100% auto;
+    height: 100%;
     vertical-align: middle;
 }
 
+/**
+* Div containing the presentation of the event (contains also the price and the 'participate' button
+*/
 .event_description {
     height: auto;
     width: 100%;
@@ -298,15 +394,24 @@ div.bloc {
     margin-bottom: 20px;
 }
 
+/**
+* All comments on the current image
+*/
 .last_comment {
     height: auto;
     width: 100%;
 }
 
+/**
+* Author of the comment
+*/
 .last_comment h3 {
     font-size: 14px;
 }
 
+/**
+* Button to comment the current image
+*/
 .comment_button {
     margin-top: 10px;
     background-color: white;
@@ -314,6 +419,9 @@ div.bloc {
     padding: 2px;
 }
 
+/**
+* Button to participate to the event
+*/
 .participate_button {
     background-color: white;
     padding: 2px;
@@ -322,6 +430,9 @@ div.bloc {
     font-weight: bold;
 }
 
+/**
+* Price of the event
+*/
 .event_price {
     display: inline-block;
     font-weight: bold;
@@ -442,16 +553,20 @@ div.bloc {
 
 /*Ideas*/
 .idea {
+    width: 90%;
     position: relative;
     margin: 0px 20px 50px 20px;
     text-align: justify;
     display: inline-block;
+    border:solid 4px rgb(93,137,218);
+    border-radius:3%;
 }
 
 /*Idea's description*/
 .idea_description {
     height: 200px;
     display: block;
+    padding: 10px;
 }
 
 /*Idea's name*/
@@ -468,15 +583,14 @@ div.bloc {
 
 /*Idea's buttons*/
 .button {
-    border-radius: 15px;
-    border: none;
+    border-bottom-left-radius: 7px;
     font-size: 20px;
     padding: 15px 12%;
 }
 
-/*Button to add a vote*/
-.button.votes {
-    background-color: #222d5a;
+.button.voted {
+    font-size: 20px;
+    background-color:rgb(93,137,218);
     color: white;
     text-align: center;
     text-decoration: none;
@@ -484,15 +598,44 @@ div.bloc {
     width: 40%;
     text-align: center;
     float: left;
+    overflow: hidden;
+    border: none;
+    pointer-events: none;
+}
+
+.button.toEvent {
+    background-color: #222d5a;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    width: 40%;
+    text-align: center;
+    float: right;
 }
 
 /*Idea's count of votes*/
 .button.count {
-    background-color: #c2c2c2;
-    margin: 0 auto;
-    margin-bottom: 5px;
-    width: 75%;
+    background-color: rgb(93,137,218) ;
+    overflow: hidden;
     text-align: right;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    z-index: -10;
+
+}
+
+/*Button to add a vote*/
+.button.votes {
+    background-color: #222d5a;
+    border:none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    width: 40%;
+    text-align: center;
+    float: left;
 }
 
 /*----------------------------slider (max price)------------------------*/
@@ -530,38 +673,241 @@ div.bloc {
     cursor: pointer;
 }
 
+
+/*Forms*/
+
+/*Position of the forms*/
+.form {
+    position: absolute;
+    max-width: 400px;
+    width: 80%;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    display: none;
+}
+
+.form_errors {
+    width: 96%;
+    color: #990000
+}
+
+.form_lists {
+    width: 96%;
+    height: 35px;
+    margin: 0 0 15px;
+    background-color: #FFF;
+    font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+.form#subscribe {
+    position: relative;
+    z-index: 1;
+}
+
+
+/*Style of the form*/
+.form form {
+    background: #F9F9F9;
+    padding: 25px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+/*title of the form*/
+.form h3 {
+    display: block;
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    text-align: center;
+}
+
+/*link of the form*/
+.form_link {
+    font-size: 12px;
+    text-align: center;
+    text-decoration: underline;
+    font-style: italic;
+    color: rgb(95, 95, 95);
+    cursor: pointer;
+}
+
+/*content of the form*/
+.fieldset {
+    border: medium none !important;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 0;
+    width: 100%;
+}
+
+/*Style of the text fields*/
+.form input,
+textarea {
+    max-width: 90%;
+    min-width: 90%;
+    border: 1px solid #ccc;
+    background: #FFF;
+    padding: 10px;
+    font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+
+}
+
+/*form of the submit button*/
+.form button[type="submit"] {
+    cursor: pointer;
+    width: 96%;
+    border: none;
+    background: #222d5a;
+    color: #FFF;
+    padding: 10px;
+    font-size: 15px;
+}
+
+/*form of the submit button*/
+.form button[type="button"][name="close"] {
+    margin-top: 5px;
+    cursor: pointer;
+    width: 96%;
+    border: none;
+    background: #5a2222;
+    color: #FFF;
+    padding: 10px;
+    font-size: 15px;
+}
+
+/*Focus*/
+.form input:focus,
+.form textarea:focus {
+    outline: 0;
+    border: 1px solid #aaa;
+}
+
+/* button to add idea*/
+button[name="add"] {
+    border: none;
+    position: fixed;
+    top: 90px;
+    right: 10px;
+    z-index: 1;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    background: #22285a;
+    color: #FFF;
+    font-size: 50px;
+    line-height: 50px;
+    text-decoration: none;
+}
+
+
+/*------------------------Style of the div-----------------*/
+.pagination_bottom ul {
+    border-right: 5px solid #394c99;
+    background-color: #f1f1f1;
+    list-style-type: none;
+    padding: 10px 20px;
+    text-align:center;
+  }
+  /*Vertical align of the pagination*/
+  .pagination_bottom li{
+    display: inline-block;
+    font-weight: bold;
+    color:#111;
+  }
+  /*Items not active*/
+  .pagination_bottom span{
+    color: #5A5A5A;
+  }
+
+
+/*Container of the legal mentions */
+.container {
+    height: auto;
+    width:80%;
+    margin:0 auto;
+}
+/*Introductions of the legal mentions*/
+.introduction{
+    text-align:center;
+}
+
+.container h2{
+    font-size:35px;
+    line-height:35px;
+}
+
+.part{
+    text-align:left;
+    margin-bottom: 50px;
+}
+.part p{
+    line-height:5px;
+}
+
+.mention p,.introduction p{
+    line-height:30px;
+}
+
+.container h2, .container h3{
+    margin-left:0px;
+    margin-bottom:10px;
+    margin-top:30px;
+}
+
+
 /*----------------------------------------------------------------*/
 /*Tablet mode*/
 @media (min-width:600px) {
+    
+    /* All links in header */
     .header a {
         font-size: 40px;
         margin-top: 10px;
 
     }
 
+    /* All images in header */
     .header img {
         max-width: 9%;
     }
 
+    /*filter section*/
     .filter {
         width: 70%;
     }
 
+    /*Ideas*/
     .idea {
         width: 40%;
     }
 
     /*----------------------------ARTICLE PRESENTATION-----------------------------*/
+
+    /**
+    * Presentation of the article (also containing the price and the 'buy' button)
+    */
     .article_description {
         width: 45%;
         float: right;
         height: 300px;
     }
 
+    /**
+    * All paragraphs in the 'article_description' div
+    */
     .article_description p {
         height: 200px;
     }
 
+    /**
+    * Div containing the article image
+    */
     .article_img {
         width: 45%;
         height: 300px;
@@ -569,46 +915,73 @@ div.bloc {
         text-align: center;
     }
 
+    /**
+    * Article image
+    */
     .article_img img {
         width: auto;
         height: 100%;
     }
 
+    /**
+    * Div containing the article image and the description
+    */
     .article {
         width: 100%;
         height: auto;
     }
 
     /*----------------------------EVENT PRESENTATION-----------------------------*/
+    /**
+    * All sections title
+    */
     .presentation h2 {
         margin-top: 0;
     }
 
+    /**
+    * Div containing images of the event and the 'comment' button
+    */
     .images {
-        width: 44%;
+        width: 75%;
         margin-bottom: 30px;
         text-align: center;
     }
 
+    /**
+    * All the event images
+    */
     .image_list {
         height: auto;
         width: 10%;
     }
 
+    /**
+    * Image in the list
+    */
     .image_list img {
         width: 100%;
     }
 
+    /**
+    * Presentation of the event (+price and 'participate' button
+    */
     .event_description {
         width: 44%;
         height: auto;
     }
 
+    /**
+    * Div containing all the event images and its presentation
+    */
     .first_bloc {
         height: auto;
         width: 100%;
     }
 
+    /**
+    * Button to participace to the event
+    */
     .participate_button {
         font-size: 16px;
     }
@@ -620,15 +993,31 @@ div.bloc {
     /*------------------Affichage des événements----------------*/
 
 
+    /**
+    * Short presentation of the event and its illustration
+    */
     .event {
         height: 200px;
     }
 
+    /**
+    * All h2 titles in this div
+    */
+    .event h2 {
+        font-size: 15px;
+    }
+
+    /**
+    * All paragraphs in this div
+    */
     .event p {
-        height: 78px;
+        height: 60px;
         margin-bottom: 10px;
     }
 
+    /**
+    * Event illustration on the right (cropped on the left)
+    */
     .img_right {
         width: 60%;
         height: 200px;
@@ -637,6 +1026,9 @@ div.bloc {
         float: right;
     }
 
+    /**
+    * Event illustration on the left (cropped on the right)
+    */
     .img_left {
         width: 60%;
         height: 200px;
@@ -645,17 +1037,27 @@ div.bloc {
         float: left;
     }
 
+    /**
+    * Illustration of the event
+    */
     .event img {
+        height: 100%;
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
 
+    /**
+    * Event presentation on the left
+    */
     div.description_left {
         width: 40%;
         height: 200px;
         margin-bottom: 0;
     }
 
+    /**
+    * Event presentation on the right
+    */
     div.description_right {
         width: 40%;
         height: 200px;
@@ -663,11 +1065,17 @@ div.bloc {
         margin: 0;
     }
 
+    /**
+    * Center div containing the event title, a short presentation, and a 'read more' button
+    */
     div.bloc {
         height: 82%;
         overflow: hidden;
     }
 
+    /**
+    * 'Read more' button -> open the 'Event Presentation' page
+    */
     .read_more {
         margin: 0;
     }
@@ -676,23 +1084,44 @@ div.bloc {
 
 /*Fullscreen mode*/
 @media (min-width:1200px) {
+    
+    /*legal mention */
+    .part.hosting{
+        float:right;
+    }
+    
+    .part.editors{
+        display:inline-block;
+    }
+
+    /**
+    * All links in header
+    */
     .header a {
         font-size: 50px;
         margin-top: 10px;
     }
 
-    .header img {max-width: 4.5%;}
+    /**
+    * All images of the header
+    */
+    .header img {
+        max-width: 4.5%;
+    }
 
+    /*filter section*/
     .filter {
         width: 40%;
     }
 
+    /*Ideas*/
     .idea {
         width: 25%;
     }
 
     /*--- Put the 2 sections of the index on the same line ---*/
 
+    /* Both sections in the content of the index */
     .section {
         max-width: 45%;
         max-height: 100%;
@@ -705,6 +1134,9 @@ div.bloc {
 
     /*----------------------------ARTICLE PRESENTATION-----------------------------*/
 
+    /**
+    * Presentation of the article (also containing the price and the 'buy' button)
+    */
     .article_description {
         width: 35%;
         float: right;
@@ -712,10 +1144,16 @@ div.bloc {
         margin-right: 20px;
     }
 
+    /**
+    * All paragraph in this div
+    */
     .article_description p {
         height: 200px;
     }
 
+    /**
+    * div containing the article image
+    */
     .article_img {
         width: 60%;
         height: 500px;
@@ -723,41 +1161,70 @@ div.bloc {
         text-align: center;
     }
 
+    /**
+    * Image of the article
+    */
     .article_img img {
         width: auto;
         height: 100%;
     }
 
+    /**
+    * div containing the product image and description
+    */
     .article {
         width: 100%;
         height: auto;
     }
+
     /*------------------Affichage des événements----------------*/
+    
+    /*
+    * Represente an event (with short description and one illutration)
+    */
     .event {
         height: 300px;
     }
 
+    /**
+    * All paragraphs in the event div
+    */
     .event p {
         height: 150px;
     }
 
+    /**
+    * Title of the event
+    */
     .event h2 {
         font-size: 20px;
     }
 
+    /**
+    * Div containing the illustration (cropped on the left)
+    */
     .img_right {
         height: 300px;
     }
 
+    /**
+    * Div containing the illustration (cropped on the right)
+    */
     .img_left {
         height: 300px;
     }
 
+    /**
+    * Short event description (on the left)
+    */
     div.description_left {
         height: 300px;
         line-height: 300px;
     }
 
+    /**
+    * Short event description (on the right)
+    */
     div.description_right {
         width: 40%;
         height: 300px;
@@ -765,11 +1232,18 @@ div.bloc {
         float: right;
     }
 
+    /**
+    * Center bloc containing : event name, short description, and a 'read more' button
+    */
     div.bloc {
         height: 82%;
     }
 
+    /**
+    * 'read more' button
+    */
     .read_more {
         margin: 0;
     }
+
 }

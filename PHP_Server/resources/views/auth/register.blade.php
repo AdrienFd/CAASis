@@ -1,73 +1,69 @@
-@extends('layouts.app')
+@extends('includes.layout')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+@section('header')
+@include('includes.header')
+@endsection
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+@section('main')
+<!-- if user is not connected he can register via the form -->
+@if(!Auth::check())
+<div id="subscribe" class="form" style="display : block;">
+    <form method="POST" action="{{ route('subscribe') }}">
+        @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+        <h3>S'enregistrer</h3>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+        <!-- Email field -->
+        <div class="fieldset">
+            @if ($errors->has('email'))
+            <p class="form_errors" role="alert">L'email est déja utilisé où ne correspond pas au format demandé</p>
+            @endif
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+            <input id="email_register" type="email" class="" name="email" placeholder="email" required>
+            <p id="email_register_error" class="form_errors"></p>
+        </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+        <!-- PSW field -->
+        <div class="fieldset">
+            @if ($errors->has('password'))
+            <p class="form_errors" role="alert">Le mot de passe ne correspond pas au format demandé ou les mots de
+                passe ne sont pas les mêmes</p>
+            @endif
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+            <input id="password_register" type="password" class="" name="password" placeholder="mot de passe" required>
+            <p id="password_register_error" class="form_errors"></p>
+        </div>
 
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+        <!-- PSW confirm field -->
+        <div class="fieldset">
+            <input id="password_confirm" type="password" class="" name="password_confirmation" placeholder="répéter mot de passe"
+                required>
+            <p id="password_confirm_error" class="form_errors"></p>
+        </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
-                            @if($errors->any())
-        <div class="row collapse">
-            <ul class="alert-box warning radius">
-                @foreach($errors->all() as $error)
-                    <li> {{ $error }} </li>
+        <!-- Button & link aera -->
+        <div>
+            <select id="inscription_location" class="form_lists" name="location">
+                <!-- loop that genrate all option with all location -->
+                @foreach($locations as $location)
+                <option value="{{$location->id_location}}">{{$location->location_name}}</option>
                 @endforeach
-            </ul>
+            </select>
         </div>
-        @endif
-                </div>
-            </div>
-        </div>
-    </div>
+
+        <button type="submit" id="register-submit">Inscription</button>
+        <a href="{{ route('login') }}" class="form_link">Se connecter</a>
+
+    </form>
 </div>
+
+<!-- if user is connected we display that is connected he can't see the register form -->
+@else
+<p class="already_log">Utilisateur connecté</p>
+@endif
+
+@endsection
+
+@section('scripts')
+<script src="{{asset('js/form_inscription.js')}}"></script>
 @endsection

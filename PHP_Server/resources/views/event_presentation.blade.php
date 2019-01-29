@@ -5,32 +5,61 @@
 @endsection
 
 @section('main')
-<div id="goBack">
+@if(Auth::check())
+<button type="button" name="add" onclick="open_popup()">+</button>
 
+
+<div class="form" id="addImg">
+    <form method="post" action="{{ route('addImage')}}"  enctype="multipart/form-data">
+        @csrf
+        <input type="hidden" name="id_event" value="{{ $event->id_manifestation }}" required>
+
+        <div class="fieldset">
+            <input type="text" name="title" required>
+        </div>
+        <div class="fieldset">
+            <input type="file" name="file" required>
+        </div>
+
+        <button type="submit">Upload</button>
+        <button name="close" type="button" onclick="close_popup()">Fermer</button>
+        
+    </form>
 </div>
-
+@endif
 
 <div class="presentation">
-    <h2>TITRE DE L'EVENEMENT</h2>
-
+    <h2>Programmé le : {{ $event->manifestation_date }}</h2>
     <div class="first_bloc">
-        <div class="images">
-            <img src="/img/events_img/img1_event1.jpg" alt="Première photo de l'exia Party">
-            <button href="comment" class="comment_button">Click to comment</button>
+  
+        <!-- for each img in imgs put the img in the bar of img-->
+        <div class="image_list" style="float: left; width: 20%; height: 50vh; max-height:400px;">
+        @foreach($imgs as $img)
+            <img id="{{$img->id_img}}" src="{{$img->img_url}}" alt="{{$img->img_name}}" onclick="switch_img('{{$img->img_url}}')" style="width: 100%; height: 100px; object-fit: cover; margin-right: 5px;">   
+        @endforeach
         </div>
-        <div class="image_list">
-            <img href="event_presentation" src="/img/events_img/img2_event1.jpg" alt="Second Picture">
-            <img href="event_presentation" src="/img/events_img/img3_event1.jpg" alt="Third Picture">
-            <img href="event_presentation" src="/img/events_img/img2_event1.jpg" alt="Fourth Picture">
+
+        <!-- if imgs is 'not null' pût the first pic in the big div -->
+        
+        <div class="images" style="float: left; width: 80%; height: 50vh; max-height:400px;">
+        @if($imgs != [])
+            <img class="main_img" id="{{$imgs[0]->id_img}}" src="{{$imgs[0]->img_url}}" alt="{{$imgs[0]->img_name}}"  style="width: 100%; height: 100%; object-fit: cover;  margin-left: 5px;">
+            <form action="" method="">
+            @csrf
+            <button type="button" >like</button>
+            <button type="button" >unlike</button>
+            <button type="button" >commenter</button>
+            </form>
+        @else
+        <img src="{{ asset('img/index.png') }}" alt="CASSIS LOGO">
+        @endif        
         </div>
+        
+
         <div class="event_description">
             <h2>PRESENTATION</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Molestias necessitatibus perspiciatis expedita beatae deserunt, sed ipsa quasi, inventore eos velit
-                pariatur et.
-                Minima in exercitationem est possimus mollitia quisquam nihil!</p>
-            <div class="event_price">10 Euros</div>
-            <button class="participate_button">I participate</button>
+            <p>{{ $event->manifestation_description }}</p>
+            <div class="event_price">{{ $event->manifestation_price }} Euros</div>
         </div>
     </div>
 
@@ -59,4 +88,9 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script src="{{asset('js/popup_addimg.js')}}"></script>
+<script src="{{asset('js/event_management.js')}}"></script>
 @endsection
