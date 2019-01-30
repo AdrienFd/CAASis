@@ -8,7 +8,7 @@ $TITLE = explode("?",$PAGE)[0];
 
 <!-- the header bar -->
 <div onclick="close_menu(); close_login()" class="header">
-    <a>{{ $TITLE }} </a>
+    <h1>{{ $TITLE }} </h1>
     <img src="/img/logo.png" alt="Logo BDE Arras" />
 </div>
 

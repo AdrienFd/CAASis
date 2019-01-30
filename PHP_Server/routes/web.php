@@ -79,6 +79,8 @@ Route::get('Évenement/{id}/{name}', 'MVC\EventController@getEvent') -> name('ev
 //   || Images routes sub-part of event
 //   \/
     Route::post('like', 'MVC\ImageController@like')->name('like');
+    Route::get('like/{id}', 'MVC\ImageController@getLike');
+    Route::get('user-like/{id_img}/{id_usr}', 'MVC\ImageController@getUserLike');
 
 //Shop routes
 Route::get('Boutique', 'MVC\ShopController@getArticles')->name('shop');

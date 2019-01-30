@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\request;
+use DB;
 
 class ResetPasswordController extends Controller
 {
@@ -54,7 +55,9 @@ class ResetPasswordController extends Controller
   
                     //if the actual and new passord are different update psw in db 
                     if($request['new_password'] != $request['actual_password']){
+                        DB::transaction(function () use ($request, $user){
                         $user->update(['password'=> \Hash::make($request['new_password'])]);
+                        });
                         return redirect()->route('login')->withErrors(['Votre mot de passe à bien était modifié']);
                     }
                     else {

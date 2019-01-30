@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\User;
 use Illuminate\Http\Request;
 use Auth;
-
+use DB;
 class LoginController extends Controller
 {
 
@@ -66,10 +66,13 @@ class LoginController extends Controller
             $user = User::where('id_member','=',$check->id_member);
             $userData = $user->first();
             if($userData->email_verified == 1){
+                
                 return redirect()->route('login')->withErrors(['Utilisateur déja activé']);
             }
             else{
+                DB::transaction(function () use ($user){
                 $user->update(['email_verified'=> 1]);
+                });
                 return redirect()->route('login')->withErrors(['Utilisateur activé avec succès']);
             }    
         }

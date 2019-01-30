@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use App\User;
 use Illuminate\Http\Request;
-
+use DB;
 class ForgotPasswordController extends Controller
 {
 
@@ -55,8 +55,9 @@ class ForgotPasswordController extends Controller
                         $message->subject('Password - Reset');
                     });
 
+                    DB::transaction(function () use ($request, $user){
                     $user->update(['password'=> \Hash::make($request['password'])]);
-
+                    });
                     return redirect()->route('login')->withErrors(['Un email de réinitialisation à était envoyé']);
                 }
                 else{

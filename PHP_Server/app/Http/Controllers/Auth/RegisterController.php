@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Mail;
 use Illuminate\Http\request;
-
+use DB;
 
 class RegisterController extends Controller
 {
@@ -108,15 +108,17 @@ class RegisterController extends Controller
             });
     
             //create the user record in db
-            User::create([
-                'email' => $request['email'],
-                'password' => Hash::make($request['password']),
-                'id_location' => $request['location'],
-                'member_name' => $request['name'],
-                'member_firstname' => $request['firstname'],
-                'id_statut' => $request['statut'],
-                'activation_link' => $request['link'],
-            ]);
+            DB::transaction(function () use ($request){
+                User::create([
+                    'email' => $request['email'],
+                    'password' => Hash::make($request['password']),
+                    'id_location' => $request['location'],
+                    'member_name' => $request['name'],
+                    'member_firstname' => $request['firstname'],
+                    'id_statut' => $request['statut'],
+                    'activation_link' => $request['link'],
+                ]);
+            });
 
             //return to the login page and print user he should activate his account
             return redirect()->route('login')->withErrors(['Un mail vous a été envoyé, cliquez sur le lien pour validez votre inscription']);

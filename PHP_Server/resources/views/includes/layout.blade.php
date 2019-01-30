@@ -57,7 +57,7 @@
         @endif
 
         <!-- Main content of each page -->
-        <div class="content" <?php if(!Auth::check()) {echo 'onclick="close_menu(); close_login()"';} else {echo 'onclick="close_menu()"';}?>>
+        <div class="content" <?php if(!Auth::check()) {echo 'onclick="close_menu(); close_popup(\'form_login\')"';} else {echo 'onclick="close_menu()"';}?>>
             @yield('main')
         </div>
     </main>

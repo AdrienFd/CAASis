@@ -88,6 +88,6 @@ class Image extends Model
     */
     public function members_like()
     {
-        return $this->belongsToMany('App\Member', 'like_img', 'id_img', 'id_member');
+        return $this->belongsToMany('App\User', 'like_img', 'id_img', 'id_member');
     }
 }

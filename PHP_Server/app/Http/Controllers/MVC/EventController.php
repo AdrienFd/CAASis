@@ -5,6 +5,7 @@ namespace App\Http\Controllers\MVC;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Manifestation;
+use App\Like_img;
 use App\Image;
 use App\Participate;
 use App\Illustrate_manifestation;
@@ -29,6 +30,7 @@ class eventController extends Controller{
         //array to store one image url for each event
         $url = array();
         $name =array();
+ 
 
         //Array to store the users who partitipate at some event
         $participation_state = array();
@@ -93,9 +95,34 @@ class eventController extends Controller{
         //try to get a record a the first img
         $imgs= $event->images->all();
 
-        //if there is a record with a url we store that url in the array
+        //array of count to know number of like for each img
+        $likesPerImg = array();
+        //array to know if user a like for each img
+        $likedPerImg = array();
+            
+        foreach($imgs as $img){
+            //get img rows
+            $getImglikes = Like_img::where('id_img',$img->id_img);
 
-        return view('event_presentation', ['event' => $event, 'imgs' => $imgs, 'name' => $name, 'id'=>$id, 'participated'=>$participation_state]);
+            //count them and push them into the array
+            array_push($likesPerImg,$getImglikes->count());
+
+            //get is there is a record into these rows for that user
+            $asUserLike = $getImglikes->where('id_member',\Auth::id())->first();
+            
+            //if true put 1 else null
+            if(!is_null($asUserLike)){
+                array_push($likedPerImg,1);
+            }
+            else{
+                array_push($likedPerImg,0);        
+            }
+            
+    }
+    //dump($likesPerImg);
+    //dump($likedPerImg);
+
+    return view('event_presentation', ['event' => $event, 'imgs' => $imgs, 'likes'=>$likesPerImg, 'asLike'=>$likedPerImg, 'name' => $name, 'id'=>$id, 'participated'=>$participation_state]);
     }
 
     /*

@@ -110,7 +110,7 @@ $i=0;
             @if(!$participated[$i])
                         <form method="post" action="{{ route('participate') }}">
                             @csrf
-                            <button name="id_event" type="submit" value="{{ $row->id_manifestation }}" class="read_more">Participer!</button>
+                            <button name="id_event" type="submit" value="{{ $row->id_manifestation }}" class="">JE PARTICIPE !</button>
                         </form>
             @endif
             @endif
