@@ -61,6 +61,17 @@
         <img src="{{ asset('img/index.png') }}" alt="CASSIS LOGO">
         @endif        
         </div>
+
+        <!-- if user is asn't voted for the idea display the vote button -->
+        @if(Auth::check())
+        @if(!isset($participated))
+        <form method="post" action="{{ route('participate') }}">
+            @csrf
+            <button name="id_event" type="submit" value="{{ $event->id_manifestation }}" class="read_more">Participer!</button>
+        </form>
+        @endif
+        @endif
+
         
         <div class="event_description">
             <h2>PRESENTATION</h2>

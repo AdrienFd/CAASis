@@ -79,8 +79,8 @@ Route::get('Boutique', 'MVC\ShopController@getArticles')->name('shop');
 Route::post('Boutique', 'MVC\ShopController@getArticles')->name('shop');
 Route::post('Boutique/AddArticle', 'MVC\ShopController@AddArticle')->name('addArticle');
 Route::post('Boutique/DelArticle', 'MVC\ShopController@DelArticle')->name('delArticle');
-Route::post('Boutique/AddToCart', 'MVC\ShopController@AddArticle')->name('addToCart');
-Route::post('Boutique/DelFromCart', 'MVC\ShopController@DelArticle')->name('delFromCart');
+Route::post('Boutique/AddToCart', 'MVC\ShopController@buyArticle')->name('addToCart');
+Route::post('Boutique/DelFromCart', 'MVC\ShopController@removeArticle')->name('delFromCart');
 Route::get('Boutique/{id}/{name}', 'MVC\ShopController@getArticle') -> name('article');
 
 /*

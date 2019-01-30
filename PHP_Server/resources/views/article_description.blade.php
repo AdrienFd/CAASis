@@ -1,7 +1,7 @@
 @extends('includes.layout')
 
 @section('header')
-    @include('includes.header')
+@include('includes.header')
 @endsection
 
 @section('main')
@@ -16,7 +16,12 @@
             <h2>Description</h2>
             <p>{{ $article->article_description }}</p>
             <div class="article_price">{{ $article->article_price }} €</div>
-            <button class="buy_button">BUY</button>
+            @if(Auth::check())
+            <form method="post" action="{{ route('addToCart') }}">
+                @csrf
+                <button name="id_article" value="{{ $article->id_article }}" class="buy_button" type="submit">BUY</button>
+            </form>
+            @endif
         </div>
     </div>
 </div>

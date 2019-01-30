@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Article;
 use App\Category;
+use DB;
+use App\Shopping_cart;
 
 class ShopController extends Controller
 {
@@ -87,5 +89,23 @@ class ShopController extends Controller
         return view('article_description', [
             'article' => $article,
         ]);
+    }
+
+    /*
+    *
+    * Function to add an article to your cart
+    *
+    */
+    public function buyArticle(){
+        //Automatic transaction handled by laravel
+        DB::transaction(function () {
+            //add the vote
+            Shopping_cart::insert([
+                'id_article' => request('id_article'),
+                'id_member' => \Auth::id(),
+            ]);
+        });
+        //return to the lase page
+       return redirect()->back();
     }
 }
