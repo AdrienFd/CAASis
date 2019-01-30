@@ -93,9 +93,11 @@ $i=0;
 @else
     <div>
 @endif
+
+<!-- display of the event -->
 <div class="event" style="border-bottom: 1px solid #D3D3D3">
     <div class="{{ $image }}">
-        <img src="{{ $url[$i] }}" alt="{{ $name[$i] }}">
+        <img src="{{ $url[$i] }}" alt="<?php echo explode('$',$name[$i])[0] ?>">
     </div>
 
     <div class="{{ $description }}">

@@ -48,7 +48,7 @@ class eventController extends Controller{
                 array_push($name,$img->img_name);
             //else we put a default picture to illustrate
             }else{
-                $default_img = "img/index.png";
+                $default_img = "img/cassis.jpg";
                 $default_name = "CASSIS LOGO";
                 array_push($url,$default_img);
                 array_push($name,$default_name);

@@ -75,12 +75,15 @@ class ShopController extends Controller
     *
     */
     public function getArticle(){
+        //get the uri explode it to get the id of the article
         $url = $_SERVER['REQUEST_URI'];
         $id = explode('/',$url)[2];
 
+        //get the article data
         $article=Article::where('id_article', $id)
         ->first();
         
+        //return that data to the view
         return view('article_description', [
             'article' => $article,
         ]);

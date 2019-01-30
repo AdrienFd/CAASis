@@ -10,7 +10,7 @@
 
     <div class="article">
         <div class="article_img">
-            <img src="{{ $article->image->img_url }}" alt="Première photo du T shirt">
+            <img src="{{ $article->image->img_url }}" alt="<?php echo explode('$',$article->image->img_name)[0] ?>">
         </div>
         <div class="article_description">
             <h2>Description</h2>

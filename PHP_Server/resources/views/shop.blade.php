@@ -96,7 +96,7 @@
     @foreach($articles as $row)
     <a href="{{Route('article', ['name' => $row->article_name,  'id' => $row->id_article]) }}">
     <div class='displayprod'>
-        <img src="{{ $row->image->img_url }}" class='prodpic' alt="{{ $row->image->img_name }}" />
+        <img src="{{ $row->image->img_url }}" class='prodpic' alt="<?php echo explode('$',$row->image->img_name)[0] ?>" />
         <div class='price'>
             {{ $row->article_price }} €
         </div>
