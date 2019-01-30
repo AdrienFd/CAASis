@@ -10,24 +10,10 @@ use Auth;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
 
     use AuthenticatesUsers;
 
     protected $redirectTo = '/home';
-
-    public function authenticable() {
-        //
-    }
 
     public function __construct()
     {
@@ -39,7 +25,6 @@ class LoginController extends Controller
      *  Function called on user login
      * 
      */
-
     protected function authenticate(Request $request) {
 
         //try to get the user by his email in db to get the user we search only activated email
@@ -73,7 +58,6 @@ class LoginController extends Controller
      *  Function called on user Activation link
      * 
      */
-
     protected function userActivation($token) {
 
         $check = User::where('activation_link','=',$token)->first();
@@ -92,6 +76,12 @@ class LoginController extends Controller
         return redirect()->route('login')->withErrors(['Ce lien d\'activation ne correspond à aucun compte mail']);
 
     }
+
+    /*
+    public function authenticable() {
+        //
+    }*/
+
 
 
 }

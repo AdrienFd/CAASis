@@ -30,6 +30,9 @@
             <li><a href="{{ route('events') }}">Évenements</a></li>
             <li><a href="{{ route('shop') }}">Boutique</a></li>
             <li><a href="{{ route('mention') }}">Mentions légales</a></li>
+            @if(session('statut') == "Student Desk Member")
+            <li><a href="{{ route('promote') }}">Gestion membres BDE</a></li>
+            @endif
         </ul>
         <!-- Button to close the nav panel -->
         <a class="close" onclick="close_menu()">&#x2716</a>

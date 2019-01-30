@@ -12,7 +12,9 @@
         @csrf
 
         <h3>S'enregistrer</h3>
-
+        @if ($errors->has('check'))
+            <p class="form_errors" role="alert">L'inscription requis l'acceptation des cookies et règles générales</p>
+            @endif
         <!-- Email field -->
         <div class="fieldset">
             @if ($errors->has('email'))
@@ -49,6 +51,16 @@
                 <option value="{{$location->id_location}}">{{$location->location_name}}</option>
                 @endforeach
             </select>
+        </div>
+
+        <label>Acceptez vous le stockage de vos données personnelles ainsi que la réglémentation générale ? <a href="{{ route('mention') }}" target="_blank">mention légales</a></label>
+        <div class="fieldset">
+                <input type="checkbox" name="rules" value="Yes" >
+        </div>
+
+        <label>Accepter vous l'utilisation des cookies (les cookies sont nécessaire pour l'authentification sur le site) ?</label>
+        <div class="fieldset" >
+                <input type="checkbox" name="cookie" value="Yes" >
         </div>
 
         <button type="submit" id="register-submit">Inscription</button>

@@ -48,7 +48,7 @@ class eventController extends Controller{
                 array_push($name,$img->img_name);
             //else we put a default picture to illustrate
             }else{
-                $default_img = "img/index.png";
+                $default_img = "img/cassis.jpg";
                 $default_name = "CASSIS LOGO";
                 array_push($url,$default_img);
                 array_push($name,$default_name);
@@ -82,10 +82,12 @@ class eventController extends Controller{
     public function getEvent(){
         $url = $_SERVER['REQUEST_URI'];
         $id = explode('/',$url)[2];
+        $name = explode('/',$url)[3];        
         
         $event = Manifestation::where('id_manifestation', $id)->first();
 
-        $state = Participate::where('id_manifestation',$id)->where('id_member', \Auth::id())->first();
+        //Get if the user participate at this event
+        $participation_state = Participate::where('id_manifestation',$id)->where('id_member', \Auth::id())->first();
 
 
         //try to get a record a the first img
@@ -93,7 +95,7 @@ class eventController extends Controller{
 
         //if there is a record with a url we store that url in the array
 
-        return view('event_presentation', ['event' => $event, 'imgs' => $imgs, 'participated' => $state]);
+        return view('event_presentation', ['event' => $event, 'imgs' => $imgs, 'name' => $name, 'id'=>$id, 'participated'=>$participation_state]);
     }
 
     /*

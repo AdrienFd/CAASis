@@ -37,7 +37,7 @@
     </div>
 
     <div class="mention">
-        <h2>CONDITIOND D'UTILISATON:</h2>
+        <h2>CONDITIONS D'UTILISATON:</h2>
         <p>Ce site (www.BdeCesiArras.fr) est proposé en différents langages web (HTML, HTML5, Javascript, CSS, etc…)
             pour un meilleur confort d’utilisation et un graphisme plus agréable, nous vous recommandons de recourir à
             des navigateurs modernes comme Internet explorer, Safari, Firefox, Google Chrome, etc…</p>

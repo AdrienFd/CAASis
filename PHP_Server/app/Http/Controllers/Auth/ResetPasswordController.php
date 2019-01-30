@@ -9,16 +9,6 @@ use Illuminate\Http\request;
 
 class ResetPasswordController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Password Reset Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller is responsible for handling password reset requests
-    | and uses a simple trait to include this behavior. You're free to
-    | explore this trait and override any methods you wish to tweak.
-    |
-    */
 
     use ResetsPasswords;
 
@@ -35,7 +25,6 @@ class ResetPasswordController extends Controller
      *  Function called on user asking to change is psw
      * 
      */
-
     protected function changePassword(Request $request) {
 
         $request = $request->all();

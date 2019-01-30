@@ -21,7 +21,6 @@ class Shopping_cart extends Model
      * Attribute that can be assigned
      */
     protected $fillable = [];
-
     /**
      * The connection name for the model.
      */

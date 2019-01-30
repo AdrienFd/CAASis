@@ -55,8 +55,9 @@
                 <input type="date" name="date" required>
             </div>
 
-            <div class="fieldset">
-                <input type="checkbox" name="reccurent" value="Yes">Récurent ?<br>
+            <div class="fieldset" style="transform: translateY(10px)">
+                Récurent ?
+                <input type="checkbox" name="reccurent" value="Yes" style="transform: translate(70px,-20px)">
             </div>
 
             <div class="fieldset">
@@ -103,7 +104,7 @@
                 @else
                 <button name="id" type="button" value="{{ $row->id_manifestation }}" class="button voted">Voté!</button>
                 @endif
-        @endif
+            @endif
 
         <div class="button count" onclick="open_popup_transform('{{ $row->id_manifestation }}')"> {{ $votes[$i] }}
         </div>

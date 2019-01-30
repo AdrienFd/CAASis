@@ -83,11 +83,15 @@
     </form>
 
     <!-- form to remove filter -->
-    <form method='GET' action="{{ route('shop') }}">
-        @csrf
-        <button type="submit">Enlever les filtres</button>
+    <form method='GET' action="{{ route('shop') }}"> 
+        @csrf 
+        <button type="submit">Enlever les filtres</button> 
     </form>
 </fieldset>
+
+<!-- Shopping cart button -->
+<a href="{{ route('shopping_card') }}"><button style="font-size:25px" type="button" name="add">&#x1F4BC</button></a>
+
 <!-- Items on the shop -->
 <?php $i=0; ?>
 <div class="shop_content">
@@ -95,16 +99,16 @@
     <!-- create all article in the shop -->
     @foreach($articles as $row)
     <a href="{{Route('article', ['name' => $row->article_name,  'id' => $row->id_article]) }}">
-        <div class='displayprod'>
-            <img src="{{ $row->image->img_url }}" class='prodpic' alt="{{ $row->image->img_name }}" />
-            <div class='price'>
-                {{ $row->article_price }} €
-            </div>
-
-            <div class='description'>
-                {{ $row->article_name }}
-            </div>
+    <div class='displayprod'>
+        <img style="width:250px; height:150px; object-fit:cover;" src="{{ $row->image->img_url }}" class='prodpic' alt="<?php echo explode('$',$row->image->img_name)[0] ?>" />
+        <div class='price'>
+            {{ $row->article_price }} €
         </div>
+
+        <div class='description'>
+            {{ $row->article_name }}
+        </div>
+    </div>
     </a>
     @endforeach
 

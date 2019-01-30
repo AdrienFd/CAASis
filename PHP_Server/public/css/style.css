@@ -24,7 +24,7 @@ h2 {
     width: 100%;
     height: 100vh;
     z-index: 1;
-    background-image: url("/img/background3.jpg");
+    background-image: url("/img/home.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -89,6 +89,11 @@ h2 {
 
 header li {
     list-style-type: none;
+}
+
+.header a {
+    font-size: 40px;
+    margin-top: 10px;
 }
 
 header .authentification li {
@@ -163,6 +168,8 @@ header {
 }
 
 /*Grey footer with copyright in the bottom of the page*/
+
+
 .footer {
     background-color: #D7D7D7;
     text-align: center;
@@ -326,12 +333,16 @@ div.bloc {
 * 'read more' button
 */
 .read_more {
-    color: black;
+    display:block;
+    color:#FFF;
+    font-family:inherit;
     text-decoration: none;
-    border: black solid 1px;
-    padding: 2px;
     float: right;
-    background-color: white;
+    background-color: #aaa;
+    line-height:30px;
+    height:30px;
+    font-size: 15px;
+    padding: 0px 5px;
 }
 
 /*----------------------------EVENT PRESENTATION-----------------------------*/
@@ -349,8 +360,7 @@ div.bloc {
 /**
 * All titles in the 'Event Presentation' page
 */
-.presentation h2 {
-    text-align: center;
+.presentation h2, .shop_content h2 {
     border-bottom: solid black 2px;
     padding-bottom: 4px;
 }
@@ -459,14 +469,6 @@ div.bloc {
     max-width: 100%;
 }
 
-/*Read more button*/
-.read_more {
-    color: #111;
-    text-decoration: none;
-    border: #111 solid 1px;
-    float: right;
-    background-color: #FFF;
-}
 
 /*Shop*/
 
@@ -769,6 +771,18 @@ textarea {
     font-size: 15px;
 }
 
+button[type="submit"][name="id_event"], button[type="submit"][name="command"], button[type="submit"][name="id_article"]  {
+cursor: pointer;
+border: none;
+background: #222d5a;
+color: #FFF;
+height:30px;
+line-height:30px;
+font-size: 15px;
+}
+
+
+
 /*form of the submit button*/
 .form button[type="button"][name="close"] {
     margin-top: 5px;
@@ -803,8 +817,14 @@ button[name="add"] {
     font-size: 50px;
     line-height: 50px;
     text-decoration: none;
+    cursor:pointer;
 }
 
+.command{
+    display:block;
+    margin:0 auto;
+    margin-top:10px;
+}
 
 /*------------------------Style of the div-----------------*/
 .pagination_bottom ul {
@@ -865,12 +885,7 @@ button[name="add"] {
 /*Tablet mode*/
 @media (min-width:600px) {
     
-    /* All links in header */
-    .header a {
-        font-size: 40px;
-        margin-top: 10px;
 
-    }
 
     /* All images in header */
     .header img {
@@ -1092,14 +1107,6 @@ button[name="add"] {
     
     .part.editors{
         display:inline-block;
-    }
-
-    /**
-    * All links in header
-    */
-    .header a {
-        font-size: 50px;
-        margin-top: 10px;
     }
 
     /**

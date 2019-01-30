@@ -32,40 +32,47 @@ class ImageController extends Controller
         //
     }
 
-    
+    /*
+    *
+    * Store only picture in the folder public/uploads folder
+    *
+    */
     public function store(Request $request)
     {
-        //dd($request->all());
+        // validate is the file as been named and if its a picture
         $validator = \Validator::make($request->all(), [
             'title' => 'required',
             'file' => 'required|mimetypes:image/jpeg,image/png,image/jpg,image/gif,image/svg',
         ]);
+
+        //if the validation is ok and the file is not empty then
         if(!$validator->fails() && $request->hasFile('file')){
 
-            $extension = $request->file('file')->extension();
+            //prepare the path, the name of the picutre (name = user name + $ + timestamp)
             $image = $request->file('file');
             $name = $request->title . '$' . time();
             $destinationPath = public_path('/uploads');
+
+            //place the image into the folder with the modified name 
             $image->move($destinationPath, $name);
             
-            DB::transaction(function () use ($request, $name, $destinationPath, $extension) {
+            //auto handle transaction
+            DB::transaction(function () use ($request, $name, $destinationPath) {
+                //add a record of this image with the name, path, member who post it ...
                 $img = Image::create([
                     'img_name'=>$name,
                     'img_url'=> '/uploads' . '/' . $name,
                     'id_member'=>\Auth::id(),
                 ]);
 
+                //illustrate the manifestation with that picture
                 Illustrate_manifestation::insert([
                     'id_img'=>$img->id_img,
                     'id_manifestation'=>intval($request->id_event),
                 ]);
             });
-
-            return dump('success','Image Upload successfully');
         }
-        else{
-            return dump('error','Image not Upload successfully');
-        }
+            return redirect()->back();
     }
     /**
      * Display the specified resource.

@@ -78,6 +78,9 @@ class RegisterController extends Controller
         //give the request to manipulateData so it will explode email to add user name, first name, statut
         $request = $this->manipulateData($request->all());
         
+        if(!isset($request['rules']) || !isset($request['cookie'])){
+            return redirect()->route('register')->withErrors(array('check' => 'Login field is required.'));
+        }
 
         //Validator verify the pattern of email and password, also check if name and firstname were successfully extracted
         $validator = Validator::make($request, [
@@ -127,25 +130,25 @@ class RegisterController extends Controller
 
 
 
-
+    /*
     protected function validator(array $data)
     {
-        /*$data = $this->manipulateData($data);
+        $data = $this->manipulateData($data);
         return Validator::make($data, [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:member', 'regex:/^[a-zA-Z0-9._-]+@(cesi|viacesi)\.fr$/'],
             'password' => ['required', 'string', 'min:8', 'confirmed', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]{0,})(?=.{8,})/'],
             'name' => ['required', 'string'],
             'firstname' => ['required', 'string'],
-        ]);*/
+        ]);
     }
 
-    /**
+    /*
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    /*protected function create(array $data)
     {
         /*$data = $this->manipulateData($data);
         $data['link'] = str_random(30);
@@ -165,7 +168,7 @@ class RegisterController extends Controller
             'activation_link' => $data['link'],
         ]);*/
         
-    }
+    //}
 
 
 

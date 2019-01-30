@@ -30,7 +30,7 @@ class ideaController extends Controller
             //Get the vote number, by manifestation
             $count = Vote::where('id_manifestation',$row->id_manifestation)->count();
             
-            //Get if the user has vote for that idea
+            //Get if the user as vote for that idea
             $state = Vote::where('id_manifestation',$row->id_manifestation)->where('id_member', \Auth::id())->first();
             
             //if ther the user as not vote we don't have a record so we check if $state isset
