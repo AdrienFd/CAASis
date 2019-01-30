@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Manifestation;
 use App\Image;
+use App\Participate;
 use App\Illustrate_manifestation;
 use DB;
 
@@ -28,10 +29,18 @@ class eventController extends Controller{
         //array to store one image url for each event
         $url = array();
         $name =array();
+
+        //Array to store the users who partitipate at some event
+        $participation_state = array();
+
         //for each event we :
         foreach ($manifestations as $row) {
             //try to get a record a the first img
             $img= $row->images->first();
+
+            //Get if the user participate at this event
+            $state = Participate::where('id_manifestation',$row->id_manifestation)->where('id_member', \Auth::id())->first();
+
 
             //if there is a record with a url we store that url in the array
             if(isset($img)){
@@ -44,6 +53,16 @@ class eventController extends Controller{
                 array_push($url,$default_img);
                 array_push($name,$default_name);
             }
+
+            //if ther the user don't participate we don't have a record so we check if $state isset
+            if(isset($state)){
+                //put the state to true if a record is found
+                array_push($participation_state,1);
+            }
+            else{
+                //else user as not voted so set to false
+                array_push($participation_state,0);
+            }
         }
 
         //return the events view
@@ -51,6 +70,7 @@ class eventController extends Controller{
             'manifestations' => $manifestations,
             'url' => $url,
             'name' => $name,
+            'participated' => $participation_state,
         ]);
     }
 
@@ -62,6 +82,7 @@ class eventController extends Controller{
     public function getEvent(){
         $url = $_SERVER['REQUEST_URI'];
         $id = explode('/',$url)[2];
+        $name = explode('/',$url)[3];        
         
         $event = Manifestation::where('id_manifestation', $id)->first();
 
@@ -70,7 +91,7 @@ class eventController extends Controller{
 
         //if there is a record with a url we store that url in the array
 
-        return view('event_presentation', ['event' => $event, 'imgs' => $imgs]);
+        return view('event_presentation', ['event' => $event, 'imgs' => $imgs, 'name' => $name, 'id'=>$id]);
     }
 
     /*
@@ -117,6 +138,26 @@ class eventController extends Controller{
 
         //return to the last page
         return redirect()->back();
+    }
+
+
+    /*
+    *
+    * Function to add a vote to an idea
+    *
+    */
+    public function Participate(){
+
+        //Automatic transaction handled by laravel
+        DB::transaction(function () {
+            //add the vote
+            Participate::insert([
+                'id_manifestation' => request('id_event'),
+                'id_member' => \Auth::id(),
+            ]);
+        });
+        //return to the lase page
+       return redirect()->back();
     }
 
 

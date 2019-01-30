@@ -44,7 +44,7 @@ CREATE TABLE Member(
         member_firstname  Varchar (50) NOT NULL ,
         email             Varchar (255) NOT NULL ,
         email_verified    Boolean NOT NULL DEFAULT 0 ,
-        activation_link	  Varchar (50) NOT NULL ,
+        activation_link	  Varchar (50) NULL ,
         password          Varchar (255) NOT NULL ,
         token             Varchar (255) NULL,
         created_at        Date NOT NULL,

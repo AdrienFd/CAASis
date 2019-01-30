@@ -5,6 +5,10 @@
 @endsection
 
 @section('main')
+@if(session('statut') == "Student Desk Member")
+<a href="{{Route('listParticipant', ['name' => $name,  'id' => $id ]) }}" class="read_more">Liste participants</a>
+@endif
+
 @if(Auth::check())
 <button type="button" name="add" onclick="open_popup()">+</button>
 

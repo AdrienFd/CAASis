@@ -94,6 +94,7 @@
 
     <!-- create all article in the shop -->
     @foreach($articles as $row)
+    <a href="{{Route('article', ['name' => $row->article_name,  'id' => $row->id_article]) }}">
     <div class='displayprod'>
         <img src="{{ $row->image->img_url }}" class='prodpic' alt="{{ $row->image->img_name }}" />
         <div class='price'>
@@ -104,6 +105,7 @@
             {{ $row->article_name }}
         </div>
     </div>
+    </a>
     @endforeach
 
     <!-- pagination link -->

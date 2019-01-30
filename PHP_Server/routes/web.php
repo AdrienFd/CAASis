@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Hash;
 Route::get('Connexion', function () { return view('auth.login'); })->name('login');
 Route::post('Connexion', 'Auth\LoginController@authenticate')->name('authenticate');
 
-Route::get('Inscription', 'MVC\Register@getLocation')->name('register');
+Route::get('Inscription', 'MVC\RegisterController@getLocation')->name('register');
 Route::post('Inscription', 'Auth\RegisterController@register')->name('subscribe');
 
 Route::get('/user/activation/{token}', 'Auth\LoginController@userActivation');
@@ -33,14 +33,25 @@ Route::post('Changé le mot de passe', 'Auth\ResetPasswordController@changePassw
 Route::get('Mot de passe oublié', function () { return view('auth.passwords.reset'); });
 Route::post('Mot de passe oublié', 'Auth\ForgotPasswordController@resetPassword')->name('resetPSW');
 
+Route::post('Ajout membres du BDE', 'MVC\PromoteController@addMember')->name('addMember');
+Route::post('Supression membres du BDE', 'MVC\PromoteController@removeMember')->name('removeMember');
+
 /*
 *
 * Image routes
 *
 */
-
 Route::get('add', function () { return view('images.create'); })->name('add');
 Route::post('add', 'ImageController@store')->name('addImage');
+
+
+/*
+*
+* PDF routes
+*
+*/
+Route::get('Participate/{id}/{name}', 'PdfController@getParticipateList')->name('listParticipant');
+Route::get('ParticipatePDF/{id}/{name}', 'PdfController@createPDF')->name('createPDF');
 
 /*
 *
@@ -49,7 +60,7 @@ Route::post('add', 'ImageController@store')->name('addImage');
 */
 Route::get('Accueil', function () { return view('home'); })->name('home');
 Route::get('Mentions légales', function () { return view('mention'); })->name('mention');
-
+Route::get('Promotion Membres BDE', function () { return view('promote'); })->name('promote');
 //Ideas routes
 Route::get('Idées', 'MVC\IdeaController@getIdeas')->name('ideas');
 Route::post('Idées/Vote', "MVC\IdeaController@Vote")->name('vote');
@@ -59,6 +70,7 @@ Route::post('Idées/Transform', "MVC\IdeaController@Transform")->name('moveToEve
 //Events routes
 Route::get('Évenements', 'MVC\EventController@getEvents') -> name('events');
 Route::post('Évenements/Add', 'MVC\EventController@Add') -> name('addEvent');
+Route::post('Évenements/Participe', "MVC\EventController@Participate")->name('participate');
 Route::post('Évenements/Approbate', 'MVC\EventController@Approbate') -> name('approbateEvent');
 Route::get('Évenement/{id}/{name}', 'MVC\EventController@getEvent') -> name('event');
 
@@ -69,6 +81,7 @@ Route::post('Boutique/AddArticle', 'MVC\ShopController@AddArticle')->name('addAr
 Route::post('Boutique/DelArticle', 'MVC\ShopController@DelArticle')->name('delArticle');
 Route::post('Boutique/AddToCart', 'MVC\ShopController@AddArticle')->name('addToCart');
 Route::post('Boutique/DelFromCart', 'MVC\ShopController@DelArticle')->name('delFromCart');
+Route::get('Boutique/{id}/{name}', 'MVC\ShopController@getArticle') -> name('article');
 
 /*
 *

@@ -103,6 +103,16 @@ $i=0;
             <h2>{{ $row -> manifestation_name }}</h2>
             <p>{{ $row -> manifestation_description }}</p>
             <a href="{{Route('event', ['name' => $row->manifestation_name,  'id' => $row->id_manifestation]) }}" class="read_more">LIRE LA SUITE</a>
+        
+            @if(Auth::check())
+            @if(!$participated[$i])
+                        <form method="post" action="{{ route('participate') }}">
+                            @csrf
+                            <button name="id_event" type="submit" value="{{ $row->id_manifestation }}" class="read_more">Participer!</button>
+                        </form>
+            @endif
+            @endif
+
         </div>
     </div>
 </div>
