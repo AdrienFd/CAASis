@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Article;
 use App\Category;
+use App\Shopping_card;
 
 class ShopController extends Controller
 {
@@ -85,4 +86,24 @@ class ShopController extends Controller
             'article' => $article,
         ]);
     }
+
+        /*
+    *
+    * Function to add a vote to an idea
+    *
+    */
+    public function buyArticle(){
+
+        //Automatic transaction handled by laravel
+        DB::transaction(function () {
+            //add the vote
+            Shopping_card::insert([
+                'id_article' => request('id_article'),
+                'id_member' => \Auth::id(),
+            ]);
+        });
+        //return to the lase page
+       return redirect()->back();
+    }
+
 }

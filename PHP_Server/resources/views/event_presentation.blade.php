@@ -1,7 +1,7 @@
 @extends('includes.layout')
 
 @section('header')
-    @include('includes.header')
+@include('includes.header')
 @endsection
 
 @section('main')
@@ -10,7 +10,7 @@
 
 
 <div class="form" id="addImg">
-    <form method="post" action="{{ route('addImage')}}"  enctype="multipart/form-data">
+    <form method="post" action="{{ route('addImage')}}" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="id_event" value="{{ $event->id_manifestation }}" required>
 
@@ -23,7 +23,7 @@
 
         <button type="submit">Upload</button>
         <button name="close" type="button" onclick="close_popup()">Fermer</button>
-        
+
     </form>
 </div>
 @endif
@@ -31,30 +31,41 @@
 <div class="presentation">
     <h2>Programmé le : {{ $event->manifestation_date }}</h2>
     <div class="first_bloc">
-  
+
         <!-- for each img in imgs put the img in the bar of img-->
         <div class="image_list" style="float: left; width: 20%; height: 50vh; max-height:400px;">
-        @foreach($imgs as $img)
-            <img id="{{$img->id_img}}" src="{{$img->img_url}}" alt="{{$img->img_name}}" onclick="switch_img('{{$img->img_url}}')" style="width: 100%; height: 100px; object-fit: cover; margin-right: 5px;">   
-        @endforeach
+            @foreach($imgs as $img)
+            <img id="{{$img->id_img}}" src="{{$img->img_url}}" alt="{{$img->img_name}}" onclick="switch_img('{{$img->img_url}}')"
+                style="width: 100%; height: 100px; object-fit: cover; margin-right: 5px;">
+            @endforeach
         </div>
 
         <!-- if imgs is 'not null' pût the first pic in the big div -->
-        
+
         <div class="images" style="float: left; width: 80%; height: 50vh; max-height:400px;">
-        @if($imgs != [])
-            <img class="main_img" id="{{$imgs[0]->id_img}}" src="{{$imgs[0]->img_url}}" alt="{{$imgs[0]->img_name}}"  style="width: 100%; height: 100%; object-fit: cover;  margin-left: 5px;">
+            @if($imgs != [])
+            <img class="main_img" id="{{$imgs[0]->id_img}}" src="{{$imgs[0]->img_url}}" alt="{{$imgs[0]->img_name}}"
+                style="width: 100%; height: 100%; object-fit: cover;  margin-left: 5px;">
             <form action="" method="">
-            @csrf
-            <button type="button" >like</button>
-            <button type="button" >unlike</button>
-            <button type="button" >commenter</button>
+                @csrf
+                <button type="button">like</button>
+                <button type="button">unlike</button>
+                <button type="button">commenter</button>
             </form>
-        @else
-        <img src="{{ asset('img/index.png') }}" alt="CASSIS LOGO">
-        @endif        
+            @else
+            <img src="{{ asset('img/index.png') }}" alt="CASSIS LOGO">
+            @endif
         </div>
-        
+
+        <!-- if user is asn't voted for the idea display the vote button -->
+        @if(Auth::check())
+        @if(!isset($participated))
+        <form method="post" action="{{ route('participate') }}">
+            @csrf
+            <button name="id_event" type="submit" value="{{ $event->id_manifestation }}" class="read_more">Participer!</button>
+        </form>
+        @endif
+        @endif
 
         <div class="event_description">
             <h2>PRESENTATION</h2>
@@ -88,6 +99,7 @@
         </div>
     </div>
 </div>
+
 @endsection
 
 @section('scripts')

@@ -85,12 +85,15 @@ class eventController extends Controller{
         
         $event = Manifestation::where('id_manifestation', $id)->first();
 
+        $state = Participate::where('id_manifestation',$id)->where('id_member', \Auth::id())->first();
+
+
         //try to get a record a the first img
         $imgs= $event->images->all();
 
         //if there is a record with a url we store that url in the array
 
-        return view('event_presentation', ['event' => $event, 'imgs' => $imgs]);
+        return view('event_presentation', ['event' => $event, 'imgs' => $imgs, 'participated' => $state]);
     }
 
     /*
