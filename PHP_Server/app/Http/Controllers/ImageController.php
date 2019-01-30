@@ -140,6 +140,7 @@ class ImageController extends Controller
             array_push($imgs_path, $path);
         }
 
+        if($imgs_path != []){
         //$files = glob('uploads/*');
         $zip = \Zipper::make('images_event.zip')->add($imgs_path)->close();
 
@@ -149,6 +150,9 @@ class ImageController extends Controller
 
         //return the zip file and delete it after
         return \Response::download('images_event.zip', $title , $headers)->deleteFileAfterSend(true);
-
+        }
+        else {
+            return redirect()->back();
+        }
     }
 }

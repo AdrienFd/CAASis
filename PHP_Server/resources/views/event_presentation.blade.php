@@ -10,7 +10,9 @@
 <a href="{{Route('listParticipant', ['name' => $name,  'id' => $id ]) }}" class="read_more">Liste participants</a>
 @endif
 
+@if(session('statut') == "Employee")
 <a href="{{Route('download', ['name' => $name,  'id' => $id ]) }}" class="read_more">Dowload</a>
+@endif
 
 <!-- is user is connected he can add a picture to this event -->
 @if(Auth::check())
