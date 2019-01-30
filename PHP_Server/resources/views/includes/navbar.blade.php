@@ -16,10 +16,10 @@
             <!-- if user is not connected display connect and subscribe -->
             @else
             <li class="connect">
-                <a href="#connect" onclick="open_connection()">Connexion</a>
+                <a href="#connect" onclick="open_popup('form_login')">Connexion</a>
             </li>
             <li class="register">
-                <a href="{{ route('register') }}" onclick="open_register()">Inscription</a>
+                <a href="{{ route('register') }}">Inscription</a>
             </li>
             @endif
         </ul>

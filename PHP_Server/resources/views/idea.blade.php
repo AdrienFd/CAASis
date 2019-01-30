@@ -11,7 +11,7 @@
     <?php $i=0; ?>
     <!-- if user is connected he can add idea -->
     @if(Auth::check())
-    <button type="button" name="add" onclick="open_popup()">+</button>
+    <button type="button" name="add" onclick="open_popup('addIdea')">+</button>
 
     <div class="form" id="addIdea">
         <form method="post" action="{{ route('addIdea') }}">
@@ -25,7 +25,7 @@
             </div>
             
             <button name="submit" type="submit">Ajouter l'idée</button>
-            <button name="close" type="button" onclick="close_popup()">Fermer</button>
+            <button name="close" type="button" onclick="close_popup('addIdea')">Fermer</button>
         </form>
     </div>
 
@@ -69,14 +69,14 @@
             </div>
 
             <button name="id" type="submit" value="" class="">To event</button>
-            <button name="close" type="button" onclick="close_popup_transform('{{ $row->id_manifestation }}')">Fermer</button>
+            <button name="close" type="button" onclick="close_popup('{{ $row->id_manifestation }}')">Fermer</button>
         </form>
     </div>
     @endif
 
     <!-- generate the idea box with the idea name, desc, number of vote vote button ... -->
     <div class="idea">
-        <div onclick="open_popup_transform('{{ $row->id_manifestation }}')">
+        <div onclick="open_popup('{{ $row->id_manifestation }}')">
             <div class="idea_name">
                 <h2>
                     {{ $row->manifestation_name }}
@@ -106,7 +106,7 @@
                 @endif
             @endif
 
-        <div class="button count" onclick="open_popup_transform('{{ $row->id_manifestation }}')"> {{ $votes[$i] }}
+        <div class="button count" onclick="open_popup('{{ $row->id_manifestation }}')"> {{ $votes[$i] }}
         </div>
     </div>
 
@@ -122,6 +122,6 @@
 @endsection
 
 @section('scripts')
-<script src="{{asset('js/popup_addidea.js')}}"></script>
-<script src="{{asset('js/popup_transformidea.js')}}"></script>
+
+<script src="{{asset('js/popup.js')}}"></script>
 @endsection

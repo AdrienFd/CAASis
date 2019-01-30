@@ -38,20 +38,21 @@ Route::post('Supression membres du BDE', 'MVC\PromoteController@removeMember')->
 
 /*
 *
-* Image routes
+* Files routes (image upload, image dowload)
 *
 */
 Route::get('add', function () { return view('images.create'); })->name('add');
-Route::post('add', 'ImageController@store')->name('addImage');
-Route::get('download/{id}/{name}', 'ImageController@downloadAll')->name('download');
+Route::post('add', 'FileController@store')->name('addImage');
+Route::get('download/{id}/{name}', 'FileController@downloadAll')->name('download');
 
 /*
 *
-* PDF routes
+* PDF routes (preview in view, generation from view)
 *
 */
 Route::get('Participate/{id}/{name}', 'PdfController@getParticipateList')->name('listParticipant');
 Route::get('ParticipatePDF/{id}/{name}', 'PdfController@createPDF')->name('createPDF');
+
 
 /*
 *
@@ -61,6 +62,7 @@ Route::get('ParticipatePDF/{id}/{name}', 'PdfController@createPDF')->name('creat
 Route::get('Accueil', function () { return view('home'); })->name('home');
 Route::get('Mentions légales', function () { return view('mention'); })->name('mention');
 Route::get('Promotion Membres BDE', function () { return view('promote'); })->name('promote');
+
 //Ideas routes
 Route::get('Idées', 'MVC\IdeaController@getIdeas')->name('ideas');
 Route::post('Idées/Vote', "MVC\IdeaController@Vote")->name('vote');
@@ -73,6 +75,10 @@ Route::post('Évenements/Add', 'MVC\EventController@Add') -> name('addEvent');
 Route::post('Évenements/Participe', "MVC\EventController@Participate")->name('participate');
 Route::post('Évenements/Approbate', 'MVC\EventController@Approbate') -> name('approbateEvent');
 Route::get('Évenement/{id}/{name}', 'MVC\EventController@getEvent') -> name('event');
+//   ||
+//   || Images routes sub-part of event
+//   \/
+    Route::post('like', 'MVC\ImageController@like')->name('like');
 
 //Shop routes
 Route::get('Boutique', 'MVC\ShopController@getArticles')->name('shop');

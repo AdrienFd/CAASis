@@ -1,10 +1,17 @@
 @extends('includes.layout')
 
+@section('stylesheets')
+<meta name="csrf-token" content="{{ csrf_token() }}">
+@endsection
+
+
 @section('header')
     @include('includes.header')
 @endsection
 
 @section('main')
+
+<div id="alert" style="display:block; width:800px; height:100px; background-color: lightgrey;"></div>
 <!-- button to get the table with all participant of that event -->
 @if(session('statut') == "Student Desk Member")
 <a href="{{Route('listParticipant', ['name' => $name,  'id' => $id ]) }}" class="read_more">Liste participants</a>
@@ -16,7 +23,7 @@
 
 <!-- is user is connected he can add a picture to this event -->
 @if(Auth::check())
-<button type="button" name="add" onclick="open_popup()">+</button>
+<button type="button" name="add" onclick="open_popup('addImg')">+</button>
 
 
 <div class="form" id="addImg">
@@ -32,7 +39,7 @@
         </div>
 
         <button type="submit">Upload</button>
-        <button name="close" type="button" onclick="close_popup()">Fermer</button>
+        <button name="close" type="button" onclick="close_popup('addImg')">Fermer</button>
         
     </form>
 </div>
@@ -54,12 +61,19 @@
         <div class="images" style="float: left; width: 80%; height: 50vh; max-height:400px;">
         @if($imgs != [])
             <img class="main_img" id="{{$imgs[0]->id_img}}" src="{{$imgs[0]->img_url}}" alt="<?php echo explode('$',$imgs[0]->img_name)[0] ?>"  style="width: 100%; height: 100%; object-fit: cover;  margin-left: 5px;">
-            <form action="" method="">
+           
+            @if(Auth::check())
+
+        <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+            <a id="like" data-value="{{$imgs[0]->id_img}}" href="" >Like!</a>
+
+        @endif
+            <!--<form action="" method="">
             @csrf
             <button type="button" >like</button>
             <button type="button" >unlike</button>
             <button type="button" >commenter</button>
-            </form>
+            </form>-->
         <!-- else put default picture -->
         @else
         <img src="{{ asset('img/index.png') }}" alt="CASSIS LOGO">
@@ -112,6 +126,47 @@
 @endsection
 
 @section('scripts')
-<script src="{{asset('js/popup_addimg.js')}}"></script>
+<script src="{{asset('js/popup.js')}}"></script>
+<!-- Script to change img in the main div -->
 <script src="{{asset('js/event_management.js')}}"></script>
+<script>
+    $(document).ready(function(){
+        $('#like').click(function(e){
+            e.preventDefault();
+            var idImg = $("#like").data().value;
+            
+            $.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN':  $('#token').val()
+  }
+});
+            $.ajax({
+             url: ' {{ route("like") }} ',
+             data: {'idImg': idImg},
+             type: 'POST',
+             success: function (response) {
+                alert('a');
+             },
+             error: function (response) {
+                alert('b');
+             }
+         });
+            /*$.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                }
+            });
+/*
+            $.ajax({
+                url: " route('like') ",
+                method: 'post',
+                data: { idImg: jQuery('#like').val() },
+                success: function(result){
+                $('#alert').html(result.success);
+            }});
+                  alert('b');
+*/
+        });
+    });
+</script>
 @endsection

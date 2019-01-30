@@ -49,6 +49,7 @@
 
                 <!-- Button & link aera -->
                 <button name="submit" type="submit">Connexion</button>
+                <button name="close" type="button" onclick="close_popup('form_login')">Fermer</button>
                 <a href="{{ route('register') }}" class="form_link">S'inscrire</a>
                 <a href="{{ route('resetPSW') }}" class="form_link">Mot de passe oublié ?</a>
             </form>
@@ -67,11 +68,16 @@
     </footer>
 
     <!-- Scripts -->
+    <!-- JQuery CDN -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
     <script src="{{asset('js/navbar.js')}}"></script>
     @if(!Auth::check())
-    <script src="{{asset('js/form_connection.js')}}"></script>
+    <script src="{{asset('js/popup.js')}}"></script>
     @endif
     @yield('scripts')
+
+
 </body>
 
 </html>

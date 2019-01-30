@@ -14,7 +14,7 @@ $i=0;
 
 <!-- if the user is a member of the SDK then hhe can add an event with the form -->
 @if(session('statut') == "Student Desk Member")
-<button type="button" name="add" onclick="open_popup()">+</button>
+<button type="button" name="add" onclick="open_popup('addEvent')">+</button>
 
 <div class="form" id="addEvent">
     <form method="post" action="{{ route('addEvent') }}">
@@ -45,7 +45,7 @@ $i=0;
         </div>
 
         <button name="id" type="submit" value="" class="">Ajouter event</button>
-        <button name="close" type="button" onclick="close_popup()">Fermer</button>
+        <button name="close" type="button" onclick="close_popup('addEvent')">Fermer</button>
     </form>
 </div>
 @endif
@@ -81,11 +81,11 @@ $i=0;
                 </div>
 
                 <button name="id" type="submit" value="" class="">Approbate</button>
-                <button name="close" type="button" onclick="close_approbate('{{ $row->id_manifestation }}')">Fermer</button>
+                <button name="close" type="button" onclick="close_popup('{{ $row->id_manifestation }}')">Fermer</button>
             </form>
     </div>
 
-    <div style="background-color : rgba(178,34,34,0.5)" onclick="open_approbate({{ $row->id_manifestation }})">
+    <div style="background-color : rgba(178,34,34,0.5)" onclick="open_popup({{ $row->id_manifestation }})">
 <!-- the user is an employee and the event is already approved -->
 @elseif(session('statut') == "Employee")
     <div style="background-color : rgba(173,255,47,0.5)">
@@ -133,6 +133,5 @@ $i=0;
 @endsection
 
 @section('scripts')
-<script src="{{asset('js/approbate.js')}}"></script>
-<script src="{{asset('js/popup_addevent.js')}}"></script>
+<script src="{{asset('js/popup.js')}}"></script>
 @endsection
