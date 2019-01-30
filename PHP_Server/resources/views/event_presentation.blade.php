@@ -10,6 +10,8 @@
 <a href="{{Route('listParticipant', ['name' => $name,  'id' => $id ]) }}" class="read_more">Liste participants</a>
 @endif
 
+<a href="{{Route('download', ['name' => $name,  'id' => $id ]) }}" class="read_more">Dowload</a>
+
 <!-- is user is connected he can add a picture to this event -->
 @if(Auth::check())
 <button type="button" name="add" onclick="open_popup()">+</button>

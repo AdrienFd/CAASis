@@ -43,7 +43,7 @@ Route::post('Supression membres du BDE', 'MVC\PromoteController@removeMember')->
 */
 Route::get('add', function () { return view('images.create'); })->name('add');
 Route::post('add', 'ImageController@store')->name('addImage');
-
+Route::get('download/{id}/{name}', 'ImageController@downloadAll')->name('download');
 
 /*
 *

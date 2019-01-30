@@ -148,6 +148,7 @@ class ComposerStaticInit7bdd204301fb3b13e208de949e6cea19
         'C' => 
         array (
             'Cron\\' => 5,
+            'Chumper\\Zipper\\' => 15,
         ),
         'B' => 
         array (
@@ -388,6 +389,10 @@ class ComposerStaticInit7bdd204301fb3b13e208de949e6cea19
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
         ),
+        'Chumper\\Zipper\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/chumper/zipper/src/Chumper/Zipper',
+        ),
         'BeyondCode\\DumpServer\\' => 
         array (
             0 => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src',
@@ -461,7 +466,8 @@ class ComposerStaticInit7bdd204301fb3b13e208de949e6cea19
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\ImageController' => __DIR__ . '/../..' . '/app/Http/Controllers/ImageController.php',
-        'App\\Http\\Controllers\\MVC\\Register' => __DIR__ . '/../..' . '/app/Http/Controllers/MVC/Register.php',
+        'App\\Http\\Controllers\\MVC\\PromoteController' => __DIR__ . '/../..' . '/app/Http/Controllers/MVC/PromoteController.php',
+        'App\\Http\\Controllers\\MVC\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/MVC/RegisterController.php',
         'App\\Http\\Controllers\\MVC\\ShopController' => __DIR__ . '/../..' . '/app/Http/Controllers/MVC/ShopController.php',
         'App\\Http\\Controllers\\MVC\\eventController' => __DIR__ . '/../..' . '/app/Http/Controllers/MVC/EventController.php',
         'App\\Http\\Controllers\\MVC\\ideaController' => __DIR__ . '/../..' . '/app/Http/Controllers/MVC/IdeaController.php',
@@ -480,7 +486,6 @@ class ComposerStaticInit7bdd204301fb3b13e208de949e6cea19
         'App\\Like_img' => __DIR__ . '/../..' . '/app/Like_img.php',
         'App\\Location' => __DIR__ . '/../..' . '/app/Location.php',
         'App\\Manifestation' => __DIR__ . '/../..' . '/app/Manifestation.php',
-        'App\\Member' => __DIR__ . '/../..' . '/app/Member.php',
         'App\\Participate' => __DIR__ . '/../..' . '/app/Participate.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -505,6 +510,11 @@ class ComposerStaticInit7bdd204301fb3b13e208de949e6cea19
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
         'Carbon\\Laravel\\ServiceProvider' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Laravel/ServiceProvider.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
+        'Chumper\\Zipper\\Facades\\Zipper' => __DIR__ . '/..' . '/chumper/zipper/src/Chumper/Zipper/Facades/Zipper.php',
+        'Chumper\\Zipper\\Repositories\\RepositoryInterface' => __DIR__ . '/..' . '/chumper/zipper/src/Chumper/Zipper/Repositories/RepositoryInterface.php',
+        'Chumper\\Zipper\\Repositories\\ZipRepository' => __DIR__ . '/..' . '/chumper/zipper/src/Chumper/Zipper/Repositories/ZipRepository.php',
+        'Chumper\\Zipper\\Zipper' => __DIR__ . '/..' . '/chumper/zipper/src/Chumper/Zipper/Zipper.php',
+        'Chumper\\Zipper\\ZipperServiceProvider' => __DIR__ . '/..' . '/chumper/zipper/src/Chumper/Zipper/ZipperServiceProvider.php',
         'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',

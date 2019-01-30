@@ -118,4 +118,37 @@ class ImageController extends Controller
     {
         //
     }
+
+
+    /*
+    *
+    * Make zip with img from event
+    *
+    */
+    public function downloadAll() {
+        $url = $_SERVER['REQUEST_URI'];
+        $id = explode('/',$url)[2];
+        $name = explode('/',$url)[3];   
+
+        //get img_id corresponding to the event
+        $imgs = Illustrate_manifestation::where('id_manifestation', $id)->get();
+       
+        //get all img url from the event
+        $imgs_path = array();
+        foreach ($imgs as $img){
+            $path = '.' .$img->image->img_url;
+            array_push($imgs_path, $path);
+        }
+
+        //$files = glob('uploads/*');
+        $zip = \Zipper::make('images_event.zip')->add($imgs_path)->close();
+
+        //header of the response & naming of the file 
+        $headers = ['Content-Type' => 'application/zip',];
+        $title = 'images' . $name . '.zip';
+
+        //return the zip file and delete it after
+        return \Response::download('images_event.zip', $title , $headers)->deleteFileAfterSend(true);
+
+    }
 }
