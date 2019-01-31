@@ -11,11 +11,12 @@ var Token = require('../models/Modeltoken');
 
 
 
-
+//route to login a member and give him a token according to his status
 
 router.route('/')
 .post(function(req,res){
     console.log(req.body);
+    //search for correspondance in the database
     db.query("Select password,id_statut from member where email=? and password=? and email_verified=1",[req.body.email,req.body.password],function(error,results,fields){
         console.log(results[0].id_statut);
         if(error){
@@ -30,6 +31,7 @@ router.route('/')
              password: req.body.password,
              member_statut: results[0].id_statut
             }
+            //token distribution
             switch(user.member_statut){
                 case 1 :
                 jwt.sign({user : user},'secretKey1',(err, token)=>{
@@ -53,6 +55,7 @@ router.route('/')
                 });
                 break;
                 default:
+                //if error
                 res.sendStatus(500);
             }
         }

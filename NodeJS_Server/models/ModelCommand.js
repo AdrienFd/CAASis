@@ -1,5 +1,7 @@
+//database implementation
 var db=require('../db_local');
 
+// Function declarations for GET POST DELETE and PUT method
 var Command={
 
     getAllCommands:function(callback){
@@ -23,4 +25,6 @@ var Command={
         return db.query("Update command set id_article=? where id_purchase=? and id_article=?",[Command.id_article,id,secid],callback);
     },
 }
+
+//Export the object and his functions
 module.exports=Command;

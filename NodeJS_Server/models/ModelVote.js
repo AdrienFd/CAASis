@@ -1,5 +1,7 @@
+//database implementation
 var db=require('../db_local');
 
+// Function declarations for GET POST DELETE and PUT method
 var Vote={
 
     getAllVotes:function(callback){
@@ -23,4 +25,6 @@ var Vote={
         return db.query("Update vote set id_member where id_manifestation = ? and id_member=?",[Vote.id_member,id,secid],callback);
     },
 }
+
+//Export the object and his functions
 module.exports=Vote;

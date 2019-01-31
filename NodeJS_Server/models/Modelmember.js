@@ -1,6 +1,7 @@
+//database implementation
 var db=require('../db_national');
 
-
+// Function declarations for GET POST DELETE and PUT method
 
 
 var Member={
@@ -27,4 +28,6 @@ var Member={
     },
 
 }
+
+//Export the object and his functions
 module.exports=Member;

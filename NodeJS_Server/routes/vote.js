@@ -4,7 +4,7 @@ var Vote = require('../models/ModelVote');
 var Token = require('../models/Modeltoken');
 var jwt = require('jsonwebtoken');
 
-
+//route to get manifestation votes all or by id
 router.get('/:id?', function(req, res) {  
     if (req.params.id) {  
         Vote.getVoteById(req.params.id, function(err, rows) {  
@@ -25,6 +25,7 @@ router.get('/:id?', function(req, res) {
     }  
 });  
 
+//route to post a vote with token verification
 router.post('/',Token.verifyToken,function(req,res,){
     jwt.verify(req.token,'secretKey2', (err, authData)=> {
         if (err){
@@ -43,6 +44,7 @@ router.post('/',Token.verifyToken,function(req,res,){
     });
 });
 
+// route to delete a vote with token verification
 router.delete('/:id',Token.verifyToken,function(req, res, next) {
     jwt.verify(req.token,'secretKey2', (err, authData)=> {
         if (err){
@@ -60,6 +62,7 @@ router.delete('/:id',Token.verifyToken,function(req, res, next) {
     }); 
 }); 
 
+// route to update a vote with token verification
 router.put('/:id/:secid',Token.verifyToken,function(req, res, next) {  
     jwt.verify(req.token,'secretKey2', (err, authData)=> {
         if (err){

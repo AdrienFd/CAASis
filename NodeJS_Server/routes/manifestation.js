@@ -4,6 +4,7 @@ var Manifestation = require('../models/ModelManifestation');
 var jwt = require('jsonwebtoken');
 var Token = require('../models/Modeltoken');
 
+//route to get manifestations all or by id
 router.get('/:id?', function (req, res) {
     if (req.params.id) {
         Manifestation.getManifestationById(req.params.id, function (err, rows) {
@@ -24,6 +25,7 @@ router.get('/:id?', function (req, res) {
     }
 });
 
+//route to post a new manifestation with token verification
 router.post('/', Token.verifyToken, function (req, res, ) {
     jwt.verify(req.token, 'secretKey2', (err, authData) => {
         if (err) {
@@ -42,6 +44,7 @@ router.post('/', Token.verifyToken, function (req, res, ) {
     });
 });
 
+// route to delete a manifestation with token verification
 router.delete('/:id', Token.verifyToken, function (req, res, next) {
     jwt.verify(req.token, 'secretKey2', (err, authData) => {
         if (err) {
@@ -59,6 +62,7 @@ router.delete('/:id', Token.verifyToken, function (req, res, next) {
     });
 });
 
+// route to update a manifestation with token verification
 router.put('/:id', Token.verifyToken, function (req, res, next) {
     jwt.verify(req.token, 'secretKey2', (err, authData) => {
         if (err) {

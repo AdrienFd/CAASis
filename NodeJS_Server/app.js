@@ -1,3 +1,4 @@
+//module declarations
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -6,6 +7,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require ('body-parser');
 var cors = require('cors');
+
+// Router instantiation
 var memberRouter = require('./routes/member');
 var articleRouter = require('./routes/article');
 var commentRouter = require('./routes/comment');
@@ -38,7 +41,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+//Redirect to a route when request is send
 app.use('/member', memberRouter);
 app.use('/article', articleRouter);
 app.use('/comment', commentRouter);

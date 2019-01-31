@@ -1,5 +1,7 @@
+//database implementation
 var db=require('../db_local');
 
+// Function declarations for GET POST DELETE and PUT method
 var Like={
 
     getAllLikes:function(callback){
@@ -23,4 +25,6 @@ var Like={
         return db.query("Update like_img set id_member=? where id_img = ?and id_member=?",[Like.id_img,id,secid],callback);
     },
 }
+
+//Export the object and his functions
 module.exports=Like;

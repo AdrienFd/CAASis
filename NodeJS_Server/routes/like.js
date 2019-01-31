@@ -4,7 +4,7 @@ var Like = require('../models/ModelLike');
 var Token = require('../models/Modeltoken');
 var jwt = require('jsonwebtoken');
 
-
+//route to get likes all or by id
 router.get('/:id?', function(req, res) {  
     if (req.params.id) {  
         Like.getLikeById(req.params.id, function(err, rows) {  
@@ -24,7 +24,7 @@ router.get('/:id?', function(req, res) {
         });  
     }  
 });  
-
+//route to post a like on an image with token verification
 router.post('/',Token.verifyToken,function(req,res,){
     jwt.verify(req.token,'secretKey1', (err, authData)=> {
         if (err){
@@ -43,6 +43,7 @@ router.post('/',Token.verifyToken,function(req,res,){
     });
 });
 
+// route to delete a like with token verification
 router.delete('/:id',Token.verifyToken,function(req, res, next) {
     jwt.verify(req.token,'secretKey1', (err, authData)=> {
         if (err){
@@ -60,6 +61,7 @@ router.delete('/:id',Token.verifyToken,function(req, res, next) {
     }); 
 }); 
 
+// route to update a like with token verification
 router.put('/:id/:secid',Token.verifyToken,function(req, res, next) {  
     jwt.verify(req.token,'secretKey1', (err, authData)=> {
         if (err){
