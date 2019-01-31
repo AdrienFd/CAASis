@@ -85,9 +85,14 @@ class ShopController extends Controller
         $article=Article::where('id_article', $id)
         ->first();
         
+        $check=Shopping_cart::where('id_article', $id)
+        ->where('id_member', \Auth::id())
+        ->first();
+
         //return that data to the view
         return view('article_description', [
             'article' => $article,
+            'check' => $check,
         ]);
     }
 
@@ -105,6 +110,40 @@ class ShopController extends Controller
                 'id_member' => \Auth::id(),
             ]);
         });
+        //return to the lase page
+       return redirect()->back();
+    }
+
+    /*
+    *
+    * Function that return the whole cart
+    *
+    */
+    public function getArticlesCard(){
+        $shopping_card=array();
+        $shopping_cart_articles=Shopping_cart::where('id_member', \Auth::id())->get();
+        //Get the articles corresponding to the IS's found in the 
+        foreach($shopping_cart_articles as $article){
+            array_push($shopping_card, $article->article);
+        }
+        //dump($shopping_card);
+        //$articles_in_card=Article::where('id_article', $shopping_card->id_article);
+        return view('shopping_card', [
+            'shopping_card' => $shopping_card,
+        ]);
+    }
+
+    /*
+    *
+    * Function that delete an article form the cart
+    *
+    */
+    public function deleteArticleFromCard(){
+        //Delete an article from the shopping card
+        Shopping_cart::where([
+            'id_article' => request('id_article'),
+            'id_member' => \Auth::id(),
+        ])->delete();
         //return to the lase page
        return redirect()->back();
     }

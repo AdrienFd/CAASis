@@ -66,7 +66,7 @@
     </div>
 
     <!-- the event data display -->
-    Q<div class="presentation" style="border-top: 2px solid #111; padding-top: 4px;">
+    <div class="presentation" style="border-top: 2px solid #111; padding-top: 4px;">
 
 
         <div class="first_bloc">
@@ -75,7 +75,7 @@
             <div class="image_list" style="float: left; width: 20%; height: 50vh; max-height:400px; overflow-x: hidden; overflow-y:scroll">
             <?php $i=0; ?>
             @foreach($imgs as $img)
-                <img id="{{$img->id_img}}" src="{{$img->img_url}}" onclick="switch_img('{{$img->id_img}}','{{$img->img_url}}','{{ $likes[$i] }}','{{ $asLike[$i] }}','{{ csrf_token() }}','{{ route('like') }}','{{ Auth::id() }}')" style="width: 100%; height: 100px; object-fit: cover; margin-right: 5px;" alt="<?php echo explode('$',$img->img_name)[0] ?>">   
+                <img id="{{$img->id_img}}" src="{{$img->img_url}}" onclick="switch_img('{{$img->id_img}}','{{$img->img_url}}','{{ csrf_token() }}','{{ route('like') }}','{{ Auth::id() }}')" style="width: 100%; height: 100px; object-fit: cover; margin-right: 5px;" alt="<?php echo explode('$',$img->img_name)[0] ?>">   
                 <?php $i++; ?>
                 @endforeach
             </div>
@@ -98,7 +98,6 @@
                 <a id="add" onclick="open_popup('addImg')" style="margin-left:5px; float:left" class="read_more">AJOUTER UNE IMAGE</a>
                 @endif
             @endif
-
 
             
             </div>

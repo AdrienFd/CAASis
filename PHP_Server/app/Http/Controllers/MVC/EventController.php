@@ -39,13 +39,13 @@ class eventController extends Controller{
         foreach ($manifestations as $row) {
             //try to get a record a the first img
             $img= $row->images->first();
-
+            
             //Get if the user participate at this event
             $state = Participate::where('id_manifestation',$row->id_manifestation)->where('id_member', \Auth::id())->first();
 
-
+            
             //if there is a record with a url we store that url in the array
-            if(isset($img)){
+            if(isset($img) && $img->id_member_approbator != null ){
                 array_push($url,$img->img_url);
                 array_push($name,$img->img_name);
             //else we put a default picture to illustrate
@@ -95,12 +95,23 @@ class eventController extends Controller{
         //try to get a record a the first img
         $imgs= $event->images->all();
 
+        //get filter with only approbate pic
+        if(session('statut') != 'Employee'){
+            $approbateImg = array();
+            foreach($imgs as $img){
+            if($img->id_member_approbator != null)
+                array_push($approbateImg, $img);
+            }
+        }
+        else {
+            $approbateImg = $imgs;
+        }
         //array of count to know number of like for each img
         $likesPerImg = array();
         //array to know if user a like for each img
         $likedPerImg = array();
             
-        foreach($imgs as $img){
+        foreach($approbateImg as $img){
             //get img rows
             $getImglikes = Like_img::where('id_img',$img->id_img);
 
@@ -122,7 +133,7 @@ class eventController extends Controller{
     //dump($likesPerImg);
     //dump($likedPerImg);
 
-    return view('event_presentation', ['event' => $event, 'imgs' => $imgs, 'likes'=>$likesPerImg, 'asLike'=>$likedPerImg, 'name' => $name, 'id'=>$id, 'participated'=>$participation_state]);
+    return view('event_presentation', ['event' => $event, 'imgs' => $approbateImg, 'likes'=>$likesPerImg, 'asLike'=>$likedPerImg, 'name' => $name, 'id'=>$id, 'participated'=>$participation_state]);
     }
 
     /*

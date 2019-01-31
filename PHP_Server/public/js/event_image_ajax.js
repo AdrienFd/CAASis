@@ -4,7 +4,7 @@ var switch_like_number = document.querySelector('#display_like');
 var switch_like_button = document.querySelector('#like');
 
 //this function switch the img viewed , the number of like it had, the parameter of the like button are also changed to vote for that image
-function switch_img(id,link, likes, likestate, token, route,user) {
+function switch_img(id,link, token, route,user) {
 
     //switch the src link of the main image
     switch_place.src = link;

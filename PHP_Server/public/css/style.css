@@ -437,6 +437,12 @@ button[type="submit"][name="id_event"], button[type="submit"][name="command"], b
     font-size: 15px;
     }
 
+.command{
+    display:block;
+    margin:auto;
+    margin-top:10px;
+}
+
 /**
 * Price of the event
 */
