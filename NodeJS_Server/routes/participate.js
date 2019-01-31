@@ -26,7 +26,7 @@ router.get('/:id?', function(req, res) {
 });  
 
 router.post('/',Token.verifyToken,function(req,res,){
-    jwt.verify(req.token,'secretKey1', (err, authData)=> {
+    jwt.verify(req.token,'secretKey2', (err, authData)=> {
         if (err){
             res.sendStatus(403);
         }
@@ -44,7 +44,7 @@ router.post('/',Token.verifyToken,function(req,res,){
 });
 
 router.delete('/:id',Token.verifyToken,function(req, res, next) {
-    jwt.verify(req.token,'secretKey1', (err, authData)=> {
+    jwt.verify(req.token,'secretKey2', (err, authData)=> {
         if (err){
             res.sendStatus(403);
         }
@@ -61,7 +61,7 @@ router.delete('/:id',Token.verifyToken,function(req, res, next) {
 }); 
 
 router.put('/:id/:secid',Token.verifyToken,function(req, res, next) {  
-    jwt.verify(req.token,'secretKey1', (err, authData)=> {
+    jwt.verify(req.token,'secretKey2', (err, authData)=> {
         if (err){
             res.sendStatus(403);
         }
