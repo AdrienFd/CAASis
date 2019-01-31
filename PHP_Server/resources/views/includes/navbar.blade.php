@@ -11,7 +11,7 @@
             @if(Auth::check())
             <li>
                 <a href="{{ route('logout') }}">Déconnexion</a>
-                <a href="{{ route('changePSW') }}">Changer mdp</a>
+                <a href="{{ route('changePSW') }}">Changer mot de passe</a>
             </li>
             <!-- if user is not connected display connect and subscribe -->
             @else
@@ -32,6 +32,9 @@
             <li><a href="{{ route('mention') }}">Mentions légales</a></li>
             @if(session('statut') == "Student Desk Member")
             <li><a href="{{ route('promote') }}">Gestion membres BDE</a></li>
+            @endif
+            @if(session('statut') == "Employee")
+            <li><a href="{{ route('toApprobateImg') }}">Images à approuver</a></li>
             @endif
         </ul>
         <!-- Button to close the nav panel -->

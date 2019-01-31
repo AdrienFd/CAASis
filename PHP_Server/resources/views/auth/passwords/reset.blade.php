@@ -24,7 +24,7 @@
     </div>
 
     <!-- submit button -->
-    <button type="submit">Envoyé un mail de réinitialisation</button>
+    <button type="submit">Envoyer un mail de réinitialisation</button>
 </form>
 <!-- if user connected display : -->
 @else

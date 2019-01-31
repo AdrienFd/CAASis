@@ -8,7 +8,7 @@
 
 <!-- Filter section -->
 <fieldset class="filter">
-    <legend>Filter</legend>
+    <legend>Filtrage</legend>
     <form method="post" action="{{ route('shop') }}">
 
 
@@ -16,7 +16,7 @@
 
         <!-- Selection of a category -->
         <div class="categories">
-            <h2>Categories</h2>
+            <h2>Catégories</h2>
             <select id="category" name="category">
                 <option value="">Tout</option>
                 <!-- create in the select different option with the categories of articles -->

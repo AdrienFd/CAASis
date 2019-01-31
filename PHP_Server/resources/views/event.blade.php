@@ -33,18 +33,18 @@ $i=0;
         </div>
 
         <div class="fieldset">
-            <input type="checkbox" name="reccurent" value="Yes">Récurent ?<br>
+            <input type="checkbox" name="reccurent" value="Yes">Récurrent ?<br>
         </div>
 
         <div class="fieldset">
-            <input type="number" name="reccurency" placeholder="délai de réccurence">
+            <input type="number" name="reccurency" placeholder="délai de récurrence">
         </div>
 
         <div class="fieldset">
             <input type="number" name="price" placeholder="prix">
         </div>
 
-        <button name="id" type="submit" value="" class="">Ajouter event</button>
+        <button name="id" type="submit" value="" class="">Ajouter événement</button>
         <button name="close" type="button" onclick="close_popup('addEvent')">Fermer</button>
     </form>
 </div>

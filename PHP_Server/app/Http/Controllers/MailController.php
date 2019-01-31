@@ -16,7 +16,7 @@ class MailController extends Controller
         
         \Mail::send(['html'=>'mail.notify'], $request, function($message) use ($request){
             $message->to($request['email']);
-            $message->subject('Félicitation - Votre idée d\'évenement à été retenue');
+            $message->subject('Félicitations - Votre idée d\'événement a été retenue');
         });
     
     }

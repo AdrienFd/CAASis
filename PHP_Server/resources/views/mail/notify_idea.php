@@ -1,3 +1,3 @@
-Féliciation,<br><br>
-votre idée à était transformé en évenement :<br><br>
+Félicitations,<br><br>
+votre idée a été transformé en événement :<br><br>
 <?php echo $name; ?>

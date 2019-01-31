@@ -58,10 +58,10 @@ class ForgotPasswordController extends Controller
                     DB::transaction(function () use ($request, $user){
                     $user->update(['password'=> \Hash::make($request['password'])]);
                     });
-                    return redirect()->route('login')->withErrors(['Un email de réinitialisation à était envoyé']);
+                    return redirect()->route('login')->withErrors(['Un email de réinitialisation a été envoyé']);
                 }
                 else{
-                    return redirect()->route('resetPSW')->withErrors(['Le compte assocé n\'est pas activé']);
+                    return redirect()->route('resetPSW')->withErrors(['Le compte associé n\'est pas activé']);
                 }
 
             }

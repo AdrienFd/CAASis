@@ -13,12 +13,12 @@
 
         <h3>S'enregistrer</h3>
         @if ($errors->has('check'))
-            <p class="form_errors" role="alert">L'inscription requis l'acceptation des cookies et règles générales</p>
+            <p class="form_errors" role="alert">L'inscription requiert l'acceptation des cookies et règles générales</p>
             @endif
         <!-- Email field -->
         <div class="fieldset">
             @if ($errors->has('email'))
-            <p class="form_errors" role="alert">L'email est déja utilisé où ne correspond pas au format demandé</p>
+            <p class="form_errors" role="alert">L'email est déja utilisée ou ne correspond pas au format demandé</p>
             @endif
 
             <input id="email_register" type="email" class="" name="email" placeholder="email" required>
@@ -53,12 +53,12 @@
             </select>
         </div>
 
-        <label>Acceptez vous le stockage de vos données personnelles ainsi que la réglémentation générale ? <a href="{{ route('mention') }}" target="_blank">mention légales</a></label>
+        <label>Acceptez-vous le stockage de vos données personnelles ainsi que la réglementation générale ? <a href="{{ route('mention') }}" target="_blank">mention légales</a></label>
         <div class="fieldset">
                 <input type="checkbox" name="rules" value="Yes" >
         </div>
 
-        <label>Accepter vous l'utilisation des cookies (les cookies sont nécessaire pour l'authentification sur le site) ?</label>
+        <label>Acceptez-vous l'utilisation des cookies (les cookies sont nécessaires pour l'authentification sur le site) ?</label>
         <div class="fieldset" >
                 <input type="checkbox" name="cookie" value="Yes" >
         </div>

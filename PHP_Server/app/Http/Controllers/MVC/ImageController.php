@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\MVC;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\request;
 use App\Like_img;
+use App\Image;
 use DB;
 
 class ImageController extends Controller
@@ -40,4 +42,27 @@ class ImageController extends Controller
             ])->first();
 
     }
+
+
+    public function getImgToApprobate() {
+        $imgs = Image::whereNull('id_member_approbator')->get();
+       //dd($imgs);
+        return view('approbate_img', [
+            //Sending data to the view
+            'imgs' => $imgs,
+        ]);
+    }
+
+    public function imgApprobate(Request $request) {
+    
+        DB::transaction(function () use ($request) {
+            Image::where([
+                'id_img'=>$request->id_img
+            ])->update([
+                'id_member_approbator' => \Auth::id(),
+            ]);
+        });
+        return redirect()->back();
+    }
+
 }

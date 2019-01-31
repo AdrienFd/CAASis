@@ -99,7 +99,7 @@
                 @if(!$voted[$i])
                 <form method="post" action="{{ route('vote') }}">
                     @csrf
-                    <button name="id" type="submit" value="{{ $row->id_manifestation }}" class="button votes">Vote!</button>
+                    <button name="id" type="submit" value="{{ $row->id_manifestation }}" class="button votes">Voter!</button>
                 </form>
                 @else
                 <button name="id" type="button" value="{{ $row->id_manifestation }}" class="button voted">Voté!</button>

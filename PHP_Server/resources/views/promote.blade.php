@@ -39,6 +39,6 @@
 </form>
 
 @else
-<p class="already_log">Page résérvé aux membres du BDE</p>
+<p class="already_log">Page réservée aux membres du BDE</p>
 @endif
 @endsection

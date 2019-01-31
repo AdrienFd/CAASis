@@ -50,7 +50,7 @@
 </div>
 <!-- if user disconnected display : -->
 @else
-<p class="already_log">Utilisateur non connecté, pour voir cette page vous devez être connécté</p>
+<p class="already_log">Utilisateur non connecté, pour voir cette page vous devez être connecté</p>
 @endif
 @endsection
 

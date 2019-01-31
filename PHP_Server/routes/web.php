@@ -81,6 +81,8 @@ Route::get('Évenement/{id}/{name}', 'MVC\EventController@getEvent') -> name('ev
     Route::post('like', 'MVC\ImageController@like')->name('like');
     Route::get('like/{id}', 'MVC\ImageController@getLike');
     Route::get('user-like/{id_img}/{id_usr}', 'MVC\ImageController@getUserLike');
+    Route::get('Images à approuvées','MVC\ImageController@getImgToApprobate')->name('toApprobateImg');
+    Route::post('Images à approuvées','MVC\ImageController@imgApprobate')->name('approbateImg');
 
 //Shop routes
 Route::get('Boutique', 'MVC\ShopController@getArticles')->name('shop');
