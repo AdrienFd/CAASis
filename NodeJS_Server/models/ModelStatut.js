@@ -1,5 +1,8 @@
+//database implementation
+
 var db=require('../db_national');
 
+// Function declarations for GET POST DELETE and PUT method
 var Statut={
 
     getAllStatuts:function(callback){
@@ -19,8 +22,10 @@ var Statut={
         return db.query("delete from statut where id_statut=?",[id],callback);
     },
 
-    UpdateStatut:function(id,Statut,callback){
+    updateStatut:function(id,Statut,callback){
         return db.query("Update Statut set statut_name=? where id_statut=?",[Statut.statut_name,Statut.id_statut],callback);
     },
 }
+
+//Export the object and his functions
 module.exports=Statut;

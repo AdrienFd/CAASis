@@ -1,6 +1,7 @@
+//database implementation
 var db=require('../db_national');
 
-
+// Function declarations for GET POST DELETE and PUT method
 
 
 var Member={
@@ -22,9 +23,11 @@ var Member={
         return db.query("delete from member where id_member=?",[id],callback);
     },
 
-    UpdateMember:function(id,Member,callback){
-        return db.query("Update Member set member_name=?,member_firstname=?,email=?,password=?,id_location=?,id_statut=?,activation_link=? where id_member = ?)",[Member.member_name,Member.member_firstname,Member.email,Member.password,Member.id_location,Member.id_statut,Member.activation_link,Member.id_member],callback);
+    updateMember:function(id,Member,callback){
+        return db.query("Update Member set member_name=?,member_firstname=?,email=?,password=?,id_location=?,id_statut=?,activation_link=? where id_member = ?",[Member.member_name,Member.member_firstname,Member.email,Member.password,Member.id_location,Member.id_statut,Member.activation_link,id],callback);
     },
 
 }
+
+//Export the object and his functions
 module.exports=Member;

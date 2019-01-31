@@ -1,5 +1,5 @@
 
-
+//implentation of the function used to verify the token 
 var Token = {
         verifyToken:function(req,res,next){
         //get the auth header value
@@ -22,4 +22,5 @@ var Token = {
     }
 }
 
+//Export the object and his functions
 module.exports=Token;

@@ -1,5 +1,7 @@
+//database implementation
 var db=require('../db_local');
 
+// Function declarations for GET POST DELETE and PUT method
 var Image={
 
     getAllImages:function(callback){
@@ -19,8 +21,10 @@ var Image={
         return db.query("delete from image where id_img=?",[id],callback);
     },
 
-    UpdateImage:function(id,Image,callback){
-        return db.query("Update Image set img_name=?, img_url=?, img_likes=?, id_member=? where id_img = ?)",[Image.img_name, Image.img_url, Image.img_like, Image.id_member, id],callback);
+    updateImage:function(id,Image,callback){
+        return db.query("Update Image set img_name=?, img_url=?, img_likes=?, id_member=? where id_img = ?",[Image.img_name, Image.img_url, Image.img_like, Image.id_member, id],callback);
     },
 }
+
+//Export the object and his functions
 module.exports=Image;

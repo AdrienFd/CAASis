@@ -1,5 +1,7 @@
+//database implementation
 var db=require('../db_national');
 
+// Function declarations for GET POST DELETE and PUT method
 var Location={
 
     getAllLocations:function(callback){
@@ -19,8 +21,10 @@ var Location={
         return db.query("delete from location where id_location=?",[id],callback);
     },
 
-    UpdateLocation:function(Location){
-        return db.query("Update location set location_name=? where id_location = ?)",[Location.location_name,Location.id_location]);
+    updateLocation:function(id,Location,callback){
+        return db.query("Update location set location_name=? where id_location = ?",[Location.location_name,Location.id_location],callback);
     },
 }
+
+//Export the object and his functions
 module.exports= Location;

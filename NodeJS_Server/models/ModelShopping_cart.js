@@ -1,5 +1,7 @@
+//database implementation
 var db=require('../db_local');
 
+// Function declarations for GET POST DELETE and PUT method
 var Shopping={
 
     getAllShoppings:function(callback){
@@ -19,8 +21,10 @@ var Shopping={
         return db.query("delete from order where id_order=?",[id],callback);
     },
 
-    UpdateShopping:function(id,Shopping,callback){
-        return db.query("Update Shopping set id_article=?,id_member=? where id_member=?)",[Shopping.id_article,Shopping.id_member,Shopping.id_member],callback);
+    updateShopping:function(id,Shopping,callback){
+        return db.query("Update Shopping set id_article=?,id_member=? where id_member=?",[Shopping.id_article,Shopping.id_member,Shopping.id_member],callback);
     },
 }
+
+//Export the object and his functions
 module.exports=Shopping;

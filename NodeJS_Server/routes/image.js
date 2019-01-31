@@ -4,6 +4,7 @@ var Image = require('../models/ModelImage');
 var jwt = require('jsonwebtoken');
 var Token = require('../models/Modeltoken');
 
+//route to get images all or by id
 router.get('/:id?', function (req, res) {
     if (req.params.id) {
         Image.getImageById(req.params.id, function (err, rows) {
@@ -24,8 +25,9 @@ router.get('/:id?', function (req, res) {
     }
 });
 
+//route to post an image with token verification
 router.post('/', Token.verifyToken, function (req, res, ) {
-    jwt.verify(req.token, 'secretKey1', (err, authData) => {
+    jwt.verify(req.token, 'secretKey2', (err, authData) => {
         if (err) {
             res.sendStatus(403);
         }
@@ -42,8 +44,9 @@ router.post('/', Token.verifyToken, function (req, res, ) {
     });
 });
 
+// route to delete an image with token verification
 router.delete('/:id', Token.verifyToken, function (req, res, next) {
-    jwt.verify(req.token, 'secretKey1', (err, authData) => {
+    jwt.verify(req.token, 'secretKey2', (err, authData) => {
         if (err) {
             res.sendStatus(403);
         }
@@ -59,8 +62,9 @@ router.delete('/:id', Token.verifyToken, function (req, res, next) {
     });
 });
 
+// route to update an image with token verification
 router.put('/:id', Token.verifyToken, function (req, res, next) {
-    jwt.verify(req.token, 'secretKey1', (err, authData) => {
+    jwt.verify(req.token, 'secretKey2', (err, authData) => {
         if (err) {
             res.sendStatus(403);
         }

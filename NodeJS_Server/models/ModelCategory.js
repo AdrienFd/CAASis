@@ -1,5 +1,7 @@
+//database implementation
 var db=require('../db_local');
 
+// Function declarations for GET POST DELETE and PUT method
 var Category={
 
     getAllCategories:function(callback){
@@ -19,8 +21,10 @@ var Category={
         return db.query("delete from category where id_category=?",[id],callback);
     },
 
-    UpdateCategory:function(Category){
-        return db.query("Update category set category_name=? where id_category = ?)",[Category.category_name,Category.id_category]);
+    updateCategory:function(Category,callback){
+        return db.query("Update category set category_name=? where id_category = ?",[Category.category_name,Category.id_category],callback);
     },
 }
+
+//Export the object and his functions
 module.exports=Category;

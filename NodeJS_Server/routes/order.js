@@ -4,6 +4,8 @@ var Order = require('../models/ModelOrder');
 var jwt = require('jsonwebtoken');
 var Token = require('../models/Modeltoken');
 
+
+//route to get purchases all or by id
 router.get('/:id?', function (req, res) {
     if (req.params.id) {
         Order.getOrderById(req.params.id, function (err, rows) {
@@ -24,6 +26,7 @@ router.get('/:id?', function (req, res) {
     }
 });
 
+//route to post a purchase with token verification
 router.post('/', Token.verifyToken, function (req, res, ) {
     jwt.verify(req.token, 'secretKey1', (err, authData) => {
         if (err) {
@@ -42,6 +45,7 @@ router.post('/', Token.verifyToken, function (req, res, ) {
     });
 });
 
+// route to delete a purchase with token verification
 router.delete('/:id', Token.verifyToken, function (req, res, next) {
     jwt.verify(req.token, 'secretKey1', (err, authData) => {
         if (err) {
@@ -59,6 +63,7 @@ router.delete('/:id', Token.verifyToken, function (req, res, next) {
     });
 });
 
+// route to update a purchase with token verification
 router.put('/:id', Token.verifyToken, function (req, res, next) {
     jwt.verify(req.token, 'secretKey1', (err, authData) => {
         if (err) {

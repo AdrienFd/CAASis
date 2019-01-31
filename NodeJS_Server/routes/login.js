@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var jwt = require('jsonwebtoken');
 db= require ('../db_national');
+var jwt = require('jsonwebtoken');
+var Token = require('../models/Modeltoken');
 
 
 
@@ -9,13 +11,14 @@ db= require ('../db_national');
 
 
 
-
-
+//route to login a member and give him a token according to his status
 
 router.route('/')
 .post(function(req,res){
-    db.query("Select password from member where email=? and password=? and email_verified=1",[req.body.email,req.body.password],function(error,results,fields){
-        
+    console.log(req.body);
+    //search for correspondance in the database
+    db.query("Select password,id_statut from member where email=? and password=? and email_verified=1",[req.body.email,req.body.password],function(error,results,fields){
+        console.log(results[0].id_statut);
         if(error){
             throw(error);
         }
@@ -26,24 +29,25 @@ router.route('/')
             var user = {
                 email:req.body.email,
              password: req.body.password,
-             member_statut: req.body.member_statut
+             member_statut: results[0].id_statut
             }
-            switch(req.body.member_statut){
-                case '1':
+            //token distribution
+            switch(user.member_statut){
+                case 1 :
                 jwt.sign({user : user},'secretKey1',(err, token)=>{
                     res.json({
                         token
                     });
                 });
                 break;
-                case '2':
+                case 2:
                 jwt.sign({user : user},'secretKey2',(err, token)=>{
                     res.json({
                         token
                     });
                 });
                 break;
-                case '3':
+                case 3:
                 jwt.sign({user : user},'secretKey3',(err, token)=>{
                     res.json({
                         token
@@ -51,6 +55,7 @@ router.route('/')
                 });
                 break;
                 default:
+                //if error
                 res.sendStatus(500);
             }
         }
